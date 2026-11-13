@@ -1,7 +1,5 @@
 # Chapitre II — Les Caractéristiques
 
-> *« La chair cède, le nerf lâche, l'esprit se trouble. L'âme, elle, se vend. »*
-
 Chaque personnage est défini par **cinq caractéristiques**, qui décrivent ce qu'il est, et par des **Spécialités**, qui décrivent ce qu'il a appris.
 
 Au moment du jet (chapitre I), on lance le d20 contre :

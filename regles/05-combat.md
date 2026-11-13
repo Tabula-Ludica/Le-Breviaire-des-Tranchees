@@ -1,7 +1,5 @@
 # Chapitre V — Le Combat
 
-> *« Compte tes balles, compte tes pas, compte tes frères. Et prie pour que les trois suffisent. »*
-
 Le combat du Bréviaire est **tactique** : il se joue sur une carte quadrillée, avec des jetons, et il est pensé avant tout pour **Foundry VTT**. Toutes les **distances sont en mètres** et se mesurent avec la règle de la table virtuelle.
 
 ---

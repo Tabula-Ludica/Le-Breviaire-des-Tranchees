@@ -1,7 +1,5 @@
 # Chapitre I — Le Noyau
 
-> *« Prie si tu le peux. Pactise si tu le dois. Mais avance. »*
-
 Ce chapitre pose les règles qui servent à chaque partie. Tout le reste du Bréviaire s'appuie dessus.
 
 Le système repose sur cinq mécaniques, chacune avec **un seul rôle** :

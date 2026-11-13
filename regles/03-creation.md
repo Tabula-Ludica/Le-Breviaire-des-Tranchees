@@ -1,7 +1,5 @@
 # Chapitre III — La Création du personnage
 
-> *« On ne naît pas croisé. On le devient en signant, et on le reste en survivant. »*
-
 Ce chapitre explique comment créer un **Fidèle** : un soldat, un pèlerin ou un religieux engagé dans la Grande Guerre contre l'Enfer.
 
 > *Les Damnés (Légions Hérétiques, Culte du Graal Noir, Cour du Serpent à Sept Têtes) feront l'objet d'un chapitre à part.*

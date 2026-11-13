@@ -1,7 +1,5 @@
 # Chapitre IV — Les Arcanes
 
-> *« Le Ciel et l'Enfer jouent aux cartes. Nous sommes la mise. »*
-
 Ce chapitre donne les effets des **22 arcanes majeurs** du Paquet du Destin. On tire une carte dans trois cas (voir chapitre I, §5) :
 
 | Situation | Effet appliqué |
