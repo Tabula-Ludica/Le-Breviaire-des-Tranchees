@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/breviaire.css?v=4">
+<link rel="stylesheet" href="assets/breviaire.css?v=5">
 </head>
 <body>
 
@@ -48,7 +48,16 @@
     { num: "V",   id: "05-combat",           titre: "Le Combat",                fichier: "regles/05-combat.md", statut: "prototype" },
     { num: "VI",  id: "06-progression",      titre: "La Progression",           fichier: "regles/06-progression.md", statut: "prototype" },
     { num: "VII", id: "07-corruption",       titre: "La Corruption",            fichier: "regles/07-corruption.md", statut: "prototype" },
+    // ---- Codex ----
+    { groupe: "Codex", num: "✠", id: "codex-univers", titre: "L'Univers",     fichier: "codex/univers.md", statut: "preparation" },
+    { groupe: "Codex", num: "✠", id: "codex-fideles", titre: "Les Fidèles",   fichier: "codex/fideles.md", statut: "preparation" },
+    { groupe: "Codex", num: "✠", id: "codex-damnes",  titre: "Les Damnés",    fichier: "codex/damnes.md",  statut: "preparation" },
   ];
+
+  const STATUTS = {
+    prototype:   { badge: "prototype",      bandeau: "<b>✠ Prototype</b> Ce chapitre est une première version de travail. Les effets ne sont pas encore testés en jeu et peuvent changer." },
+    preparation: { badge: "en préparation", bandeau: "<b>✠ En préparation</b> Cette page pose la structure. Les passages marqués « à développer » restent à écrire." },
+  };
 
   const page = document.getElementById("page");
   const liste = document.getElementById("liste-chapitres");
@@ -66,12 +75,22 @@
 
   function dessinerSommaire(actif, sections) {
     liste.innerHTML = "";
+    let groupe = null;
     for (const c of CHAPITRES) {
+      if ((c.groupe || null) !== groupe) {
+        groupe = c.groupe || null;
+        if (groupe) {
+          const t = document.createElement("li");
+          t.className = "groupe";
+          t.textContent = groupe;
+          liste.appendChild(t);
+        }
+      }
       const li = document.createElement("li");
       if (c.fichier) {
         const a = document.createElement("a");
         a.href = "#" + c.id;
-        a.innerHTML = `<span class="num">${c.num}</span><span>${c.titre}${c.statut === "prototype" ? '<small class="badge">prototype</small>' : ""}</span>`;
+        a.innerHTML = `<span class="num">${c.num}</span><span>${c.titre}${STATUTS[c.statut] ? `<small class="badge">${STATUTS[c.statut].badge}</small>` : ""}</span>`;
         if (actif && c.id === actif.id) a.classList.add("actif");
         li.appendChild(a);
         if (actif && c.id === actif.id && sections.length) {
@@ -111,10 +130,10 @@
     }
 
     // bandeau « prototype »
-    if (chap.statut === "prototype") {
+    if (STATUTS[chap.statut]) {
       const bandeau = document.createElement("div");
       bandeau.className = "bandeau-prototype";
-      bandeau.innerHTML = "<b>✠ Prototype</b> Ce chapitre est une première version de travail. Les effets ne sont pas encore testés en jeu et peuvent changer.";
+      bandeau.innerHTML = STATUTS[chap.statut].bandeau;
       page.prepend(bandeau);
     }
 
