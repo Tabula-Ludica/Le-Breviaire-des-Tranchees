@@ -159,7 +159,7 @@
   /* ---------- Galerie des arcanes ----------
      Les données sont lues directement dans le chapitre (titres ### et listes),
      donc il n'y a rien à dupliquer : modifier le .md suffit.
-     Visuels : assets/arcanes/00.webp … 21.webp (sinon .png, sinon .jpg, sinon carte de remplacement). */
+     Visuels : assets/arcanes/01.webp … 22.webp (sinon .png, sinon .jpg, sinon carte de remplacement). */
   const FORMATS = ["webp", "png", "jpg"];
 
   function chargerVisuel(img, base, i = 0) {
@@ -187,7 +187,7 @@
     const galerie = document.createElement("div");
     galerie.className = "galerie-arcanes";
     cartes.forEach((c, i) => {
-      const fichier = String(i).padStart(2, "0");
+      const fichier = String(i + 1).padStart(2, "0");   // 01 = Le Mat … 22 = Le Monde
       const carte = document.createElement("a");
       carte.className = "arcane";
       carte.href = `#04-arcanes/${c.ancre}`;
