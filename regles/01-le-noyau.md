@@ -7,7 +7,7 @@ Le système repose sur cinq mécaniques, chacune avec **un seul rôle** :
 | Mécanique | Rôle | Matériel |
 |---|---|---|
 | **Le jet d'action** | Résoudre une action risquée | 1d20 |
-| **Prier / Pactiser** | Forcer le destin avant un jet | d6 du Chapelet, d6 de Sang |
+| **Prier / Pactiser** | Forcer le destin avant un jet | d6 du Chapelet, dé de Sang (d6 à d12) |
 | **Les dés d'usure** | Suivre les ressources qui s'épuisent | d4 à d12 |
 | **Le Chapelet** | La réserve commune de grâce, horloge de la mission | une coupelle de d6 |
 | **Le Paquet du Destin** | Miracles, damnations, corruption, origines | les 22 arcanes majeurs du tarot |
@@ -86,9 +86,9 @@ Un personnage dont la Foi est **épuisée** ne peut plus prier.
 
 ### Pactiser
 
-1. Prendre **1d6 de Sang** (un dé rouge, toujours disponible).
+1. Prendre le **dé de Sang** (un dé rouge, toujours disponible) : un **d6**, qui grossit avec la Corruption (chapitre VII).
 2. Le lancer en même temps que le d20.
-3. **Soustraire** le résultat du d6 au d20.
+3. **Soustraire** le résultat du dé de Sang au d20.
 4. Le personnage gagne **1 point de Corruption**, que le jet réussisse ou non.
 
 Le Sang ne manque jamais. C'est bien là le piège.
@@ -166,7 +166,7 @@ On tire **uniquement** dans trois cas :
 
 Quand la Corruption d'un personnage atteint **3, 6 ou 9**, on tire un arcane : l'Enfer le **marque** (stigmate, mutation, don maudit) selon l'arcane.
 
-À **10**, le personnage est **perdu**. Il devient un PNJ entre les mains du MJ.
+À **10**, le personnage est **perdu**. Il devient un PNJ entre les mains du MJ. Tout le détail est au chapitre VII.
 
 ### La création du personnage
 
@@ -197,7 +197,7 @@ Le MJ décrit Marcel accroché aux barbelés, à découvert. Au tour suivant, so
 - **Agir :** 1d20 ≤ caractéristique. Malus de situation plafonnés à −6, score plafonné à 19.
 - **Favorisé / défavorisé :** 2d20, on garde le plus bas / le plus haut.
 - **Prier :** −1d6 du Chapelet. Un 1 est perdu ; en cas d'échec, la Foi descend.
-- **Pactiser :** −1d6 de Sang, +1 Corruption.
+- **Pactiser :** − le dé de Sang (d6 à d12 selon la Corruption), +1 Corruption.
 - **User :** lancer le dé de la ressource ; sur 1-2, il descend d'un cran.
 - **1 naturel :** Miracle, tirer un arcane (Grâce).
 - **20 naturel :** Damnation, tirer un arcane (Damnation).
