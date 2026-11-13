@@ -13,6 +13,7 @@ Un projet [Tabula Ludica](https://github.com/Tabula-Ludica).
 5. [Le Combat](regles/05-combat.md) — initiative par phases, tir et couvert, armes, Blessures, panique, ennemis *(prototype)*
 6. [La Progression](regles/06-progression.md) — coches d'expérience, Épreuves, Titres de survie, Rang, mort et relève *(prototype)*
 7. [La Corruption](regles/07-corruption.md) — Tentation, paliers et dé de Sang, confession, Inquisition, la chute *(prototype)*
+8. [Jouer les Damnés](regles/08-damnes.md) — Calice, Haine, Faveur, Disgrâce, Origines et Affectations damnées *(prototype)*
 
 ### Le Codex *(en préparation)*
 

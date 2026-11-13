@@ -135,6 +135,11 @@
     <article class="page">
 
       <section class="etape">
+        <h2>Le camp</h2>
+        <nav class="selecteur" id="camp"></nav>
+      </section>
+
+      <section class="etape">
         <h2>1. Les trois arcanes</h2>
         <p class="aide">Tirez au hasard ou choisissez vos cartes. <a class="no-print" href="index.html#04-arcanes/2-les-vingt-deux-arcanes" target="_blank" rel="noopener">Voir les arcanes</a></p>
         <div class="arcanes" id="arcanes"></div>
@@ -146,7 +151,7 @@
         <label class="champ"><span>Origine</span><select id="origine"></select></label>
         <label class="champ" id="bloc-option" hidden><span id="titre-option"></span><select id="option-origine"></select></label>
         <div class="description" id="desc-origine"></div>
-        <p class="aide no-print"><a href="index.html#codex/fideles" target="_blank" rel="noopener">✝ En savoir plus sur les Fidèles dans le Codex</a></p>
+        <p class="aide no-print"><a id="lien-codex" href="index.html#codex/fideles" target="_blank" rel="noopener">En savoir plus dans le Codex</a></p>
       </section>
 
       <section class="etape">
@@ -237,7 +242,19 @@ const ARCANES = [
   ["XXI","Le Jugement","Rédemption, appel, résurrection"],
   ["XXII","Le Monde","Accomplissement, voyage, totalité"],
 ];
-const POSITIONS = ["Passé", "Serment", "Péché"];
+// Les deux camps : ce qui change entre Fidèles (chapitre III) et Damnés (chapitre VIII)
+const CAMPS = {
+  fideles: { nom: "Les Fidèles", sous: "Ceux qui tiennent la ligne", icone: "✝", theme: "fideles",
+    positions: ["Passé", "Serment", "Péché"],
+    questions: ["quel événement t'a mené au front ?", "qu'as-tu juré, et à qui ?", "quelle faute ou quelle faiblesse te ronge ?"],
+    usure2: "Foi", suivi: "Corruption", suiviNote: "arcane à 3, 6, 9 · perdu à 10", codex: "fideles",
+    reserve: "Chapelet" },
+  damnes:  { nom: "Les Damnés", sous: "Ceux qui ont choisi l'Enfer", icone: "⛧", theme: "damnes",
+    positions: ["Passé", "Pacte", "Remords"],
+    questions: ["qu'est-ce qui t'a poussé vers l'Enfer ?", "qu'as-tu juré à l'Enfer, et en échange de quoi ?", "que reste-t-il d'humain en toi ?"],
+    usure2: "Haine", suivi: "Faveur", suiviNote: "Don à 3, 6, 9 · dévoré à 10", codex: "damnes",
+    reserve: "Calice" },
+};
 
 const CARACS = ["Chair", "Nerf", "Esprit", "Verbe", "Âme"];
 const VALEURS = [14, 12, 11, 10, 8];
@@ -286,6 +303,20 @@ const ORIGINES = {
       mur: { nom: "Défenseurs du Mur de Fer", spe: "Terrassement" } } } },
 };
 
+Object.values(ORIGINES).forEach(o => o.camp = "fideles");
+Object.assign(ORIGINES, {
+  legions: { camp: "damnes", nom: "Légions hérétiques", spe: ["Tir","Intimidation"],
+    part: "Cohorte : favorisé pour attaquer une cible qu'un allié a déjà attaquée ce tour-ci.", usure: { mun: 1 } },
+  graal: { camp: "damnes", nom: "Culte du Graal Noir", spe: ["Endurance","Endurcissement"],
+    part: "Chair pourrissante : +1 Protection naturelle, insensible au gaz ; défavorisé en Persuasion hors du Culte.", usure: { vivres: 2, mun: -1 }, protection: 1 },
+  serpent: { camp: "damnes", nom: "Cour du Serpent à Sept Têtes", spe: ["Tromperie","Pressentiment"],
+    part: "Sang mêlé : commence à Faveur 2 et voit dans le noir.", usure: { foi: 1, mun: -1 }, faveur: 2 },
+  transfuge: { camp: "damnes", nom: "Le Transfuge", spe: [],
+    part: "Visage d'emprunt : peut se faire passer pour un Fidèle, favorisé en Tromperie face à eux ; +2 au jet de Disgrâce.", usure: { foi: 1 },
+    option: { titre: "Ancienne Origine (on en garde les Spécialités)", choix: Object.fromEntries(
+      Object.entries(ORIGINES).filter(([, o]) => o.camp === "fideles").map(([k, o]) => [k, { nom: o.nom, spe: o.spe }])) } },
+});
+
 const AFFECTATIONS = {
   fantassin:   { nom: "Fantassin", expert: "Endurance", forme: ["Tir","Terrassement"],
     dot: "Fusil à baïonnette, pelle de tranchée, 2 grenades", usure: { vivres: 1 } },
@@ -299,13 +330,21 @@ const AFFECTATIONS = {
     dot: "Fusil à lunette, cape de camouflage, couteau", usure: { mun: -1 } },
   eclaireur:   { nom: "Éclaireur", expert: "Discrétion", forme: ["Vigilance","Athlétisme"], subs: ["Instinct de la bête"],
     dot: "Carabine, couteau, jumelles, carte, cisailles à barbelés" },
-  brancardier: { nom: "Brancardier", expert: "Médecine", forme: ["Portage","Esquive"], subs: ["Chirurgien de tranchée"],
+  brancardier: { camp: "fideles", nom: "Brancardier", expert: "Médecine", forme: ["Portage","Esquive"], subs: ["Chirurgien de tranchée"],
     dot: "Trousse de chirurgie, brancard pliant, morphine, brassard à croix, pistolet" },
-  aumonier:    { nom: "Aumônier", expert: "Ferveur", forme: ["Commandement","Exorcisme"], subs: ["Prêche aux armes"],
+  aumonier:    { camp: "fideles", nom: "Aumônier", expert: "Ferveur", forme: ["Commandement","Exorcisme"], subs: ["Prêche aux armes"],
     dot: "Symbole sacré, eau bénite, livre de prières, encensoir, pistolet", usure: { foi: 1 } },
-  penitent:    { nom: "Pénitent", expert: "Endurcissement", forme: ["Mêlée","Volonté"],
+  penitent:    { camp: "fideles", nom: "Pénitent", expert: "Endurcissement", forme: ["Mêlée","Volonté"],
     dot: "Fléau ou masse, chaînes, robe de bure, une relique mineure", usure: { foi: 1, vivres: -1 } },
+  predicateur: { camp: "damnes", nom: "Prédicateur noir", expert: "Ferveur", forme: ["Commandement","Intimidation"], subs: ["Prêche aux armes"],
+    dot: "Livre profane, encensoir de soufre, dague rituelle, pistolet", usure: { foi: 1 } },
+  chirurgien:  { camp: "damnes", nom: "Chirurgien de chair", expert: "Médecine", forme: ["Mécanique","Coup de main"], subs: ["Chirurgien de tranchée"],
+    dot: "Scies et crochets, fil noir, sérum infernal (comme la morphine), pistolet" },
+  possede:     { camp: "damnes", nom: "Possédé", expert: "Volonté", forme: ["Mêlée","Athlétisme"],
+    dot: "Chaînes, une lame greffée au bras (comme une masse cloutée), haillons", usure: { foi: 1, vivres: -1 },
+    note: "Le démon intérieur : une fois par scène, sa prochaine attaque de Mêlée réussit automatiquement, et il gagne +1 Faveur." },
 };
+const dansLeCamp = (x, camp) => !x.camp || x.camp === camp;
 
 const RANGS = {
   conscrit:     { nom: "Conscrit",     droits: "Aucun, sinon celui de se taire.", devoirs: "Obéir, et mourir s'il le faut." },
@@ -314,7 +353,14 @@ const RANGS = {
   prelat:       { nom: "Prélat",       droits: "Autorité religieuse, sacrements, absolution.", devoirs: "Répondre devant l'Église… et l'Inquisition." },
 };
 
-const USURES = [["mun","Munitions"],["foi","Foi"],["vivres","Vivres"],["nerfs","Nerfs"]];
+const RANGS_DAMNES = {
+  conscrit:     { nom: "Damné du rang",     droits: "Aucun, sinon celui de survivre.", devoirs: "Obéir aux maîtres, nourrir le Calice." },
+  sousofficier: { nom: "Sergent de légion", droits: "Commander l'escouade, choisir les offrandes.", devoirs: "Répondre de l'escouade devant les maîtres." },
+  officier:     { nom: "Commandeur",        droits: "Commander, accéder aux ordres de l'Enfer, réquisitionner.", devoirs: "Répondre des échecs ; la Disgrâce le guette." },
+  prelat:       { nom: "Élu",               droits: "Parler au nom d'un démon, présider la Messe noire.", devoirs: "Servir son démon… jusqu'au bout." },
+};
+const rangsDu = camp => camp === "damnes" ? RANGS_DAMNES : RANGS;
+const usuresDu = camp => [["mun","Munitions"],["foi",CAMPS[camp].usure2],["vivres","Vivres"],["nerfs","Nerfs"]];
 const DES = ["d4","d6","d8","d10","d12"];
 const TOUJOURS = "Uniforme, casque, masque à gaz, gamelle, couverture, plaque d'identité";
 const PLAFOND = 19;
@@ -324,6 +370,7 @@ const PLAFOND = 19;
    ===================================================================== */
 const CLE = "breviaire-createur";
 const etatVide = () => ({
+  camp: "fideles",
   arcanes: [null, null, null],
   origine: "antioche", option: null,
   affectation: "fantassin", libres: [],
@@ -343,8 +390,7 @@ const opt = (v, t, sel) => `<option value="${esc(v)}"${sel ? " selected" : ""}>$
    ===================================================================== */
 function specialitesDe(e) {
   const o = ORIGINES[e.origine], a = AFFECTATIONS[e.affectation];
-  const speOrigine = [...o.spe];
-  if (o.option?.choix[e.option]?.spe) speOrigine.push(o.option.choix[e.option].spe);
+  const speOrigine = [...o.spe, ...[].concat(o.option?.choix[e.option]?.spe || [])];
 
   const rangs = {};               // nom -> "Formé" | "Expert"
   rangs[a.expert] = "Expert";
@@ -367,7 +413,7 @@ function specialitesDe(e) {
 function usureDe(e) {
   const o = ORIGINES[e.origine], a = AFFECTATIONS[e.affectation];
   const res = {};
-  for (const [k] of USURES) {
+  for (const [k] of usuresDu(e.camp)) {
     const i = 2 + (o.usure?.[k] || 0) + (a.usure?.[k] || 0);
     res[k] = DES[Math.max(0, Math.min(4, i))];
   }
@@ -382,7 +428,23 @@ function caracsValides(e) {
 /* =====================================================================
    FORMULAIRE
    ===================================================================== */
+function dessinerCamp() {
+  $("camp").innerHTML = Object.entries(CAMPS).map(([k, c]) => `
+    <a href="#" data-camp="${k}" class="choix theme-${c.theme}${k === etat.camp ? " actif" : ""}">
+      <span class="icone">${c.icone}</span><span class="titre">${c.nom}</span><span class="sous">${c.sous}</span></a>`).join("");
+  $("camp").querySelectorAll("a").forEach(a => a.onclick = ev => {
+    ev.preventDefault();
+    if (a.dataset.camp === etat.camp) return;
+    etat.camp = a.dataset.camp; etat.option = null; etat.libres = [];
+    maj();
+  });
+  const C = CAMPS[etat.camp];
+  $("lien-codex").href = `index.html#codex/${C.codex}`;
+  $("lien-codex").textContent = `${C.icone} En savoir plus sur ${C.nom.toLowerCase()} dans le Codex`;
+}
+
 function dessinerArcanes() {
+  const POSITIONS = CAMPS[etat.camp].positions;
   $("arcanes").innerHTML = POSITIONS.map((pos, i) => {
     const idx = etat.arcanes[i];
     const a = idx == null ? null : ARCANES[idx];
@@ -398,9 +460,9 @@ function dessinerArcanes() {
   });
 
   const nomCarte = i => etat.arcanes[i] == null ? "" : ` (${ARCANES[etat.arcanes[i]][1]})`;
-  $("q-passe").textContent = `Passé${nomCarte(0)} : quel événement t'a mené au front ?`;
-  $("q-serment").textContent = `Serment${nomCarte(1)} : qu'as-tu juré, et à qui ?`;
-  $("q-peche").textContent = `Péché${nomCarte(2)} : quelle faute ou quelle faiblesse te ronge ?`;
+  const C = CAMPS[etat.camp];
+  ["q-passe", "q-serment", "q-peche"].forEach((id, i) =>
+    $(id).textContent = `${C.positions[i]}${nomCarte(i)} : ${C.questions[i]}`);
 }
 
 $("tirer").onclick = () => {
@@ -410,29 +472,34 @@ $("tirer").onclick = () => {
 };
 
 function dessinerOrigine() {
-  $("origine").innerHTML = Object.entries(ORIGINES).map(([k, o]) => opt(k, o.nom, k === etat.origine)).join("");
+  const liste = Object.entries(ORIGINES).filter(([, o]) => dansLeCamp(o, etat.camp));
+  if (!liste.some(([k]) => k === etat.origine)) { etat.origine = liste[0][0]; etat.option = null; }
+  $("origine").innerHTML = liste.map(([k, o]) => opt(k, o.nom, k === etat.origine)).join("");
   const o = ORIGINES[etat.origine];
   if (o.option) {
     if (!o.option.choix[etat.option]) etat.option = Object.keys(o.option.choix)[0];
     $("bloc-option").hidden = false;
     $("titre-option").textContent = o.option.titre;
     $("option-origine").innerHTML = Object.entries(o.option.choix)
-      .map(([k, c]) => opt(k, c.nom + (c.spe ? ` (${c.spe})` : ""), k === etat.option)).join("");
+      .map(([k, c]) => opt(k, c.nom + (c.spe ? ` (${[].concat(c.spe).join(", ")})` : ""), k === etat.option)).join("");
   } else { $("bloc-option").hidden = true; etat.option = null; }
 
-  const spe = [...o.spe]; if (o.option?.choix[etat.option]?.spe) spe.push(o.option.choix[etat.option].spe);
+  const spe = [...o.spe, ...[].concat(o.option?.choix[etat.option]?.spe || [])];
   $("desc-origine").innerHTML = `<b>Spécialités :</b> ${spe.join(", ")}<br><b>Particularité :</b> ${esc(o.part)}`;
 }
 $("origine").onchange = e => { etat.origine = e.target.value; etat.option = null; etat.libres = []; maj(); };
 $("option-origine").onchange = e => { etat.option = e.target.value; etat.libres = []; maj(); };
 
 function dessinerAffectation() {
-  $("affectation").innerHTML = Object.entries(AFFECTATIONS).map(([k, a]) => opt(k, a.nom, k === etat.affectation)).join("");
+  const liste = Object.entries(AFFECTATIONS).filter(([, a]) => dansLeCamp(a, etat.camp));
+  if (!liste.some(([k]) => k === etat.affectation)) { etat.affectation = liste[0][0]; etat.libres = []; }
+  $("affectation").innerHTML = liste.map(([k, a]) => opt(k, a.nom, k === etat.affectation)).join("");
   const a = AFFECTATIONS[etat.affectation];
   $("desc-affectation").innerHTML =
     `<b>Expert :</b> ${a.expert} · <b>Formé :</b> ${a.forme.join(", ")}` +
     (a.subs ? `<br><b>Substitution :</b> ${a.subs.join(", ")}` : "") +
-    `<br><b>Dotation :</b> ${esc(a.dot)}`;
+    `<br><b>Dotation :</b> ${esc(a.dot)}` +
+    (a.note ? `<br><b>Particularité :</b> ${esc(a.note)}` : "");
 
   // Spécialités libres (doublon Expert + Formé)
   const { rangs, libresNecessaires } = specialitesDe({ ...etat, libres: [] });
@@ -464,8 +531,9 @@ function dessinerCaracs() {
 }
 
 function dessinerRang() {
-  $("rang").innerHTML = Object.entries(RANGS).map(([k, r]) => opt(k, r.nom, k === etat.rang)).join("");
-  const r = RANGS[etat.rang];
+  const R = rangsDu(etat.camp);
+  $("rang").innerHTML = Object.entries(R).map(([k, r]) => opt(k, r.nom, k === etat.rang)).join("");
+  const r = R[etat.rang];
   $("desc-rang").innerHTML = `<b>Droits :</b> ${esc(r.droits)}<br><b>Devoirs :</b> ${esc(r.devoirs)}`;
 }
 $("rang").onchange = e => { etat.rang = e.target.value; maj(); };
@@ -478,7 +546,10 @@ function remplirChamps() { for (const [id, cle] of Object.entries(CHAMPS)) $(id)
    FICHE
    ===================================================================== */
 function dessinerFiche() {
-  const o = ORIGINES[etat.origine], a = AFFECTATIONS[etat.affectation], r = RANGS[etat.rang];
+  const o = ORIGINES[etat.origine], a = AFFECTATIONS[etat.affectation], r = rangsDu(etat.camp)[etat.rang];
+  const C = CAMPS[etat.camp], POSITIONS = C.positions;
+  const protection = 1 + (o.protection || 0);
+  const faveur = o.faveur || 0;
   const { rangs, libresNecessaires, subs } = specialitesDe(etat);
   const usure = usureDe(etat);
   const c = etat.caracs;
@@ -505,25 +576,27 @@ function dessinerFiche() {
     ? `<li><b>${p} :</b> <span class="vide">non tiré</span></li>`
     : `<li><b>${p} :</b> ${ARCANES[etat.arcanes[i]][0]} · ${ARCANES[etat.arcanes[i]][1]}</li>`).join("");
   const rep = (t, v) => v ? `<p><b>${t} :</b> ${esc(v)}</p>` : "";
-  const optionNom = o.option?.choix[etat.option]?.spe || (etat.option && etat.option !== "aucune") ? ` — ${o.option.choix[etat.option].nom}` : "";
+  const choixOpt = o.option?.choix[etat.option];
+  const optionNom = choixOpt && etat.option !== "aucune" ? ` — ${etat.origine === "transfuge" ? "autrefois : " : ""}${choixOpt.nom}` : "";
 
   $("fiche").innerHTML = `
     <h1>${esc(etat.nom) || "Sans nom"}</h1>
     <p class="surnom">${etat.surnom ? "dit « " + esc(etat.surnom) + " »" : "&nbsp;"}</p>
     <div class="ligne"><span>${r.nom}</span><span>·</span><span>${a.nom}</span></div>
     <div class="ligne" style="font-weight:500">${o.nom}${esc(optionNom)}</div>
+    <div class="ligne camp-${etat.camp}" style="font-weight:500;font-style:italic">${C.icone} ${C.nom}</div>
 
     <h3>Caractéristiques</h3>
     <div class="grille5">${CARACS.map(k => `<div class="case"><small>${k}</small><b>${c[k]}</b></div>`).join("")}</div>
     ${caracsValides(etat) ? "" : '<p class="alerte">Répartition invalide.</p>'}
 
     <h3>Dés d'usure</h3>
-    <div class="grille4">${USURES.map(([k, n]) => `<div class="case"><small>${n}</small><b>${usure[k]}</b></div>`).join("")}</div>
+    <div class="grille4">${usuresDu(etat.camp).map(([k, n]) => `<div class="case"><small>${n}</small><b>${usure[k]}</b></div>`).join("")}</div>
 
     <h3>Combat</h3>
     <div class="grille4">
       <div class="case"><small>Blessures</small><b>${c.Chair}</b></div>
-      <div class="case"><small>Protection</small><b>${etat.affectation === "nettoyeur" ? '1 <span style="font-size:.8rem">(+2 bouclier)</span>' : "1"}</b></div>
+      <div class="case"><small>Protection</small><b>${protection}${etat.affectation === "nettoyeur" ? ' <span style="font-size:.8rem">(+2 bouclier)</span>' : ""}</b></div>
       <div class="case"><small>Déplacement</small><b>9 m</b></div>
       <div class="case"><small>Initiative</small><b>${c.Nerf}</b></div>
     </div>
@@ -535,7 +608,7 @@ function dessinerFiche() {
     ${manque > 0 ? `<p class="alerte">${manque} Spécialité libre à choisir (étape 3).</p>` : ""}
 
     <h3>Particularité</h3>
-    <p>${esc(o.part)}</p>
+    <p>${esc(o.part)}</p>${a.note ? `<p>${esc(a.note)}</p>` : ""}
 
     <h3>Arcanes</h3>
     <ul>${arc}</ul>
@@ -548,10 +621,10 @@ function dessinerFiche() {
 
     ${(etat.detail || etat.rPasse || etat.rSerment || etat.rPeche || etat.lien) ? "<h3>Histoire</h3>" : ""}
     ${rep("Signe distinctif", etat.detail)}
-    ${rep("Passé", etat.rPasse)}${rep("Serment", etat.rSerment)}${rep("Péché", etat.rPeche)}${rep("Lien", etat.lien)}
+    ${rep(POSITIONS[0], etat.rPasse)}${rep(POSITIONS[1], etat.rSerment)}${rep(POSITIONS[2], etat.rPeche)}${rep("Lien", etat.lien)}
 
     <h3>Suivi</h3>
-    <p>Corruption : ☐ ☐ ☐ ☐ ☐ ☐ ☐ ☐ ☐ ☐ <small>(arcane à 3, 6, 9 · perdu à 10)</small></p>
+    <p>${C.suivi} : ${Array.from({ length: 10 }, (_, i) => i < faveur ? "☒" : "☐").join(" ")} <small>(${C.suiviNote})</small></p>
   `;
 }
 
@@ -584,7 +657,7 @@ $("reinitialiser").onclick = () => {
 
 /* ===================================================================== */
 function maj() {
-  dessinerArcanes(); dessinerOrigine(); dessinerAffectation(); dessinerCaracs(); dessinerRang();
+  dessinerCamp(); dessinerArcanes(); dessinerOrigine(); dessinerAffectation(); dessinerCaracs(); dessinerRang();
   dessinerFiche(); sauver();
 }
 remplirChamps(); maj();

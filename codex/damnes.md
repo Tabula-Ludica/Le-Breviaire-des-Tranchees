@@ -2,7 +2,7 @@
 
 Les Damnés sont ceux qui servent l'Enfer, par choix, par peur ou par nature : hérétiques humains, cultes, démons. Ce sont les adversaires des Fidèles.
 
-Ils ne sont **pas encore jouables**. Un chapitre de règles leur sera consacré plus tard. En attendant, cette page sert au MJ.
+Ils sont **jouables** : les règles sont au chapitre VIII, et le créateur de personnage propose le camp des Damnés. Cette page décrit leur monde.
 
 ---
 

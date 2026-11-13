@@ -2,7 +2,7 @@
 
 Ce chapitre explique comment créer un **Fidèle** : un soldat, un pèlerin ou un religieux engagé dans la Grande Guerre contre l'Enfer.
 
-> *Les Damnés (Légions Hérétiques, Culte du Graal Noir, Cour du Serpent à Sept Têtes) feront l'objet d'un chapitre à part.*
+> *Pour jouer un Damné (Légions hérétiques, Culte du Graal Noir, Cour du Serpent à Sept Têtes, Transfuge), voir le chapitre VIII.*
 
 La création se fait en **sept étapes**, idéalement à la table et avec tout le groupe.
 
