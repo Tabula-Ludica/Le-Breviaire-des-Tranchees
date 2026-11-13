@@ -14,7 +14,9 @@ Un projet [Tabula Ludica](https://github.com/Tabula-Ludica).
 6. [La Progression](regles/06-progression.md) — coches d'expérience, Épreuves, Titres de survie, Rang, mort et relève *(prototype)*
 7. [La Corruption](regles/07-corruption.md) — Tentation, paliers et dé de Sang, confession, Inquisition, la chute *(prototype)*
 
-### Codex *(en préparation)*
+### Le Codex *(en préparation)*
+
+Une seule page sur le site, avec un sélecteur entre trois volets :
 
 - [L'Univers](codex/univers.md) — 1099, la porte de l'Enfer, huit siècles de guerre, 1914
 - [Les Fidèles](codex/fideles.md) — les puissances, les institutions, les PNJ alliés

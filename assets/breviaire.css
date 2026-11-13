@@ -360,3 +360,41 @@ nav.sommaire li.groupe {
   font: 700 .85rem "Cormorant SC", serif; letter-spacing: .3em;
   text-align: center; color: var(--or);
 }
+
+/* ---------- Sélecteur d'onglets (Codex) ---------- */
+.selecteur {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem;
+  margin: 0 0 2.2rem;
+}
+.selecteur .choix {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 1rem .6rem .9rem;
+  text-decoration: none !important;
+  border: 1px solid rgba(90,60,20,.35);
+  background: rgba(255,255,255,.18);
+  color: var(--encre-douce);
+  opacity: .72;
+  transition: opacity .15s, transform .15s, box-shadow .15s, background .15s;
+}
+.selecteur .choix:hover { opacity: 1; transform: translateY(-2px); }
+.selecteur .choix .icone { font-size: 2rem; line-height: 1; margin-bottom: .35rem; }
+.selecteur .choix .titre { font: 1.5rem/1.1 "UnifrakturMaguntia", serif; }
+.selecteur .choix .sous { font-size: .85rem; font-style: italic; margin-top: .25rem; }
+
+.selecteur .theme-univers .icone { color: var(--or); }
+.selecteur .theme-fideles .icone { color: #b8892a; }
+.selecteur .theme-damnes  .icone { color: var(--sang-vif); }
+
+.selecteur .choix.actif { opacity: 1; box-shadow: 0 6px 16px rgba(0,0,0,.25); }
+.selecteur .theme-univers.actif { background: linear-gradient(180deg, #3a3026, #241d17); border-color: var(--or); color: var(--or-pale); }
+.selecteur .theme-fideles.actif { background: linear-gradient(180deg, #f6ecd2, #e4d2a6); border-color: #b8892a; color: var(--encre); }
+.selecteur .theme-fideles.actif .titre { color: #6b4a10; }
+.selecteur .theme-damnes.actif  { background: linear-gradient(180deg, #5a1410, #2a0a08); border-color: var(--sang-vif); color: #f0d5cf; }
+.selecteur .theme-univers.actif .titre, .selecteur .theme-damnes.actif .titre { color: #fff3dc; }
+
+@media (max-width: 560px) {
+  .selecteur { grid-template-columns: 1fr; }
+  .selecteur .choix { flex-direction: row; gap: .7rem; padding: .6rem .9rem; text-align: left; }
+  .selecteur .choix .icone { margin: 0; font-size: 1.6rem; }
+  .selecteur .choix .sous { display: none; }
+}

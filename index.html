@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/breviaire.css?v=5">
+<link rel="stylesheet" href="assets/breviaire.css?v=6">
 </head>
 <body>
 
@@ -48,10 +48,13 @@
     { num: "V",   id: "05-combat",           titre: "Le Combat",                fichier: "regles/05-combat.md", statut: "prototype" },
     { num: "VI",  id: "06-progression",      titre: "La Progression",           fichier: "regles/06-progression.md", statut: "prototype" },
     { num: "VII", id: "07-corruption",       titre: "La Corruption",            fichier: "regles/07-corruption.md", statut: "prototype" },
-    // ---- Codex ----
-    { groupe: "Codex", num: "✠", id: "codex-univers", titre: "L'Univers",     fichier: "codex/univers.md", statut: "preparation" },
-    { groupe: "Codex", num: "✠", id: "codex-fideles", titre: "Les Fidèles",   fichier: "codex/fideles.md", statut: "preparation" },
-    { groupe: "Codex", num: "✠", id: "codex-damnes",  titre: "Les Damnés",    fichier: "codex/damnes.md",  statut: "preparation" },
+    // ---- Codex : une seule entrée, avec un sélecteur d'onglets ----
+    { groupe: "Codex", num: "✠", id: "codex", titre: "Le Codex", fichier: "codex/univers.md", statut: "preparation",
+      onglets: [
+        { id: "univers", titre: "L'Univers",   sous: "Le monde et son histoire",  icone: "✠", theme: "univers", fichier: "codex/univers.md" },
+        { id: "fideles", titre: "Les Fidèles", sous: "Ceux qui tiennent la ligne", icone: "✝", theme: "fideles", fichier: "codex/fideles.md" },
+        { id: "damnes",  titre: "Les Damnés",  sous: "Ceux qui ont choisi l'Enfer", icone: "⛧", theme: "damnes",  fichier: "codex/damnes.md" },
+      ] },
   ];
 
   const STATUTS = {
@@ -73,7 +76,7 @@
   const slug = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-  function dessinerSommaire(actif, sections) {
+  function dessinerSommaire(actif, sections, base) {
     liste.innerHTML = "";
     let groupe = null;
     for (const c of CHAPITRES) {
@@ -98,7 +101,7 @@
           sous.className = "sections";
           for (const s of sections) {
             const sa = document.createElement("a");
-            sa.href = "#" + c.id + "/" + s.id;
+            sa.href = "#" + (base || c.id) + "/" + s.id;
             sa.textContent = s.texte;
             sous.appendChild(sa);
           }
@@ -112,17 +115,27 @@
   }
 
   async function afficher() {
-    const [idChap, idSection] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const parts = decodeURIComponent(location.hash.slice(1)).split("/");
     const ecrits = CHAPITRES.filter(c => c.fichier);
-    const chap = ecrits.find(c => c.id === idChap) || ecrits[0];
+    const chap = ecrits.find(c => c.id === parts[0]) || ecrits[0];
+
+    // chapitres à onglets (le Codex) : #codex/fideles/section
+    let onglet = null, idSection = parts[1];
+    if (chap.onglets) {
+      onglet = chap.onglets.find(o => o.id === parts[1]);
+      idSection = onglet ? parts[2] : parts[1];
+      onglet = onglet || chap.onglets[0];
+    }
+    const fichier = onglet ? onglet.fichier : chap.fichier;
+    const base = onglet ? `${chap.id}/${onglet.id}` : chap.id;
 
     try {
-      if (!cache[chap.id]) {
-        const r = await fetch(chap.fichier, { cache: "no-cache" });
+      if (!cache[fichier]) {
+        const r = await fetch(fichier, { cache: "no-cache" });
         if (!r.ok) throw new Error(r.status);
-        cache[chap.id] = await r.text();
+        cache[fichier] = await r.text();
       }
-      page.innerHTML = marked.parse(cache[chap.id]);
+      page.innerHTML = marked.parse(cache[fichier]);
     } catch (e) {
       page.innerHTML = `<p class="erreur">Cette page du Bréviaire est illisible (${e.message}).</p>`;
       dessinerSommaire(chap, []);
@@ -135,6 +148,18 @@
       bandeau.className = "bandeau-prototype";
       bandeau.innerHTML = STATUTS[chap.statut].bandeau;
       page.prepend(bandeau);
+    }
+
+    // sélecteur d'onglets
+    if (chap.onglets) {
+      const sel = document.createElement("nav");
+      sel.className = "selecteur";
+      sel.setAttribute("aria-label", chap.titre);
+      sel.innerHTML = chap.onglets.map(o => `
+        <a href="#${chap.id}/${o.id}" class="choix theme-${o.theme}${o === onglet ? " actif" : ""}"${o === onglet ? ' aria-current="page"' : ""}>
+          <span class="icone">${o.icone}</span><span class="titre">${o.titre}</span><span class="sous">${o.sous}</span>
+        </a>`).join("");
+      (page.querySelector(".bandeau-prototype") || page.firstChild).after(sel);
     }
 
     // galerie de tarot dans le chapitre IV
@@ -168,8 +193,8 @@
       page.appendChild(div);
     }
 
-    document.title = `${chap.titre} · Le Bréviaire des Tranchées`;
-    dessinerSommaire(chap, sections);
+    document.title = `${onglet ? onglet.titre : chap.titre} · Le Bréviaire des Tranchées`;
+    dessinerSommaire(chap, sections, base);
     nav.classList.remove("ouvert");
     bouton.setAttribute("aria-expanded", "false");
 
