@@ -264,3 +264,21 @@
 
 nav.sommaire .outils { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid rgba(184,151,90,.25); }
 nav.sommaire .outils a { color: var(--or-pale); }
+
+/* ---------- Prototype ---------- */
+.bandeau-prototype {
+  margin: -1rem 0 2rem;
+  padding: .7rem 1rem;
+  border: 1px dashed var(--sang);
+  background: repeating-linear-gradient(-45deg, rgba(138,26,18,.07) 0 10px, transparent 10px 20px);
+  font-size: 1rem; color: var(--encre-douce); text-align: center;
+}
+.bandeau-prototype b {
+  display: block; font-family: "Cormorant SC", serif; letter-spacing: .2em;
+  color: var(--sang); font-size: 1.05rem;
+}
+nav.sommaire .badge {
+  display: inline-block; margin-left: .45rem; padding: 0 .35rem;
+  font: italic .72rem "EB Garamond", serif; color: var(--or);
+  border: 1px solid rgba(184,151,90,.5); vertical-align: middle;
+}

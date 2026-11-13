@@ -44,7 +44,7 @@
     { num: "I",   id: "01-le-noyau",         titre: "Le Noyau",                 fichier: "regles/01-le-noyau.md" },
     { num: "II",  id: "02-caracteristiques", titre: "Les Caractéristiques",     fichier: "regles/02-caracteristiques.md" },
     { num: "III", id: "03-creation",         titre: "La Création du personnage", fichier: "regles/03-creation.md" },
-    { num: "IV",  id: "04-arcanes",          titre: "Les Arcanes",              fichier: null },
+    { num: "IV",  id: "04-arcanes",          titre: "Les Arcanes",              fichier: "regles/04-arcanes.md", statut: "prototype" },
   ];
 
   const page = document.getElementById("page");
@@ -68,7 +68,7 @@
       if (c.fichier) {
         const a = document.createElement("a");
         a.href = "#" + c.id;
-        a.innerHTML = `<span class="num">${c.num}</span><span>${c.titre}</span>`;
+        a.innerHTML = `<span class="num">${c.num}</span><span>${c.titre}${c.statut === "prototype" ? '<small class="badge">prototype</small>' : ""}</span>`;
         if (actif && c.id === actif.id) a.classList.add("actif");
         li.appendChild(a);
         if (actif && c.id === actif.id && sections.length) {
@@ -105,6 +105,14 @@
       page.innerHTML = `<p class="erreur">Cette page du Bréviaire est illisible (${e.message}).</p>`;
       dessinerSommaire(chap, []);
       return;
+    }
+
+    // bandeau « prototype »
+    if (chap.statut === "prototype") {
+      const bandeau = document.createElement("div");
+      bandeau.className = "bandeau-prototype";
+      bandeau.innerHTML = "<b>✠ Prototype</b> Ce chapitre est une première version de travail. Les effets ne sont pas encore testés en jeu et peuvent changer.";
+      page.prepend(bandeau);
     }
 
     // bouton du créateur de personnage dans le chapitre III
