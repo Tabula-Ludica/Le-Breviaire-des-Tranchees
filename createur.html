@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Créateur de personnage · Le Bréviaire des Tranchées</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/breviaire.css">
+<style>
+  .cadre.createur { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+
+  .etape { margin-bottom: 1.6rem; }
+  .etape > h2 { margin-top: 0; }
+  .etape .aide { font-style: italic; color: var(--encre-douce); font-size: 1rem; margin: .2rem 0 .8rem; }
+
+  label.champ { display: block; margin: .7rem 0; }
+  label.champ > span {
+    display: block; font-family: "Cormorant SC", serif; font-weight: 700;
+    color: var(--sang); letter-spacing: .05em; margin-bottom: .2rem;
+  }
+  .page select, .page input[type=text], .page textarea {
+    width: 100%;
+    font: 1.05rem "EB Garamond", serif; color: var(--encre);
+    background: rgba(255,255,255,.35);
+    border: 1px solid rgba(90,60,20,.4);
+    padding: .45rem .6rem;
+  }
+  .page textarea { min-height: 3.2rem; resize: vertical; }
+  .page select:focus, .page input:focus, .page textarea:focus { outline: 2px solid var(--sang); outline-offset: 1px; }
+
+  .description { font-size: 1rem; color: var(--encre-douce); margin: .4rem 0 0; }
+  .description b { color: var(--encre); }
+
+  /* arcanes */
+  .arcanes { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: .8rem 0; }
+  .carte {
+    text-align: center;
+    border: 1px solid var(--sang);
+    background: linear-gradient(180deg, rgba(138,26,18,.08), rgba(138,26,18,.02));
+    padding: .7rem .5rem .6rem;
+  }
+  .carte .pos { font-family: "Cormorant SC", serif; font-weight: 700; color: var(--sang); letter-spacing: .1em; font-size: .9rem; }
+  .carte .chiffre { font-family: "UnifrakturMaguntia", serif; font-size: 2rem; color: var(--sang); line-height: 1.2; }
+  .carte select { text-align: center; font-size: .95rem !important; padding: .3rem !important; }
+  .carte .sens { font-style: italic; font-size: .92rem; color: var(--encre-douce); margin-top: .35rem; min-height: 1.3em; }
+
+  /* caractéristiques */
+  .caracs { display: grid; grid-template-columns: repeat(5, 1fr); gap: .5rem; }
+  .caracs label { text-align: center; }
+  .caracs label > span { font-family: "Cormorant SC", serif; font-weight: 700; color: var(--sang); display: block; }
+  .caracs select { text-align: center; font-size: 1.2rem !important; }
+  .caracs select.conflit { outline: 2px solid var(--sang-vif); background: rgba(179,38,27,.15); }
+  .alerte { color: var(--sang-vif); font-style: italic; font-size: .98rem; min-height: 1.4em; margin: .4rem 0 0; }
+
+  .boutons { display: flex; flex-wrap: wrap; gap: .6rem; margin: .6rem 0; }
+  .boutons .bouton-outil { font-size: .95rem; padding: .5rem 1rem; }
+
+  /* fiche */
+  .fiche { position: sticky; top: 1.5rem; align-self: start; }
+  .fiche .page { padding: 2.2rem 2rem 2.4rem; }
+  .fiche h1 { font-size: 2rem; margin-bottom: .2rem; }
+  .fiche .page > p:first-of-type::first-letter { float: none; font: inherit; color: inherit; padding: 0; }
+  .fiche .surnom { text-align: center; font-style: italic; color: var(--encre-douce); margin: 0 0 .8rem; }
+  .fiche .ligne { display: flex; justify-content: center; flex-wrap: wrap; gap: .3rem 1rem; font-family: "Cormorant SC", serif; font-weight: 700; color: var(--encre); }
+  .fiche h3 { font-size: 1.15rem; color: var(--sang); border-bottom: 1px solid rgba(138,26,18,.3); margin: 1.3rem 0 .5rem; }
+  .fiche .grille5 { display: grid; grid-template-columns: repeat(5, 1fr); text-align: center; gap: .3rem; }
+  .fiche .grille4 { display: grid; grid-template-columns: repeat(4, 1fr); text-align: center; gap: .3rem; }
+  .fiche .case { border: 1px solid rgba(138,26,18,.35); padding: .3rem .2rem; background: rgba(255,255,255,.2); }
+  .fiche .case small { display: block; font-family: "Cormorant SC", serif; font-weight: 700; color: var(--sang); font-size: .78rem; letter-spacing: .05em; }
+  .fiche .case b { font-size: 1.4rem; }
+  .fiche table { display: table; font-size: .98rem; margin: .3rem 0; }
+  .fiche td { padding: .25rem .4rem; }
+  .fiche .score { text-align: right; font-weight: 700; color: var(--sang); white-space: nowrap; }
+  .fiche ul { margin: .2rem 0; padding-left: 1.2rem; font-size: .98rem; }
+  .fiche p { text-align: left; font-size: .98rem; margin: .3rem 0; }
+  .fiche .vide { color: var(--encre-douce); font-style: italic; }
+
+  @media (max-width: 960px) {
+    .cadre.createur { grid-template-columns: minmax(0, 1fr); }
+    .fiche { position: static; }
+  }
+  @media (max-width: 560px) {
+    .caracs { grid-template-columns: repeat(3, 1fr); }
+    .arcanes { grid-template-columns: 1fr; }
+  }
+
+  /* impression : seulement la fiche */
+  @media print {
+    body { background: #fff; }
+    header.titre, footer, .formulaire, .no-print { display: none !important; }
+    .cadre.createur { display: block; margin: 0; padding: 0; max-width: none; }
+    .fiche .page { box-shadow: none; background: #fff; }
+    .fiche .page::before { inset: 6px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="titre">
+  <div class="croix">✠ ✠ ✠</div>
+  <h1>Créateur de personnage</h1>
+  <div class="sous"><a href="index.html#03-creation">← Retour au Bréviaire des Tranchées</a></div>
+</header>
+
+<div class="cadre createur">
+
+  <!-- ================= FORMULAIRE ================= -->
+  <main class="formulaire">
+    <article class="page">
+
+      <section class="etape">
+        <h2>1. Les trois arcanes</h2>
+        <p class="aide">Tirez au hasard ou choisissez vos cartes.</p>
+        <div class="arcanes" id="arcanes"></div>
+        <div class="boutons"><button class="bouton-outil" id="tirer">✠ Tirer les trois arcanes</button></div>
+      </section>
+
+      <section class="etape">
+        <h2>2. L'Origine</h2>
+        <label class="champ"><span>Origine</span><select id="origine"></select></label>
+        <label class="champ" id="bloc-option" hidden><span id="titre-option"></span><select id="option-origine"></select></label>
+        <div class="description" id="desc-origine"></div>
+      </section>
+
+      <section class="etape">
+        <h2>3. L'Affectation</h2>
+        <label class="champ"><span>Affectation</span><select id="affectation"></select></label>
+        <div class="description" id="desc-affectation"></div>
+        <div id="bloc-libres"></div>
+      </section>
+
+      <section class="etape">
+        <h2>4. Les caractéristiques</h2>
+        <p class="aide">Répartissez 14 · 12 · 11 · 10 · 8, chaque valeur une seule fois.</p>
+        <div class="caracs" id="caracs"></div>
+        <p class="alerte" id="alerte-caracs"></p>
+      </section>
+
+      <section class="etape">
+        <h2>5. Le Rang</h2>
+        <label class="champ"><span>Rang</span><select id="rang"></select></label>
+        <div class="description" id="desc-rang"></div>
+      </section>
+
+      <section class="etape">
+        <h2>6. Les dés d'usure</h2>
+        <p class="aide">Calculés automatiquement à partir de l'Origine et de l'Affectation (d8 de base, entre d4 et d12).</p>
+      </section>
+
+      <section class="etape">
+        <h2>7. Nom, visage et questions</h2>
+        <label class="champ"><span>Nom</span><input type="text" id="nom" placeholder="Marcel Duchêne"></label>
+        <label class="champ"><span>Surnom de tranchée</span><input type="text" id="surnom" placeholder="le Frère"></label>
+        <label class="champ"><span>Détail physique</span><input type="text" id="detail" placeholder="Un chapelet de moine noué au poignet"></label>
+        <label class="champ"><span id="q-passe">Passé : quel événement t'a mené au front ?</span><textarea id="r-passe"></textarea></label>
+        <label class="champ"><span id="q-serment">Serment : qu'as-tu juré, et à qui ?</span><textarea id="r-serment"></textarea></label>
+        <label class="champ"><span id="q-peche">Péché : quelle faute ou quelle faiblesse te ronge ?</span><textarea id="r-peche"></textarea></label>
+        <label class="champ"><span>Lien : qu'a fait un camarade pour toi, que tu ne pourras jamais lui rendre ?</span><textarea id="lien"></textarea></label>
+      </section>
+
+      <section class="etape no-print">
+        <h2>Sauvegarde</h2>
+        <div class="boutons">
+          <button class="bouton-outil" id="imprimer">✠ Imprimer la fiche</button>
+          <button class="bouton-outil secondaire" id="exporter">Télécharger (.json)</button>
+          <label class="bouton-outil secondaire">Charger (.json)<input type="file" id="importer" accept=".json,application/json" hidden></label>
+          <button class="bouton-outil secondaire" id="reinitialiser">Recommencer</button>
+        </div>
+        <p class="aide">La fiche en cours est aussi gardée dans ce navigateur.</p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- ================= FICHE ================= -->
+  <aside class="fiche">
+    <article class="page" id="fiche"></article>
+  </aside>
+</div>
+
+<footer>
+  Projet fan-made, non affilié à Factory Fortress Inc. Trench Crusade et son univers appartiennent à leurs auteurs.
+</footer>
+
+<script>
+/* =====================================================================
+   DONNÉES — à garder synchronisées avec regles/02 et regles/03
+   ===================================================================== */
+const ARCANES = [
+  ["0","Le Mat","Folie, errance, liberté"],
+  ["I","Le Bateleur","Habileté, ruse, débuts"],
+  ["II","La Papesse","Secret, savoir caché, silence"],
+  ["III","L'Impératrice","Foyer, abondance, protection"],
+  ["IV","L'Empereur","Autorité, ordre, devoir"],
+  ["V","Le Pape","Foi, tradition, enseignement"],
+  ["VI","L'Amoureux","Choix, attachement, tentation du cœur"],
+  ["VII","Le Chariot","Conquête, victoire, élan"],
+  ["VIII","La Justice","Équité, vengeance, jugement"],
+  ["IX","L'Ermite","Solitude, quête, prudence"],
+  ["X","La Roue de Fortune","Hasard, destin, retournement"],
+  ["XI","La Force","Courage, maîtrise de soi"],
+  ["XII","Le Pendu","Sacrifice, attente, renoncement"],
+  ["XIII","La Mort","Fin, deuil, transformation"],
+  ["XIV","Tempérance","Guérison, patience, équilibre"],
+  ["XV","Le Diable","Tentation, chaînes, vice"],
+  ["XVI","La Tour","Ruine, catastrophe, orgueil puni"],
+  ["XVII","L'Étoile","Espoir, guidance, pureté"],
+  ["XVIII","La Lune","Mensonge, peur, illusion"],
+  ["XIX","Le Soleil","Gloire, joie, vérité"],
+  ["XX","Le Jugement","Rédemption, appel, résurrection"],
+  ["XXI","Le Monde","Accomplissement, voyage, totalité"],
+];
+const POSITIONS = ["Passé", "Serment", "Péché"];
+
+const CARACS = ["Chair", "Nerf", "Esprit", "Verbe", "Âme"];
+const VALEURS = [14, 12, 11, 10, 8];
+
+const SPECIALITES = {
+  "Mêlée":"Chair","Terrassement":"Chair","Endurance":"Chair","Portage":"Chair","Athlétisme":"Chair",
+  "Tir":"Nerf","Lancer":"Nerf","Discrétion":"Nerf","Esquive":"Nerf","Conduite":"Nerf","Coup de main":"Nerf",
+  "Médecine":"Esprit","Mécanique":"Esprit","Explosifs":"Esprit","Tactique":"Esprit","Vigilance":"Esprit","Érudition":"Esprit",
+  "Commandement":"Verbe","Persuasion":"Verbe","Tromperie":"Verbe","Intimidation":"Verbe","Débrouille":"Verbe",
+  "Ferveur":"Âme","Exorcisme":"Âme","Pressentiment":"Âme","Endurcissement":"Âme","Volonté":"Âme",
+};
+
+const SUBSTITUTIONS = {
+  "Prêche aux armes":       { spe: "Commandement", carac: "Âme",    note: "il n'ordonne pas, il inspire" },
+  "Brute":                  { spe: "Intimidation", carac: "Chair",  note: "sa carrure parle pour lui" },
+  "Calcul balistique":      { spe: "Tir",          carac: "Esprit", note: "à longue portée, après avoir visé" },
+  "Chirurgien de tranchée": { spe: "Médecine",     carac: "Nerf",   note: "même au calme" },
+  "Instinct de la bête":    { spe: "Vigilance",    carac: "Âme",    note: "il sent le danger" },
+};
+
+const ORIGINES = {
+  antioche: { nom: "Principauté de Nouvelle-Antioche", spe: ["Tactique","Tir"],
+    part: "Discipline : une fois par mission, ignorer un test d'usure de Nerfs raté.", usure: { mun: 1 } },
+  pontifical: { nom: "États pontificaux", spe: ["Ferveur","Mêlée"],
+    part: "Bénédiction papale : au début de chaque mission, +1d6 au Chapelet.", usure: { foi: 1 } },
+  eire: { nom: "Éire", spe: ["Discrétion","Débrouille"],
+    part: "Tête de tourbe : une fois par mission, relancer un jet d'Âme contre l'horreur ou l'intimidation.", usure: { nerfs: 1, mun: -1 } },
+  alba: { nom: "Royaume d'Alba", spe: ["Mêlée","Intimidation"], subs: ["Brute"],
+    part: "Accès à la substitution Brute.", usure: { nerfs: 1, vivres: -1 } },
+  prusse: { nom: "État libre de Prusse", spe: ["Lancer","Coup de main"],
+    part: "Assaut éclair : une fois par mission, agir avant tout le monde au premier tour d'un affrontement.", usure: { mun: 1, vivres: -1 } },
+  abyssinie: { nom: "Abyssinie", spe: ["Endurance","Vigilance"],
+    part: "Foi ancienne : une fois par mission, quand une prière échoue, la Foi ne descend pas.", usure: { vivres: 1 } },
+  pelerins: { nom: "Pèlerins des Tranchées", spe: ["Ferveur","Endurcissement"],
+    part: "Martyr : quand il prie pour protéger ou sauver un autre, son dé de prière n'est jamais retiré.", usure: { foi: 2, mun: -2 },
+    option: { titre: "Procession (pour la couleur)", choix: {
+      aucune: { nom: "— Aucune —" },
+      affliction: { nom: "Procession de l'Affliction Sacrée" },
+      methode: { nom: "Pèlerinage de Saint Méthode" },
+      plaie: { nom: "Cavalcade de la Dixième Plaie" } } } },
+  sultanat: { nom: "Sultanat du Mur de Fer", spe: ["Tir"], subs: ["Calcul balistique"],
+    part: "Accès à la substitution Calcul balistique.", usure: { mun: 1 },
+    option: { titre: "Lignée", choix: {
+      alamut: { nom: "Fida'i d'Alamut", spe: "Discrétion" },
+      sagesse: { nom: "Maison de la Sagesse", spe: "Médecine" },
+      mur: { nom: "Défenseurs du Mur de Fer", spe: "Terrassement" } } } },
+};
+
+const AFFECTATIONS = {
+  fantassin:   { nom: "Fantassin", expert: "Endurance", forme: ["Tir","Terrassement"],
+    dot: "Fusil à baïonnette, pelle de tranchée, 2 grenades", usure: { vivres: 1 } },
+  mitrailleur: { nom: "Mitrailleur", expert: "Tir", forme: ["Portage","Mécanique"],
+    dot: "Mitrailleuse légère, trépied, caisse de munitions, pistolet", usure: { mun: 1 } },
+  nettoyeur:   { nom: "Nettoyeur de tranchée", expert: "Mêlée", forme: ["Lancer","Intimidation"], subs: ["Brute"],
+    dot: "Masse cloutée, couteau de tranchée, pistolet, sac de grenades, bouclier de tranchée" },
+  sapeur:      { nom: "Sapeur", expert: "Explosifs", forme: ["Terrassement","Discrétion"],
+    dot: "Pistolet, pelle et pioche, 3 charges explosives, détonateur, lampe" },
+  tireur:      { nom: "Tireur d'élite", expert: "Tir", forme: ["Discrétion","Vigilance"], subs: ["Calcul balistique"],
+    dot: "Fusil à lunette, cape de camouflage, couteau", usure: { mun: -1 } },
+  eclaireur:   { nom: "Éclaireur", expert: "Discrétion", forme: ["Vigilance","Athlétisme"], subs: ["Instinct de la bête"],
+    dot: "Carabine, couteau, jumelles, carte, cisailles à barbelés" },
+  brancardier: { nom: "Brancardier", expert: "Médecine", forme: ["Portage","Esquive"], subs: ["Chirurgien de tranchée"],
+    dot: "Trousse de chirurgie, brancard pliant, morphine, brassard à croix, pistolet" },
+  aumonier:    { nom: "Aumônier", expert: "Ferveur", forme: ["Commandement","Exorcisme"], subs: ["Prêche aux armes"],
+    dot: "Symbole sacré, eau bénite, livre de prières, encensoir, pistolet", usure: { foi: 1 } },
+  penitent:    { nom: "Pénitent", expert: "Endurcissement", forme: ["Mêlée","Volonté"],
+    dot: "Fléau ou masse, chaînes, robe de bure, une relique mineure", usure: { foi: 1, vivres: -1 } },
+};
+
+const RANGS = {
+  conscrit:     { nom: "Conscrit",     droits: "Aucun, sinon celui de se taire.", devoirs: "Obéir, et mourir s'il le faut." },
+  sousofficier: { nom: "Sous-officier", droits: "Donner des ordres à l'escouade, demander du ravitaillement.", devoirs: "Répondre des hommes, tenir la position." },
+  officier:     { nom: "Officier",     droits: "Commander, accéder aux plans, réquisitionner.", devoirs: "Répondre des pertes ; être une cible prioritaire." },
+  prelat:       { nom: "Prélat",       droits: "Autorité religieuse, sacrements, absolution.", devoirs: "Répondre devant l'Église… et l'Inquisition." },
+};
+
+const USURES = [["mun","Munitions"],["foi","Foi"],["vivres","Vivres"],["nerfs","Nerfs"]];
+const DES = ["d4","d6","d8","d10","d12"];
+const TOUJOURS = "Uniforme, casque, masque à gaz, gamelle, couverture, plaque d'identité";
+const PLAFOND = 19;
+
+/* =====================================================================
+   ÉTAT
+   ===================================================================== */
+const CLE = "breviaire-createur";
+const etatVide = () => ({
+  arcanes: [null, null, null],
+  origine: "antioche", option: null,
+  affectation: "fantassin", libres: [],
+  caracs: { Chair: 14, Nerf: 12, Esprit: 11, Verbe: 10, "Âme": 8 },
+  rang: "conscrit",
+  nom: "", surnom: "", detail: "", rPasse: "", rSerment: "", rPeche: "", lien: "",
+});
+let etat = etatVide();
+try { const s = localStorage.getItem(CLE); if (s) etat = Object.assign(etatVide(), JSON.parse(s)); } catch (e) {}
+
+const $ = id => document.getElementById(id);
+const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
+const opt = (v, t, sel) => `<option value="${esc(v)}"${sel ? " selected" : ""}>${esc(t)}</option>`;
+
+/* =====================================================================
+   CALCULS
+   ===================================================================== */
+function specialitesDe(e) {
+  const o = ORIGINES[e.origine], a = AFFECTATIONS[e.affectation];
+  const speOrigine = [...o.spe];
+  if (o.option?.choix[e.option]?.spe) speOrigine.push(o.option.choix[e.option].spe);
+
+  const rangs = {};               // nom -> "Formé" | "Expert"
+  rangs[a.expert] = "Expert";
+  a.forme.forEach(s => rangs[s] = "Formé");
+
+  let libresNecessaires = 0;
+  speOrigine.forEach(s => {
+    if (!rangs[s]) rangs[s] = "Formé";
+    else if (rangs[s] === "Formé") rangs[s] = "Expert";   // Formé + Formé
+    else libresNecessaires++;                               // Expert + Formé → une libre
+  });
+
+  const libres = (e.libres || []).slice(0, libresNecessaires);
+  libres.forEach(s => { if (s && !rangs[s]) rangs[s] = "Formé"; });
+
+  const subs = [...new Set([...(o.subs || []), ...(a.subs || [])])];
+  return { rangs, libresNecessaires, subs };
+}
+
+function usureDe(e) {
+  const o = ORIGINES[e.origine], a = AFFECTATIONS[e.affectation];
+  const res = {};
+  for (const [k] of USURES) {
+    const i = 2 + (o.usure?.[k] || 0) + (a.usure?.[k] || 0);
+    res[k] = DES[Math.max(0, Math.min(4, i))];
+  }
+  return res;
+}
+
+function caracsValides(e) {
+  const v = Object.values(e.caracs).map(Number).sort((x, y) => y - x);
+  return v.join() === VALEURS.join();
+}
+
+/* =====================================================================
+   FORMULAIRE
+   ===================================================================== */
+function dessinerArcanes() {
+  $("arcanes").innerHTML = POSITIONS.map((pos, i) => {
+    const idx = etat.arcanes[i];
+    const a = idx == null ? null : ARCANES[idx];
+    return `<div class="carte">
+      <div class="pos">${pos}</div>
+      <div class="chiffre">${a ? a[0] : "?"}</div>
+      <select data-pos="${i}">${opt("", "— choisir —", idx == null)}${ARCANES.map((c, j) => opt(j, `${c[0]} · ${c[1]}`, idx === j)).join("")}</select>
+      <div class="sens">${a ? esc(a[2]) : ""}</div>
+    </div>`;
+  }).join("");
+  $("arcanes").querySelectorAll("select").forEach(s => s.onchange = () => {
+    etat.arcanes[+s.dataset.pos] = s.value === "" ? null : +s.value; maj();
+  });
+
+  const nomCarte = i => etat.arcanes[i] == null ? "" : ` (${ARCANES[etat.arcanes[i]][1]})`;
+  $("q-passe").textContent = `Passé${nomCarte(0)} : quel événement t'a mené au front ?`;
+  $("q-serment").textContent = `Serment${nomCarte(1)} : qu'as-tu juré, et à qui ?`;
+  $("q-peche").textContent = `Péché${nomCarte(2)} : quelle faute ou quelle faiblesse te ronge ?`;
+}
+
+$("tirer").onclick = () => {
+  const paquet = ARCANES.map((_, i) => i);
+  for (let i = paquet.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [paquet[i], paquet[j]] = [paquet[j], paquet[i]]; }
+  etat.arcanes = paquet.slice(0, 3); maj();
+};
+
+function dessinerOrigine() {
+  $("origine").innerHTML = Object.entries(ORIGINES).map(([k, o]) => opt(k, o.nom, k === etat.origine)).join("");
+  const o = ORIGINES[etat.origine];
+  if (o.option) {
+    if (!o.option.choix[etat.option]) etat.option = Object.keys(o.option.choix)[0];
+    $("bloc-option").hidden = false;
+    $("titre-option").textContent = o.option.titre;
+    $("option-origine").innerHTML = Object.entries(o.option.choix)
+      .map(([k, c]) => opt(k, c.nom + (c.spe ? ` (${c.spe})` : ""), k === etat.option)).join("");
+  } else { $("bloc-option").hidden = true; etat.option = null; }
+
+  const spe = [...o.spe]; if (o.option?.choix[etat.option]?.spe) spe.push(o.option.choix[etat.option].spe);
+  $("desc-origine").innerHTML = `<b>Spécialités :</b> ${spe.join(", ")}<br><b>Particularité :</b> ${esc(o.part)}`;
+}
+$("origine").onchange = e => { etat.origine = e.target.value; etat.option = null; etat.libres = []; maj(); };
+$("option-origine").onchange = e => { etat.option = e.target.value; etat.libres = []; maj(); };
+
+function dessinerAffectation() {
+  $("affectation").innerHTML = Object.entries(AFFECTATIONS).map(([k, a]) => opt(k, a.nom, k === etat.affectation)).join("");
+  const a = AFFECTATIONS[etat.affectation];
+  $("desc-affectation").innerHTML =
+    `<b>Expert :</b> ${a.expert} · <b>Formé :</b> ${a.forme.join(", ")}` +
+    (a.subs ? `<br><b>Substitution :</b> ${a.subs.join(", ")}` : "") +
+    `<br><b>Dotation :</b> ${esc(a.dot)}`;
+
+  // Spécialités libres (doublon Expert + Formé)
+  const { rangs, libresNecessaires } = specialitesDe({ ...etat, libres: [] });
+  etat.libres = (etat.libres || []).slice(0, libresNecessaires);
+  let html = "";
+  for (let i = 0; i < libresNecessaires; i++) {
+    const deja = new Set([...Object.keys(rangs), ...etat.libres.filter((_, j) => j !== i)]);
+    const choix = Object.keys(SPECIALITES).filter(s => !deja.has(s));
+    html += `<label class="champ"><span>Spécialité libre (doublon avec l'Origine) — Formé</span>
+      <select data-libre="${i}">${opt("", "— choisir avec le MJ —", !etat.libres[i])}${choix.map(s => opt(s, `${s} (${SPECIALITES[s]})`, etat.libres[i] === s)).join("")}</select></label>`;
+  }
+  $("bloc-libres").innerHTML = html;
+  $("bloc-libres").querySelectorAll("select").forEach(s => s.onchange = () => { etat.libres[+s.dataset.libre] = s.value || null; maj(); });
+}
+$("affectation").onchange = e => { etat.affectation = e.target.value; etat.libres = []; maj(); };
+
+function dessinerCaracs() {
+  const compte = {}; Object.values(etat.caracs).forEach(v => compte[v] = (compte[v] || 0) + 1);
+  $("caracs").innerHTML = CARACS.map(c => `<label><span>${c}</span>
+    <select data-carac="${c}" class="${compte[etat.caracs[c]] > 1 ? "conflit" : ""}">${VALEURS.map(v => opt(v, v, +etat.caracs[c] === v)).join("")}</select></label>`).join("");
+  $("caracs").querySelectorAll("select").forEach(s => s.onchange = () => {
+    // échange automatique : la valeur choisie quitte l'ancienne caractéristique
+    const c = s.dataset.carac, v = +s.value, ancienne = +etat.caracs[c];
+    const autre = CARACS.find(x => x !== c && +etat.caracs[x] === v);
+    if (autre) etat.caracs[autre] = ancienne;
+    etat.caracs[c] = v; maj();
+  });
+  $("alerte-caracs").textContent = caracsValides(etat) ? "" : "Chaque valeur doit être utilisée une seule fois.";
+}
+
+function dessinerRang() {
+  $("rang").innerHTML = Object.entries(RANGS).map(([k, r]) => opt(k, r.nom, k === etat.rang)).join("");
+  const r = RANGS[etat.rang];
+  $("desc-rang").innerHTML = `<b>Droits :</b> ${esc(r.droits)}<br><b>Devoirs :</b> ${esc(r.devoirs)}`;
+}
+$("rang").onchange = e => { etat.rang = e.target.value; maj(); };
+
+const CHAMPS = { nom: "nom", surnom: "surnom", detail: "detail", "r-passe": "rPasse", "r-serment": "rSerment", "r-peche": "rPeche", lien: "lien" };
+for (const [id, cle] of Object.entries(CHAMPS)) $(id).oninput = e => { etat[cle] = e.target.value; dessinerFiche(); sauver(); };
+function remplirChamps() { for (const [id, cle] of Object.entries(CHAMPS)) $(id).value = etat[cle] || ""; }
+
+/* =====================================================================
+   FICHE
+   ===================================================================== */
+function dessinerFiche() {
+  const o = ORIGINES[etat.origine], a = AFFECTATIONS[etat.affectation], r = RANGS[etat.rang];
+  const { rangs, libresNecessaires, subs } = specialitesDe(etat);
+  const usure = usureDe(etat);
+  const c = etat.caracs;
+
+  const ordre = Object.keys(rangs).sort((x, y) =>
+    CARACS.indexOf(SPECIALITES[x]) - CARACS.indexOf(SPECIALITES[y]) || x.localeCompare(y));
+  const lignesSpe = ordre.map(s => {
+    const bonus = rangs[s] === "Expert" ? 4 : 2;
+    const car = SPECIALITES[s];
+    let lignes = `<tr><td><b>${s}</b> <small>(${rangs[s]})</small></td><td>${car} ${c[car]} + ${bonus}</td><td class="score">${Math.min(PLAFOND, +c[car] + bonus)}</td></tr>`;
+    subs.filter(n => SUBSTITUTIONS[n].spe === s).forEach(n => {
+      const sc = SUBSTITUTIONS[n].carac;
+      lignes += `<tr><td>&nbsp;&nbsp;↳ <i>${n}</i></td><td>${sc} ${c[sc]} + ${bonus}</td><td class="score">${Math.min(PLAFOND, +c[sc] + bonus)}</td></tr>`;
+    });
+    return lignes;
+  }).join("");
+  // substitutions dont la Spécialité n'est pas possédée : score sans bonus
+  const subsSeules = subs.filter(n => !rangs[SUBSTITUTIONS[n].spe]).map(n => {
+    const s = SUBSTITUTIONS[n];
+    return `<tr><td><i>${n}</i> <small>(${s.spe})</small></td><td>${s.carac} ${c[s.carac]}</td><td class="score">${c[s.carac]}</td></tr>`;
+  }).join("");
+
+  const manque = libresNecessaires - (etat.libres || []).filter(Boolean).length;
+  const arc = POSITIONS.map((p, i) => etat.arcanes[i] == null
+    ? `<li><b>${p} :</b> <span class="vide">non tiré</span></li>`
+    : `<li><b>${p} :</b> ${ARCANES[etat.arcanes[i]][0]} · ${ARCANES[etat.arcanes[i]][1]}</li>`).join("");
+  const rep = (t, v) => v ? `<p><b>${t} :</b> ${esc(v)}</p>` : "";
+  const optionNom = o.option?.choix[etat.option]?.spe || (etat.option && etat.option !== "aucune") ? ` — ${o.option.choix[etat.option].nom}` : "";
+
+  $("fiche").innerHTML = `
+    <h1>${esc(etat.nom) || "Sans nom"}</h1>
+    <p class="surnom">${etat.surnom ? "dit « " + esc(etat.surnom) + " »" : "&nbsp;"}</p>
+    <div class="ligne"><span>${r.nom}</span><span>·</span><span>${a.nom}</span></div>
+    <div class="ligne" style="font-weight:500">${o.nom}${esc(optionNom)}</div>
+
+    <h3>Caractéristiques</h3>
+    <div class="grille5">${CARACS.map(k => `<div class="case"><small>${k}</small><b>${c[k]}</b></div>`).join("")}</div>
+    ${caracsValides(etat) ? "" : '<p class="alerte">Répartition invalide.</p>'}
+
+    <h3>Dés d'usure</h3>
+    <div class="grille4">${USURES.map(([k, n]) => `<div class="case"><small>${n}</small><b>${usure[k]}</b></div>`).join("")}</div>
+
+    <h3>Spécialités</h3>
+    <table><tbody>${lignesSpe}${subsSeules}</tbody></table>
+    ${manque > 0 ? `<p class="alerte">${manque} Spécialité libre à choisir (étape 3).</p>` : ""}
+
+    <h3>Particularité</h3>
+    <p>${esc(o.part)}</p>
+
+    <h3>Arcanes</h3>
+    <ul>${arc}</ul>
+
+    <h3>Rang : ${r.nom}</h3>
+    <p><b>Droits :</b> ${esc(r.droits)}<br><b>Devoirs :</b> ${esc(r.devoirs)}</p>
+
+    <h3>Dotation</h3>
+    <p>${esc(TOUJOURS)}.<br>${esc(a.dot)}.</p>
+
+    ${(etat.detail || etat.rPasse || etat.rSerment || etat.rPeche || etat.lien) ? "<h3>Histoire</h3>" : ""}
+    ${rep("Signe distinctif", etat.detail)}
+    ${rep("Passé", etat.rPasse)}${rep("Serment", etat.rSerment)}${rep("Péché", etat.rPeche)}${rep("Lien", etat.lien)}
+
+    <h3>Suivi</h3>
+    <p>Corruption : ☐ ☐ ☐ ☐ ☐ ☐ ☐ ☐ ☐ ☐ <small>(arcane à 3, 6, 9 · perdu à 10)</small></p>
+  `;
+}
+
+/* =====================================================================
+   SAUVEGARDE
+   ===================================================================== */
+function sauver() { try { localStorage.setItem(CLE, JSON.stringify(etat)); } catch (e) {} }
+
+$("imprimer").onclick = () => window.print();
+$("exporter").onclick = () => {
+  const blob = new Blob([JSON.stringify(etat, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = (etat.nom || "personnage").replace(/[^\p{L}\p{N}]+/gu, "-") + ".json";
+  a.click(); URL.revokeObjectURL(a.href);
+};
+$("importer").onchange = async e => {
+  const f = e.target.files[0]; if (!f) return;
+  try {
+    const d = JSON.parse(await f.text());
+    if (!ORIGINES[d.origine] || !AFFECTATIONS[d.affectation]) throw new Error();
+    etat = Object.assign(etatVide(), d); remplirChamps(); maj();
+  } catch { alert("Ce fichier n'est pas une fiche du Bréviaire."); }
+  e.target.value = "";
+};
+$("reinitialiser").onclick = () => {
+  if (!confirm("Effacer ce personnage et recommencer ?")) return;
+  etat = etatVide(); remplirChamps(); maj();
+};
+
+/* ===================================================================== */
+function maj() {
+  dessinerArcanes(); dessinerOrigine(); dessinerAffectation(); dessinerCaracs(); dessinerRang();
+  dessinerFiche(); sauver();
+}
+remplirChamps(); maj();
+</script>
+</body>
+</html>
