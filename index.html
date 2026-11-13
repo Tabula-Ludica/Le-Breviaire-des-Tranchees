@@ -115,6 +115,9 @@
       page.prepend(bandeau);
     }
 
+    // galerie de tarot dans le chapitre IV
+    if (chap.id === "04-arcanes") construireGalerie();
+
     // bouton du créateur de personnage dans le chapitre III
     if (chap.id === "03-creation") {
       const encart = document.createElement("div");
@@ -152,6 +155,102 @@
     else window.scrollTo(0, 0);
   }
 
+  /* ---------- Galerie des arcanes ----------
+     Les données sont lues directement dans le chapitre (titres ### et listes),
+     donc il n'y a rien à dupliquer : modifier le .md suffit.
+     Visuels : assets/arcanes/00.webp … 21.webp (sinon .png, sinon .jpg, sinon carte de remplacement). */
+  const FORMATS = ["webp", "png", "jpg"];
+
+  function chargerVisuel(img, base, i = 0) {
+    if (i >= FORMATS.length) { img.closest(".arcane").classList.add("sans-visuel"); img.remove(); return; }
+    img.onerror = () => chargerVisuel(img, base, i + 1);
+    img.src = `${base}.${FORMATS[i]}`;
+  }
+
+  function construireGalerie() {
+    const cartes = [];
+    page.querySelectorAll("h3").forEach(h => {
+      const [num, nom] = h.textContent.split(" · ");
+      const ul = h.nextElementSibling;
+      if (!nom || !ul || ul.tagName !== "UL") return;
+      const effets = [...ul.children].map(li => {
+        const fort = li.querySelector("strong");
+        const [type, titre] = fort.textContent.replace(/\.$/, "").split(" : ");
+        const corps = li.cloneNode(true); corps.querySelector("strong").remove();
+        return { type, titre, texte: corps.innerHTML.trim() };
+      });
+      cartes.push({ num: num.trim(), nom: nom.trim(), effets, ancre: h.id });
+    });
+    if (!cartes.length) return;
+
+    const galerie = document.createElement("div");
+    galerie.className = "galerie-arcanes";
+    cartes.forEach((c, i) => {
+      const fichier = String(i).padStart(2, "0");
+      const carte = document.createElement("a");
+      carte.className = "arcane";
+      carte.href = `#04-arcanes/${c.ancre}`;
+      carte.innerHTML = `
+        <div class="visuel"><img alt="${c.nom}" loading="lazy"></div>
+        <div class="remplacement"><span class="chiffre">${c.num}</span><span class="croix">✠</span><span class="nom">${c.nom}</span></div>
+        <div class="legende"><span>${c.num}</span> ${c.nom}</div>`;
+      chargerVisuel(carte.querySelector("img"), `assets/arcanes/${fichier}`);
+      carte.dataset.index = i;
+      galerie.appendChild(carte);
+    });
+
+    const titre = [...page.querySelectorAll("h2")].find(h => /vingt-deux/i.test(h.textContent));
+    const intro = document.createElement("p");
+    intro.className = "aide-galerie";
+    intro.textContent = "Passez la souris sur une carte (ou touchez-la) pour lire ses effets. Cliquez pour aller au texte complet.";
+    titre.after(intro, galerie);
+
+    // info-bulle partagée
+    let bulle = document.querySelector(".bulle-arcane");
+    if (!bulle) { bulle = document.createElement("div"); bulle.className = "bulle-arcane"; document.body.appendChild(bulle); }
+
+    let courant = null;
+    const montrer = el => {
+      courant = el;
+      const c = cartes[+el.dataset.index];
+      bulle.innerHTML = `<div class="titre"><span>${c.num}</span> ${c.nom}</div>` +
+        c.effets.map(e => `<div class="effet effet-${e.type.normalize("NFD").replace(/[^a-z]/gi, "").toLowerCase()}">
+          <b>${e.type}</b><i>${e.titre}</i><p>${e.texte}</p></div>`).join("");
+      bulle.classList.add("visible");
+      const r = el.getBoundingClientRect(), b = bulle.getBoundingClientRect(), m = 12;
+      let x = r.right + m;
+      if (x + b.width > innerWidth - m) x = r.left - b.width - m;
+      if (x < m) x = Math.max(m, (innerWidth - b.width) / 2);
+      let y = r.top + r.height / 2 - b.height / 2;
+      y = Math.max(m, Math.min(y, innerHeight - b.height - m));
+      bulle.style.left = x + "px"; bulle.style.top = y + "px";
+    };
+    const cacher = () => { courant = null; bulle.classList.remove("visible"); };
+
+    galerie.querySelectorAll(".arcane").forEach(el => {
+      el.addEventListener("mouseenter", () => montrer(el));
+      el.addEventListener("mouseleave", cacher);
+      el.addEventListener("focus", () => montrer(el));
+      el.addEventListener("blur", cacher);
+      // écran tactile : premier toucher = afficher, second = suivre le lien
+      el.addEventListener("touchstart", ev => {
+        if (!el.classList.contains("touche")) {
+          ev.preventDefault();
+          galerie.querySelectorAll(".touche").forEach(x => x.classList.remove("touche"));
+          el.classList.add("touche"); montrer(el);
+        }
+      }, { passive: false });
+    });
+    // au défilement, la bulle suit la carte (ou disparaît si la carte sort de l'écran)
+    addEventListener("scroll", () => {
+      if (!courant) return;
+      if (!courant.isConnected) return cacher();
+      const r = courant.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > innerHeight) cacher(); else montrer(courant);
+    }, { passive: true });
+  }
+
+  window.addEventListener("hashchange", () => { document.querySelector(".bulle-arcane")?.classList.remove("visible"); });
   window.addEventListener("hashchange", afficher);
   afficher();
 </script>
