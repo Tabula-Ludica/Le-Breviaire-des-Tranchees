@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Le Bréviaire des Tranchées</title>
+<meta name="description" content="Système de jeu de rôle non officiel dans l'univers de Trench Crusade — Tabula Ludica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --nuit: #141210;
+    --boue: #221d18;
+    --boue-2: #2e2720;
+    --parchemin: #e9dcbc;
+    --parchemin-ombre: #c9b68c;
+    --encre: #2a1f16;
+    --encre-douce: #5a4836;
+    --sang: #8a1a12;
+    --sang-vif: #b3261b;
+    --or: #b8975a;
+    --or-pale: #d8c08a;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--encre);
+    font: 400 1.15rem/1.65 "EB Garamond", Garamond, Georgia, serif;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(138,26,18,.18), transparent 55%),
+      radial-gradient(ellipse at 90% 100%, rgba(184,151,90,.08), transparent 50%),
+      repeating-linear-gradient(90deg, rgba(0,0,0,.08) 0 2px, transparent 2px 7px),
+      var(--nuit);
+    min-height: 100vh;
+  }
+
+  /* ---------- En-tête ---------- */
+  header.titre {
+    text-align: center;
+    padding: 3.2rem 1rem 2.2rem;
+    color: var(--or-pale);
+    border-bottom: 1px solid rgba(184,151,90,.25);
+    position: relative;
+  }
+  header.titre .croix { color: var(--sang-vif); font-size: 1.4rem; letter-spacing: 1rem; }
+  header.titre h1 {
+    font-family: "UnifrakturMaguntia", serif;
+    font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 4.6rem);
+    line-height: 1.05;
+    margin: .6rem 0 .4rem;
+    color: var(--parchemin);
+    text-shadow: 0 2px 0 #000, 0 0 30px rgba(179,38,27,.35);
+  }
+  header.titre .sous {
+    font-family: "Cormorant SC", serif;
+    letter-spacing: .25em;
+    font-size: .95rem;
+    color: var(--or);
+  }
+  header.titre .sous a { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--or); }
+
+  /* ---------- Mise en page ---------- */
+  .cadre {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    gap: 2.5rem;
+    max-width: 1180px;
+    margin: 2.5rem auto 4rem;
+    padding: 0 1.5rem;
+  }
+
+  /* ---------- Sommaire ---------- */
+  nav.sommaire {
+    position: sticky;
+    top: 1.5rem;
+    align-self: start;
+    color: var(--or-pale);
+    background: linear-gradient(180deg, var(--boue-2), var(--boue));
+    border: 1px solid rgba(184,151,90,.3);
+    outline: 1px solid rgba(184,151,90,.12);
+    outline-offset: 4px;
+    padding: 1.4rem 1.2rem;
+  }
+  nav.sommaire h2 {
+    font-family: "Cormorant SC", serif;
+    font-size: 1rem;
+    letter-spacing: .3em;
+    text-align: center;
+    color: var(--or);
+    margin: 0 0 1rem;
+    padding-bottom: .7rem;
+    border-bottom: 1px solid rgba(184,151,90,.25);
+  }
+  nav.sommaire ol { list-style: none; margin: 0; padding: 0; }
+  nav.sommaire li { margin: .15rem 0; }
+  nav.sommaire a, nav.sommaire span.avenir {
+    display: flex; gap: .7rem; align-items: baseline;
+    padding: .45rem .5rem;
+    color: var(--parchemin);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: background .2s, border-color .2s;
+  }
+  nav.sommaire a:hover { background: rgba(184,151,90,.08); border-left-color: var(--or); }
+  nav.sommaire a.actif { background: rgba(138,26,18,.25); border-left-color: var(--sang-vif); }
+  nav.sommaire .num {
+    font-family: "Cormorant SC", serif; font-weight: 700;
+    color: var(--sang-vif); min-width: 2.2rem; text-align: right;
+  }
+  nav.sommaire span.avenir { opacity: .4; cursor: default; }
+  nav.sommaire span.avenir small { display: block; font-size: .78rem; font-style: italic; color: var(--or); }
+
+  nav.sommaire .sections { margin: .2rem 0 .6rem 2.9rem; font-size: .92rem; }
+  nav.sommaire .sections a { padding: .15rem .4rem; color: var(--or-pale); opacity: .85; }
+
+  /* ---------- Page de parchemin ---------- */
+  article.page {
+    position: relative;
+    background:
+      radial-gradient(ellipse at center, transparent 55%, rgba(120,90,40,.28) 100%),
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,.35), transparent 40%),
+      var(--parchemin);
+    padding: 3.2rem clamp(1.4rem, 5vw, 4.2rem) 3.6rem;
+    box-shadow: 0 25px 60px rgba(0,0,0,.6), inset 0 0 0 1px rgba(90,60,20,.25);
+    min-height: 60vh;
+  }
+  article.page::before {
+    /* double filet intérieur, comme une page enluminée */
+    content: ""; position: absolute; inset: 14px;
+    border: 1px solid rgba(138,26,18,.35);
+    outline: 1px solid rgba(138,26,18,.15); outline-offset: 4px;
+    pointer-events: none;
+  }
+
+  .page h1 {
+    font-family: "UnifrakturMaguntia", serif; font-weight: 400;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--sang);
+    text-align: center;
+    margin: 0 0 1.5rem;
+    line-height: 1.15;
+  }
+  .page h2 {
+    font-family: "Cormorant SC", serif; font-weight: 700;
+    font-size: 1.65rem;
+    color: var(--sang);
+    margin: 2.4rem 0 .8rem;
+    letter-spacing: .04em;
+    border-bottom: 1px solid rgba(138,26,18,.3);
+    padding-bottom: .2rem;
+  }
+  .page h2::before { content: "✠ "; color: var(--sang-vif); font-size: .9em; }
+  .page h3 {
+    font-family: "Cormorant SC", serif; font-weight: 700;
+    font-size: 1.3rem; color: var(--encre);
+    margin: 1.8rem 0 .5rem;
+  }
+  .page p { margin: .7rem 0; text-align: justify; hyphens: auto; }
+  .page strong { color: #1d140c; }
+  .page a { color: var(--sang); }
+
+  /* lettrine sur le premier paragraphe du chapitre */
+  .page > p:first-of-type::first-letter {
+    float: left;
+    font-family: "UnifrakturMaguntia", serif;
+    font-size: 3.6em; line-height: .85;
+    color: var(--sang);
+    padding: .35rem .5rem 0 0;
+  }
+
+  .page blockquote {
+    margin: 1.4rem 0;
+    padding: .8rem 1.2rem .8rem 1.4rem;
+    border-left: 3px solid var(--sang);
+    background: rgba(138,26,18,.06);
+    font-style: italic;
+    color: var(--encre-douce);
+  }
+  .page blockquote p { margin: .3rem 0; text-align: left; }
+  .page h1 + blockquote {
+    text-align: center; border: 0; background: none;
+    font-size: 1.25rem; margin-top: -.6rem;
+  }
+  .page h1 + blockquote p { text-align: center; }
+
+  .page hr {
+    border: 0; text-align: center; margin: 2.4rem 0; height: 1.5rem;
+  }
+  .page hr::after {
+    content: "✠   ✠   ✠";
+    white-space: pre;
+    color: var(--sang); opacity: .7; letter-spacing: .3em;
+  }
+
+  .page ul, .page ol { padding-left: 1.6rem; }
+  .page li { margin: .25rem 0; }
+  .page li::marker { color: var(--sang); }
+
+  .page table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2rem 0;
+    font-size: 1.02rem;
+    display: block; overflow-x: auto;
+  }
+  .page thead th {
+    font-family: "Cormorant SC", serif; font-weight: 700;
+    background: var(--sang); color: var(--parchemin);
+    text-align: left; padding: .5rem .8rem; letter-spacing: .04em;
+  }
+  .page td { padding: .45rem .8rem; border-bottom: 1px solid rgba(90,60,20,.25); vertical-align: top; }
+  .page tbody tr:nth-child(even) td { background: rgba(120,90,40,.08); }
+
+  .page code {
+    font-family: "EB Garamond", serif; font-weight: 600;
+    background: rgba(138,26,18,.08); padding: 0 .3rem;
+  }
+
+  .chargement, .erreur { text-align: center; color: var(--encre-douce); font-style: italic; padding: 4rem 0; }
+
+  /* navigation précédent / suivant */
+  .suite {
+    display: flex; justify-content: space-between; gap: 1rem;
+    margin-top: 3rem; padding-top: 1.2rem;
+    border-top: 1px solid rgba(138,26,18,.3);
+    font-family: "Cormorant SC", serif; font-size: 1.1rem;
+  }
+  .suite a { color: var(--sang); text-decoration: none; }
+  .suite a:hover { text-decoration: underline; }
+
+  footer {
+    text-align: center; color: var(--or); opacity: .7;
+    font-size: .9rem; padding: 0 1rem 3rem;
+  }
+
+  /* bouton sommaire mobile */
+  .bouton-sommaire { display: none; }
+
+  @media (max-width: 860px) {
+    .cadre { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; margin-top: 1.2rem; }
+    nav.sommaire { position: static; display: none; }
+    nav.sommaire.ouvert { display: block; }
+    .bouton-sommaire {
+      display: block; width: 100%;
+      font: 700 1rem "Cormorant SC", serif; letter-spacing: .25em;
+      color: var(--or-pale); background: var(--boue-2);
+      border: 1px solid rgba(184,151,90,.35); padding: .8rem; cursor: pointer;
+    }
+    .page p { text-align: left; }
+    article.page::before { inset: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="titre">
+  <div class="croix">✠ ✠ ✠</div>
+  <h1>Le Bréviaire des Tranchées</h1>
+  <div class="sous">Jeu de rôle dans l'univers de Trench Crusade · <a href="https://github.com/Tabula-Ludica">Tabula Ludica</a></div>
+</header>
+
+<div class="cadre">
+  <div>
+    <button class="bouton-sommaire" aria-expanded="false">✠ Sommaire</button>
+    <nav class="sommaire" aria-label="Sommaire">
+      <h2>Sommaire</h2>
+      <ol id="liste-chapitres"></ol>
+    </nav>
+  </div>
+
+  <main>
+    <article class="page" id="page"><p class="chargement">Ouverture du Bréviaire…</p></article>
+  </main>
+</div>
+
+<footer>
+  Projet fan-made, non affilié à Factory Fortress Inc. Trench Crusade et son univers appartiennent à leurs auteurs.
+</footer>
+
+<script src="assets/marked.umd.js"></script>
+<script>
+  // Ajouter un chapitre = ajouter une ligne ici (fichier: null tant qu'il n'est pas écrit).
+  const CHAPITRES = [
+    { num: "I",   id: "01-le-noyau",         titre: "Le Noyau",                 fichier: "regles/01-le-noyau.md" },
+    { num: "II",  id: "02-caracteristiques", titre: "Les Caractéristiques",     fichier: null },
+    { num: "III", id: "03-creation",         titre: "La Création du personnage", fichier: null },
+    { num: "IV",  id: "04-arcanes",          titre: "Les Arcanes",              fichier: null },
+  ];
+
+  const page = document.getElementById("page");
+  const liste = document.getElementById("liste-chapitres");
+  const nav = document.querySelector("nav.sommaire");
+  const bouton = document.querySelector(".bouton-sommaire");
+  const cache = {};
+
+  bouton.addEventListener("click", () => {
+    const ouvert = nav.classList.toggle("ouvert");
+    bouton.setAttribute("aria-expanded", ouvert);
+  });
+
+  const slug = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+  function dessinerSommaire(actif, sections) {
+    liste.innerHTML = "";
+    for (const c of CHAPITRES) {
+      const li = document.createElement("li");
+      if (c.fichier) {
+        const a = document.createElement("a");
+        a.href = "#" + c.id;
+        a.innerHTML = `<span class="num">${c.num}</span><span>${c.titre}</span>`;
+        if (actif && c.id === actif.id) a.classList.add("actif");
+        li.appendChild(a);
+        if (actif && c.id === actif.id && sections.length) {
+          const sous = document.createElement("div");
+          sous.className = "sections";
+          for (const s of sections) {
+            const sa = document.createElement("a");
+            sa.href = "#" + c.id + "/" + s.id;
+            sa.textContent = s.texte;
+            sous.appendChild(sa);
+          }
+          li.appendChild(sous);
+        }
+      } else {
+        li.innerHTML = `<span class="avenir"><span class="num">${c.num}</span><span>${c.titre}<small>à venir</small></span></span>`;
+      }
+      liste.appendChild(li);
+    }
+  }
+
+  async function afficher() {
+    const [idChap, idSection] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const ecrits = CHAPITRES.filter(c => c.fichier);
+    const chap = ecrits.find(c => c.id === idChap) || ecrits[0];
+
+    try {
+      if (!cache[chap.id]) {
+        const r = await fetch(chap.fichier, { cache: "no-cache" });
+        if (!r.ok) throw new Error(r.status);
+        cache[chap.id] = await r.text();
+      }
+      page.innerHTML = marked.parse(cache[chap.id]);
+    } catch (e) {
+      page.innerHTML = `<p class="erreur">Cette page du Bréviaire est illisible (${e.message}).</p>`;
+      dessinerSommaire(chap, []);
+      return;
+    }
+
+    // ancres sur les titres de section
+    const sections = [];
+    page.querySelectorAll("h2, h3").forEach(h => {
+      h.id = slug(h.textContent);
+      if (h.tagName === "H2") sections.push({ id: h.id, texte: h.textContent.replace(/^\d+\.\s*/, "") });
+    });
+
+    // précédent / suivant
+    const i = ecrits.indexOf(chap);
+    const prec = ecrits[i - 1], suiv = ecrits[i + 1];
+    if (prec || suiv) {
+      const div = document.createElement("div");
+      div.className = "suite";
+      div.innerHTML =
+        (prec ? `<a href="#${prec.id}">← ${prec.num}. ${prec.titre}</a>` : "<span></span>") +
+        (suiv ? `<a href="#${suiv.id}">${suiv.num}. ${suiv.titre} →</a>` : "<span></span>");
+      page.appendChild(div);
+    }
+
+    document.title = `${chap.titre} · Le Bréviaire des Tranchées`;
+    dessinerSommaire(chap, sections);
+    nav.classList.remove("ouvert");
+    bouton.setAttribute("aria-expanded", "false");
+
+    if (idSection) document.getElementById(idSection)?.scrollIntoView();
+    else window.scrollTo(0, 0);
+  }
+
+  window.addEventListener("hashchange", afficher);
+  afficher();
+</script>
+</body>
+</html>
