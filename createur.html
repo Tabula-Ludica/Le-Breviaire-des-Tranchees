@@ -77,6 +77,30 @@
   .fiche p { text-align: left; font-size: .98rem; margin: .3rem 0; }
   .fiche .vide { color: var(--encre-douce); font-style: italic; }
 
+  /* Spécialités façon feuille de D&D */
+  .fiche .legende { font-size: .85rem !important; color: var(--encre-douce); text-align: center !important; }
+  .fiche .grille-spe { display: grid; grid-template-columns: 1fr 1fr; gap: .7rem; align-items: start; }
+  .fiche .bloc-spe { border: 1px solid rgba(138,26,18,.35); background: rgba(255,255,255,.18); }
+  .fiche .bloc-spe .entete {
+    display: flex; justify-content: space-between; align-items: baseline;
+    background: var(--sang); color: var(--parchemin);
+    font-family: "Cormorant SC", serif; font-weight: 700; letter-spacing: .06em;
+    padding: .2rem .6rem;
+  }
+  .fiche .bloc-spe .entete b { font-size: 1.15rem; }
+  .fiche .bloc-spe ul { list-style: none; margin: 0; padding: .25rem .5rem .35rem; }
+  .fiche .bloc-spe li { display: flex; align-items: baseline; gap: .45rem; padding: .08rem 0; font-size: .95rem; color: var(--encre-douce); border-bottom: 1px dotted rgba(90,60,20,.2); }
+  .fiche .bloc-spe li:last-child { border-bottom: 0; }
+  .fiche .bloc-spe li .nom { flex: 1; }
+  .fiche .bloc-spe li .score { font-weight: 700; min-width: 1.6rem; text-align: right; color: var(--encre-douce); }
+  .fiche .bloc-spe li.maitrise { color: var(--encre); }
+  .fiche .bloc-spe li.maitrise .nom { font-weight: 700; }
+  .fiche .bloc-spe li.maitrise .score { color: var(--sang); }
+  .fiche .bloc-spe li.sub { font-style: italic; font-size: .88rem; padding-left: .2rem; }
+  .fiche .bloc-spe li.sub .score { color: var(--sang); }
+  .fiche .pips { color: var(--sang); letter-spacing: -.05em; font-size: .85rem; min-width: 1.4rem; }
+  @media (max-width: 420px) { .fiche .grille-spe { grid-template-columns: 1fr; } }
+
   @media (max-width: 960px) {
     .cadre.createur { grid-template-columns: minmax(0, 1fr); }
     .fiche { position: static; }
@@ -458,22 +482,21 @@ function dessinerFiche() {
   const usure = usureDe(etat);
   const c = etat.caracs;
 
-  const ordre = Object.keys(rangs).sort((x, y) =>
-    CARACS.indexOf(SPECIALITES[x]) - CARACS.indexOf(SPECIALITES[y]) || x.localeCompare(y));
-  const lignesSpe = ordre.map(s => {
-    const bonus = rangs[s] === "Expert" ? 4 : 2;
-    const car = SPECIALITES[s];
-    let lignes = `<tr><td><b>${s}</b> <small>(${rangs[s]})</small></td><td>${car} ${c[car]} + ${bonus}</td><td class="score">${Math.min(PLAFOND, +c[car] + bonus)}</td></tr>`;
-    subs.filter(n => SUBSTITUTIONS[n].spe === s).forEach(n => {
-      const sc = SUBSTITUTIONS[n].carac;
-      lignes += `<tr><td>&nbsp;&nbsp;↳ <i>${n}</i></td><td>${sc} ${c[sc]} + ${bonus}</td><td class="score">${Math.min(PLAFOND, +c[sc] + bonus)}</td></tr>`;
-    });
-    return lignes;
-  }).join("");
-  // substitutions dont la Spécialité n'est pas possédée : score sans bonus
-  const subsSeules = subs.filter(n => !rangs[SUBSTITUTIONS[n].spe]).map(n => {
-    const s = SUBSTITUTIONS[n];
-    return `<tr><td><i>${n}</i> <small>(${s.spe})</small></td><td>${s.carac} ${c[s.carac]}</td><td class="score">${c[s.carac]}</td></tr>`;
+  // Toutes les Spécialités, regroupées par caractéristique, façon « compétences » de D&D
+  const PIPS = { "": "○○", "Formé": "●○", "Expert": "●●" };
+  const blocsSpe = CARACS.map(car => {
+    const lignes = Object.keys(SPECIALITES).filter(s => SPECIALITES[s] === car).map(s => {
+      const rg = rangs[s] || "";
+      const bonus = rg === "Expert" ? 4 : rg === "Formé" ? 2 : 0;
+      let html = `<li class="${rg ? "maitrise" : ""}" title="${rg || "Non maîtrisée"}">
+        <span class="pips">${PIPS[rg]}</span><span class="nom">${s}</span><span class="score">${Math.min(PLAFOND, +c[car] + bonus)}</span></li>`;
+      subs.filter(n => SUBSTITUTIONS[n].spe === s).forEach(n => {
+        const sc = SUBSTITUTIONS[n].carac;
+        html += `<li class="sub" title="${esc(SUBSTITUTIONS[n].note)}"><span class="pips">↳</span><span class="nom">${n} <small>(${sc})</small></span><span class="score">${Math.min(PLAFOND, +c[sc] + bonus)}</span></li>`;
+      });
+      return html;
+    }).join("");
+    return `<div class="bloc-spe"><div class="entete"><span>${car}</span><b>${c[car]}</b></div><ul>${lignes}</ul></div>`;
   }).join("");
 
   const manque = libresNecessaires - (etat.libres || []).filter(Boolean).length;
@@ -497,7 +520,8 @@ function dessinerFiche() {
     <div class="grille4">${USURES.map(([k, n]) => `<div class="case"><small>${n}</small><b>${usure[k]}</b></div>`).join("")}</div>
 
     <h3>Spécialités</h3>
-    <table><tbody>${lignesSpe}${subsSeules}</tbody></table>
+    <p class="legende"><span class="pips">○○</span> non maîtrisée · <span class="pips">●○</span> Formé (+2) · <span class="pips">●●</span> Expert (+4)</p>
+    <div class="grille-spe">${blocsSpe}</div>
     ${manque > 0 ? `<p class="alerte">${manque} Spécialité libre à choisir (étape 3).</p>` : ""}
 
     <h3>Particularité</h3>
