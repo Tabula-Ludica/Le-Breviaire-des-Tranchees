@@ -32,7 +32,14 @@ Au début d'un combat, **chaque personnage fait un jet de Nerf** (Spécialités 
 | — | **Phase ennemie** : tous les ennemis | **2** |
 | Échec | **Phase lente** : après les ennemis | **1** |
 
-Dans une même phase, les joueurs choisissent leur ordre entre eux. Les phases restent les mêmes pendant tout le combat, sauf effet contraire (un arcane, une embuscade…).
+Dans une même phase, les joueurs choisissent leur ordre entre eux.
+
+On ne lance l'initiative **qu'une seule fois** par combat, mais la phase d'un personnage peut changer en cours de route :
+
+- **Reprendre l'initiative :** un personnage en phase lente peut dépenser **son action** pour relancer son jet de Nerf. S'il réussit, il passe en **phase rapide** à partir du tour suivant.
+- **Perdre l'initiative :** un personnage qui subit une **Blessure grave** ou qui devient **paniqué** passe automatiquement en **phase lente**.
+
+Sur Foundry, il suffit de changer sa valeur dans le suivi de combat (3 ou 1).
 
 **Embuscade :** un camp surpris passe tout entier en phase lente au premier tour.
 
@@ -64,6 +71,7 @@ Dans une même phase, les joueurs choisissent leur ordre entre eux. Les phases r
 | **Se mettre à couvert** | Jusqu'à son prochain tour, son couvert est amélioré d'un cran (aucun → léger → lourd). |
 | **Soigner** | Jet de **Médecine** sur un personnage au contact (§7). |
 | **Rallier** | Jet de **Commandement** : un allié paniqué en vue se reprend (§8). |
+| **Reprendre l'initiative** | En phase lente seulement : nouveau jet de **Nerf**. Réussite → phase rapide au tour suivant (§2). |
 | **Autre** | Couper des barbelés, poser une charge, ouvrir une porte, saboter… au jugement du MJ. |
 
 **Prier et pactiser** ne coûtent pas d'action : ils se décident juste avant un jet (chapitre I).
@@ -196,7 +204,7 @@ Il lance alors **1d6** :
 | 5 | **Hémorragie** | Perd 1 Blessure au début de chacun de ses tours, jusqu'à un jet de Médecine réussi |
 | 6 | **Mutilation** | Une séquelle **permanente** au choix du MJ (doigt, oreille, visage…) ; Nerfs −1 cran |
 
-Chaque Blessure grave entraîne aussi un **test d'usure de Nerfs**.
+Chaque Blessure grave entraîne aussi un **test d'usure de Nerfs**, et le personnage passe en **phase lente**.
 
 ### Hors de combat
 
@@ -229,7 +237,7 @@ Un personnage fait un **test d'usure de Nerfs** quand :
 
 ### Paniqué
 
-Quand ses **Nerfs sont épuisés**, le personnage devient **paniqué**. À chacun de ses tours, il lance **1d6** :
+Quand ses **Nerfs sont épuisés**, le personnage devient **paniqué** et passe en **phase lente**. À chacun de ses tours, il lance **1d6** :
 
 | d6 | Réaction |
 |---|---|
@@ -310,7 +318,7 @@ Marcel (Nerf 12) et Lucien (Nerf 10) sont pris sous le feu de deux hérétiques 
 ## Récapitulatif
 
 - **Échelle :** 1 case = 1,5 m ; toutes les distances en mètres.
-- **Initiative :** jet de Nerf. Réussite → phase rapide (3), ennemis (2), échec → phase lente (1).
+- **Initiative :** un seul jet de Nerf par combat. Réussite → phase rapide (3), ennemis (2), échec → phase lente (1). On peut la reprendre (action + nouveau jet) ou la perdre (Blessure grave, panique).
 - **Tour :** 1 déplacement (9 m) + 1 action, ou 2 déplacements. Réaction *Plonger* une fois par tour de jeu.
 - **Tir :** Tir + couvert (0 / −2 / −5) + portée (0 / −2), puis test d'usure de Munitions.
 - **Mêlée :** jet en opposition, Mêlée contre Mêlée ou Esquive.
