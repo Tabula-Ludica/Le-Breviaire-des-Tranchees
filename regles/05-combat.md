@@ -105,6 +105,8 @@ Chaque arme à distance a une **portée courte** et une **portée longue**, en m
 | Jusqu'à la **portée longue** | **−2** |
 | **Au-delà** | Tir impossible |
 
+Rappel : le total des malus de situation (couvert, portée, terrain…) ne descend jamais sous **−6** (chapitre I). Un tir sur une cible sous couvert lourd et à longue portée se fait donc à −6, pas à −7.
+
 ### Après le tir
 
 Que le tir touche ou non, le tireur fait un **test d'usure de Munitions**. Sur une **rafale** (§6), le test est **défavorisé** : on lance deux fois le dé de Munitions et on garde le plus bas.
@@ -307,7 +309,7 @@ Marcel (Nerf 12) et Lucien (Nerf 10) sont pris sous le feu de deux hérétiques 
 
 **Phase rapide.** Marcel rampe de 3 m vers un cratère (déplacement), puis **se met à couvert** (action) : jusqu'à son prochain tour, son couvert léger devient lourd.
 
-**Phase ennemie.** Le premier hérétique tire sur Marcel : Menace 10, couvert lourd −5, portée longue −2 → il doit faire **3 ou moins**. Il fait 14 : raté. Le second tire sur Lucien, à découvert, à 60 m : 10 − 2 = **8**. Il fait 6 : touché. Le fusil inflige d8 = 5, moins le casque de Lucien (1) : **4 Blessures**. Lucien passe de 10 à 6.
+**Phase ennemie.** Le premier hérétique tire sur Marcel : Menace 10, couvert lourd −5 et portée longue −2, plafonnés à −6 → il doit faire **4 ou moins**. Il fait 14 : raté. Le second tire sur Lucien, à découvert, à 60 m : 10 − 2 = **8**. Il fait 6 : touché. Le fusil inflige d8 = 5, moins le casque de Lucien (1) : **4 Blessures**. Lucien passe de 10 à 6.
 
 **Phase lente.** Lucien plonge dans une tranchée (déplacement) puis **vise** (action). Au prochain tour, son tir sera favorisé.
 

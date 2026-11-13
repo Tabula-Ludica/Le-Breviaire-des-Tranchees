@@ -519,6 +519,15 @@ function dessinerFiche() {
     <h3>Dés d'usure</h3>
     <div class="grille4">${USURES.map(([k, n]) => `<div class="case"><small>${n}</small><b>${usure[k]}</b></div>`).join("")}</div>
 
+    <h3>Combat</h3>
+    <div class="grille4">
+      <div class="case"><small>Blessures</small><b>${c.Chair}</b></div>
+      <div class="case"><small>Protection</small><b>${etat.affectation === "nettoyeur" ? '1 <span style="font-size:.8rem">(+2 bouclier)</span>' : "1"}</b></div>
+      <div class="case"><small>Déplacement</small><b>9 m</b></div>
+      <div class="case"><small>Initiative</small><b>${c.Nerf}</b></div>
+    </div>
+    <p>Jet de Mort (Chair ${c.Chair}) : ☐ ☐ ☐ <small>(mort au 3ᵉ échec)</small><br>Blessures graves : ______________________________</p>
+
     <h3>Spécialités</h3>
     <p class="legende"><span class="pips">○○</span> non maîtrisée · <span class="pips">●○</span> Formé (+2) · <span class="pips">●●</span> Expert (+4)</p>
     <div class="grille-spe">${blocsSpe}</div>

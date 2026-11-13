@@ -16,12 +16,9 @@ Ce chapitre donne les effets des **22 arcanes majeurs** du Paquet du Destin. On 
 
 Chaque effet est écrit pour **s'appliquer à n'importe quelle scène**. Le MJ le traduit dans la situation : une Grâce de *La Tour* peut faire s'effondrer un bunker, un pont ou le moral ennemi, selon ce qui se passe.
 
-### Deux termes nouveaux
+### Favorisé et défavorisé
 
-- **Favorisé** : on lance **2d20** et on garde **le plus bas**.
-- **Défavorisé** : on lance **2d20** et on garde **le plus haut**.
-
-Un 1 ou un 20 naturel ne compte que sur le dé gardé.
+Plusieurs effets rendent un jet **favorisé** ou **défavorisé** : voir le chapitre I.
 
 ### Ce que la Damnation ne fait jamais
 
@@ -154,4 +151,3 @@ Une Marque est **permanente** et **visible**, d'une manière ou d'une autre. Ell
 - **1 naturel :** on tire un arcane et on applique sa **Grâce**.
 - **20 naturel :** on tire un arcane et on applique sa **Damnation**, qui ne tue jamais directement.
 - **Corruption à 3, 6 et 9 :** on tire un arcane et le personnage reçoit sa **Marque**, permanente, avec un don et un prix. Une Marque déjà portée fait retirer une carte.
-- **Favorisé / défavorisé :** 2d20, on garde le plus bas / le plus haut.

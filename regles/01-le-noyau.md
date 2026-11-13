@@ -36,6 +36,23 @@ Le MJ ajuste la caractéristique, pas le dé :
 | Difficile | −2 |
 | Désespérée | −5 |
 
+### Le plafond des malus
+
+Les modificateurs de situation s'additionnent (difficulté, couvert, portée, terrain…), mais leur total **ne descend jamais sous −6**. Au-delà, l'action est soit impossible, soit **défavorisée** en plus, au choix du MJ.
+
+Les bonus de Spécialité (chapitre II) ne sont pas des modificateurs de situation : ils s'ajoutent toujours. Le score final reste plafonné à **19**.
+
+### Favorisé et défavorisé
+
+Certaines situations rendent un jet plus facile ou plus dur sans changer le score :
+
+- **Favorisé :** on lance **2d20** et on garde **le plus bas**.
+- **Défavorisé :** on lance **2d20** et on garde **le plus haut**.
+
+Favorisé et défavorisé ne se cumulent pas : deux sources « favorisé » donnent toujours un seul dé de plus. Si un jet est à la fois favorisé et défavorisé, les deux s'annulent et on lance un seul d20.
+
+Le même principe s'applique aux **dés d'usure** : un test d'usure défavorisé se fait avec deux dés, et on garde le plus bas.
+
 ### Jet en opposition
 
 Les deux camps lancent. Celui qui **réussit avec le résultat le plus élevé** l'emporte : il a réussi de justesse, mais avec plus d'ampleur. Si les deux échouent, la situation reste bloquée ou empire.
@@ -46,6 +63,8 @@ On lit le **d20 avant toute soustraction** :
 
 - **1 naturel → Miracle.** Réussite automatique, et on tire un arcane du Paquet du Destin (voir §5).
 - **20 naturel → Damnation.** Échec automatique, même avec prière ou pacte, et on tire un arcane du Paquet du Destin.
+
+Sur un jet favorisé ou défavorisé, seul le **dé gardé** compte pour le Miracle ou la Damnation.
 
 ---
 
@@ -175,7 +194,8 @@ Le MJ décrit Marcel accroché aux barbelés, à découvert. Au tour suivant, so
 
 ## Récapitulatif
 
-- **Agir :** 1d20 ≤ caractéristique.
+- **Agir :** 1d20 ≤ caractéristique. Malus de situation plafonnés à −6, score plafonné à 19.
+- **Favorisé / défavorisé :** 2d20, on garde le plus bas / le plus haut.
 - **Prier :** −1d6 du Chapelet. Un 1 est perdu ; en cas d'échec, la Foi descend.
 - **Pactiser :** −1d6 de Sang, +1 Corruption.
 - **User :** lancer le dé de la ressource ; sur 1-2, il descend d'un cran.
