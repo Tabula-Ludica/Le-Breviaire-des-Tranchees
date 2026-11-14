@@ -1,8 +1,8 @@
-# Les Fidèles
+# Le Monde des Fidèles
 
 Les Fidèles sont tous ceux qui combattent l'Enfer : soldats, pèlerins, prêtres, alliés plus ou moins sûrs. Ce sont les personnages joueurs et la plupart de leurs alliés.
 
-Cette page complète les **Origines** du chapitre III : elle décrit chaque puissance du point de vue du monde, pas des règles.
+Cette page complète les **Origines** du chapitre VI : elle décrit chaque puissance du point de vue du monde, pas des règles.
 
 ---
 

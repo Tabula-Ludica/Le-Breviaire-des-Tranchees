@@ -16,7 +16,7 @@ Au moment du jet (chapitre I), on lance le d20 contre :
 | **Nerf** | Les réflexes et le sang-froid | Tirer, esquiver, se cacher, courir sous le feu, garder la main sûre |
 | **Esprit** | L'intelligence et l'attention | Soigner, réparer, observer, planifier, se souvenir |
 | **Verbe** | L'ascendant sur les autres | Commander, convaincre, mentir, intimider, négocier |
-| **Âme** | La volonté et le lien avec l'invisible | Résister à l'horreur, à la tentation et à la corruption, sentir le surnaturel |
+| **Âme** | La volonté et le lien avec l'invisible | Résister à l'horreur, à {{la tentation}} et à {{la corruption}}, sentir le surnaturel |
 
 ### Échelle
 
@@ -52,7 +52,7 @@ Le bonus ne s'applique **que** lorsque l'action entre dans le domaine de la Spé
 
 ### D'où viennent les Spécialités
 
-À la création, un personnage reçoit ses Spécialités de deux sources (voir le chapitre III) :
+À la création, un personnage reçoit ses Spécialités de deux sources (voir le chapitre VI) :
 - son **Affectation**, c'est-à-dire son métier au front ;
 - son **Origine**, c'est-à-dire sa vie d'avant.
 
@@ -120,7 +120,7 @@ Après tous les bonus et modificateurs, le score à atteindre ne peut **jamais d
 
 | Spécialité | Domaine |
 |---|---|
-| **Ferveur** | Tenir face à la peur, prier sous le feu, rites et sacrements |
+| **Ferveur** | Tenir face à la peur, {{prier}} sous le feu, {{rites et sacrements}} |
 | **Exorcisme** | Repousser, lier ou chasser les créatures infernales |
 | **Pressentiment** | Sentir la présence du surnaturel, le danger, une malédiction |
 | **Endurcissement** | Encaisser l'horreur, la mort des camarades, la vision de l'Enfer |
@@ -140,7 +140,7 @@ Quelques Spécialités rares permettent d'utiliser **une autre caractéristique*
 | **Chirurgien de tranchée** | *Médecine* avec le **Nerf**, même au calme : ses mains ne tremblent jamais. |
 | **Instinct de la bête** | *Vigilance* avec l'**Âme** au lieu de l'Esprit : il sent le danger plus qu'il ne le voit. |
 
-> *L'aumônier Benedetto a Verbe 8 mais Âme 14, et il est Formé en Commandement. Grâce à Prêche aux armes, il rallie les troupes sur **14 + 2 = 16** au lieu de 10.*
+> *{{L'aumônier}} Benedetto a Verbe 8 mais Âme 14, et il est Formé en Commandement. Grâce à Prêche aux armes, il rallie les troupes sur **14 + 2 = 16** au lieu de 10.*
 
 ---
 

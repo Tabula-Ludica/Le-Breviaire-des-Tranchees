@@ -398,3 +398,30 @@ nav.sommaire li.groupe {
   .selecteur .choix .icone { margin: 0; font-size: 1.6rem; }
   .selecteur .choix .sous { display: none; }
 }
+
+/* ---------- Choix du camp (en-tête) ---------- */
+.choix-camp {
+  display: inline-flex; margin-top: 1.3rem;
+  border: 1px solid rgba(184,151,90,.45);
+  box-shadow: 0 4px 14px rgba(0,0,0,.4);
+}
+.choix-camp button {
+  font: 700 1rem "Cormorant SC", serif; letter-spacing: .14em;
+  padding: .55rem 1.3rem; cursor: pointer;
+  background: rgba(0,0,0,.25); color: var(--or);
+  border: 0; opacity: .7; transition: background .2s, opacity .2s, color .2s;
+}
+.choix-camp button + button { border-left: 1px solid rgba(184,151,90,.45); }
+.choix-camp button:hover { opacity: 1; }
+.choix-camp button.actif[data-camp="fideles"] { background: linear-gradient(180deg, #f3e6c4, #d9c28c); color: #4a3208; opacity: 1; }
+.choix-camp button.actif[data-camp="damnes"]  { background: linear-gradient(180deg, #8a1a12, #4a0c08); color: #ffe9e3; opacity: 1; }
+
+/* l'en-tête et le sommaire prennent la couleur du camp */
+body[data-camp="damnes"] header.titre h1 { text-shadow: 0 2px 0 #000, 0 0 40px rgba(179,38,27,.75); }
+nav.sommaire li.groupe-fideles { color: #e2c47a; }
+nav.sommaire li.groupe-damnes  { color: #e0574b; }
+
+/* mots qui changent selon le camp */
+.page .terme { border-bottom: 1px dotted rgba(138,26,18,.55); cursor: help; }
+.bulle-arcane .effet-don { border-left-color: #7d5a8c; } .bulle-arcane .effet-don b { color: #b99ac7; }
+nav.sommaire li.groupe:first-child { border-top: 0; margin-top: 0; padding-top: 0; }

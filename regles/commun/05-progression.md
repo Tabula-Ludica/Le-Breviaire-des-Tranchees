@@ -1,4 +1,4 @@
-# Chapitre VI — La Progression
+# Chapitre V — La Progression
 
 Il n'y a pas de points d'expérience à dépenser dans le Bréviaire. Un personnage progresse uniquement par **ce qu'il a vécu** : ce qu'il a tenté sous la pression, ce qu'il a raté, ce à quoi il a survécu.
 
@@ -20,7 +20,7 @@ Si le personnage n'avait pas la Spécialité, on coche quand même celle que l'a
 
 ### Ce qui ne compte pas
 
-- **Pas de coche si le personnage a prié ou pactisé** sur ce jet. Le Ciel ou l'Enfer a agi à sa place, et il n'en a rien appris.
+- **Pas de coche si le personnage a {{prié}} ou pactisé** sur ce jet. {{Le Ciel}} ou l'Enfer a agi à sa place, et il n'en a rien appris.
 - **Une seule coche par Spécialité et par mission.**
 
 ---
@@ -72,14 +72,14 @@ Quand l'Épreuve porte sur une Spécialité déjà **Expert**, on fait à la pla
 | Surmonté une panique par lui-même | **Nerf** |
 | Trouvé la solution quand tout semblait perdu | **Esprit** |
 | Tenu ou ramené ses hommes dans une débâcle | **Verbe** |
-| Atteint un palier de Corruption sans sombrer | **Âme** |
+| Atteint un palier de {{Corruption}} sans sombrer | **Âme** |
 
 Une seule Épreuve de ce type par personnage et par mission.
 
 ### Les limites
 
 - Une caractéristique ne peut **pas dépasser 16** par la progression.
-- Elle peut aussi **baisser** : une Mutilation (chapitre V) peut coûter 1 point dans la caractéristique touchée, au choix du MJ.
+- Elle peut aussi **baisser** : une Mutilation (chapitre IV) peut coûter 1 point dans la caractéristique touchée, au choix du MJ.
 
 ---
 
@@ -102,11 +102,11 @@ On ne monte pas en grade parce qu'on progresse : il faut que la hiérarchie le r
 
 | Promotion | Conditions habituelles |
 |---|---|
-| **Conscrit → Sous-officier** | Briscard, et un fait d'armes reconnu |
-| **Sous-officier → Officier** | Vétéran, Commandement au moins Formé, et un appui dans l'état-major |
-| **→ Prélat** | Aumônier, Ferveur Expert, et la reconnaissance de l'Église |
+| **{{Conscrit}} → {{Sous-officier}}** | Briscard, et un fait d'armes reconnu |
+| **{{Sous-officier}} → {{Officier}}** | Vétéran, Commandement au moins Formé, et un appui dans l'état-major |
+| **→ {{Prélat}}** | {{Aumônier}}, Ferveur Expert, et {{la reconnaissance de l'Église}} |
 
-Le Rang peut aussi se **perdre** : faute grave, désertion, insubordination, soupçon d'hérésie.
+Le Rang peut aussi se **perdre** : faute grave, désertion, insubordination, {{soupçon d'hérésie}}.
 
 ---
 
@@ -114,13 +114,13 @@ Le Rang peut aussi se **perdre** : faute grave, désertion, insubordination, sou
 
 ### La mort est définitive
 
-Un personnage mort ne revient pas. Ni prière, ni relique, ni miracle ne le ramène comme personnage joueur. Ce que l'Enfer peut en faire relever n'est plus lui.
+Un personnage mort ne revient pas. Ni {{prière}}, ni relique, ni miracle ne le ramène comme personnage joueur. Ce que l'Enfer peut en faire relever n'est plus lui.
 
 ### La relève
 
-Le joueur crée un nouveau personnage (chapitre III), qui arrive comme **Bleu**. S'il a connu le défunt (un camarade de régiment, un frère, un élève…), il bénéficie d'un **héritage** :
+Le joueur crée un nouveau personnage (chapitre VI), qui arrive comme **Bleu**. S'il a connu le défunt (un camarade de régiment, un frère, un élève…), il bénéficie d'un **héritage** :
 - **une Spécialité Formé** du défunt, qu'il n'avait pas ;
-- **un objet** du défunt (son arme, son chapelet, son carnet…).
+- **un objet** du défunt (son arme, {{son chapelet}}, son carnet…).
 
 ### Le Mur des noms
 
@@ -131,9 +131,9 @@ On tient sur la fiche d'escouade la liste des morts, avec le nom, l'Affectation,
 ## Exemple
 
 Pendant une mission, Marcel (Nerf 12, Tir Formé, Verbe 8) :
-- **rate un tir** en essayant de couvrir Lucien sous le feu, sans prier → il coche **Tir** ;
+- **rate un tir** en essayant de couvrir Lucien sous le feu, sans {{prier}} → il coche **Tir** ;
 - **tente de mentir** à un officier pour couvrir une faute, et échoue → il coche **Tromperie**, une Spécialité qu'il n'avait pas ;
-- **soigne Lucien** en priant, et réussit → pas de coche, le Ciel a aidé.
+- **soigne Lucien** en {{priant}}, et réussit → pas de coche, {{le Ciel}} a aidé.
 
 Au retour à l'arrière :
 - **Tir** (score 14) : il doit faire plus de 14. Il fait **17** → Tir devient **Expert**.
@@ -145,7 +145,7 @@ C'était sa troisième mission : Marcel devient **Briscard**.
 
 ## Récapitulatif
 
-- **Cocher :** jet à enjeu raté, ou 1 naturel, sans prière ni pacte ; une coche par Spécialité et par mission.
+- **Cocher :** jet à enjeu raté, ou 1 naturel, sans {{prière}} ni pacte ; une coche par Spécialité et par mission.
 - **Épreuve :** au retour, 1d20 **strictement supérieur** au score. Non maîtrisée → Formé → Expert.
 - **Caractéristiques :** +1 par une Épreuve sur une Spécialité Expert, ou après avoir frôlé la mort ou la folie. Maximum 16.
 - **Titres :** Briscard (3 missions), Vétéran (6), Revenant (10).

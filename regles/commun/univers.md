@@ -28,6 +28,30 @@ Il n'y a **pas de camp vraiment bon**. Les Fidèles se battent pour l'âme de l'
 
 ---
 
+## 5. Deux camps
+
+Le Bréviaire se joue d'un côté ou de l'autre de la ligne :
+
+- **Les Fidèles** combattent l'Enfer : soldats, pèlerins, prêtres.
+- **Les Damnés** l'ont choisi : hérétiques, cultistes, élus des démons.
+
+Les règles communes sont les mêmes pour les deux. Seuls quelques termes changent, et le site les adapte au camp choisi en haut de la page :
+
+| Fidèles | Damnés |
+|---|---|
+| Prier, la prière | Invoquer, l'invocation |
+| Le Chapelet | Le Calice |
+| La Foi | La Haine |
+| La Corruption | La Faveur |
+| Les Marques | Les Dons |
+| La Tentation | L'Ordre |
+| La Messe | La Messe noire |
+| L'Inquisition, le Soupçon | La Hiérarchie infernale, la Disgrâce |
+| Le Serment, le Péché | Le Pacte, le Remords |
+| Aumônier, Prélat | Prédicateur noir, Élu |
+
+---
+
 ## À développer
 
 - **Le front :** les grandes zones (le Levant, la Mésopotamie, le Mur de Fer, les mers), les secteurs typiques d'une campagne.

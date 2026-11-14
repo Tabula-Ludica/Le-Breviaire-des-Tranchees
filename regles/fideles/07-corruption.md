@@ -127,7 +127,7 @@ Le joueur garde le contrôle de son personnage **jusqu'à la fin de la scène**.
 
 À la fin de la scène, le personnage passe au MJ. Il devient un **Damné** : il peut revenir plus tard comme ennemi, comme tentateur, ou comme le visage de ce qui attend les autres.
 
-Le joueur crée un nouveau personnage (chapitre VI, la relève). Il n'y a **pas d'héritage** venant d'un personnage perdu à l'Enfer.
+Le joueur crée un nouveau personnage (chapitre V, la relève). Il n'y a **pas d'héritage** venant d'un personnage perdu à l'Enfer.
 
 ---
 

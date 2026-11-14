@@ -1,4 +1,4 @@
-# Chapitre V — Le Combat
+# Chapitre IV — Le Combat
 
 Le combat du Bréviaire est **tactique** : il se joue sur une carte quadrillée, avec des jetons, et il est pensé avant tout pour **Foundry VTT**. Toutes les **distances sont en mètres** et se mesurent avec la règle de la table virtuelle.
 
@@ -72,7 +72,7 @@ Sur Foundry, il suffit de changer sa valeur dans le suivi de combat (3 ou 1).
 | **Reprendre l'initiative** | En phase lente seulement : nouveau jet de **Nerf**. Réussite → phase rapide au tour suivant (§2). |
 | **Autre** | Couper des barbelés, poser une charge, ouvrir une porte, saboter… au jugement du MJ. |
 
-**Prier et pactiser** ne coûtent pas d'action : ils se décident juste avant un jet (chapitre I).
+**{{Prier}} et pactiser** ne coûtent pas d'action : ils se décident juste avant un jet (chapitre I).
 
 ### La réaction : Plonger
 
@@ -212,7 +212,7 @@ Chaque Blessure grave entraîne aussi un **test d'usure de Nerfs**, et le person
 - **Réussite :** il tient bon, et rien ne change.
 - **Échec :** on coche une case. À la **troisième case cochée**, il meurt.
 
-Il peut **prier** ou **pactiser** sur son jet de Mort. C'est souvent là que le Chapelet se vide.
+Il peut **{{prier}}** ou **pactiser** sur son jet de Mort. C'est souvent là que {{le Chapelet}} se vide.
 
 Un allié qui réussit un jet de **Médecine** sur lui le **stabilise** : il n'a plus de jet de Mort à faire et récupère **1d4 Blessures**.
 

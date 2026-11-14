@@ -1,8 +1,6 @@
-# Chapitre III — La Création du personnage
+# Chapitre VI — La Création d'un Fidèle
 
 Ce chapitre explique comment créer un **Fidèle** : un soldat, un pèlerin ou un religieux engagé dans la Grande Guerre contre l'Enfer.
-
-> *Pour jouer un Damné (Légions hérétiques, Culte du Graal Noir, Cour du Serpent à Sept Têtes, Transfuge), voir le chapitre VIII.*
 
 La création se fait en **sept étapes**, idéalement à la table et avec tout le groupe.
 
@@ -28,32 +26,7 @@ On mélange le Paquet du Destin et on tire **trois cartes**, posées de gauche �
 
 Les cartes **n'imposent rien** : elles donnent des pistes. Le joueur peut les interpréter librement, et le MJ peut s'en servir pour accrocher le personnage à l'histoire.
 
-### Sens des arcanes pour la création
-
-| N° | Arcane | Sens |
-|---|---|---|
-| I | **Le Mat** | Folie, errance, liberté |
-| II | **Le Bateleur** | Habileté, ruse, débuts |
-| III | **La Papesse** | Secret, savoir caché, silence |
-| IV | **L'Impératrice** | Foyer, abondance, protection |
-| V | **L'Empereur** | Autorité, ordre, devoir |
-| VI | **Le Pape** | Foi, tradition, enseignement |
-| VII | **L'Amoureux** | Choix, attachement, tentation du cœur |
-| VIII | **Le Chariot** | Conquête, victoire, élan |
-| IX | **La Justice** | Équité, vengeance, jugement |
-| X | **L'Ermite** | Solitude, quête, prudence |
-| XI | **La Roue de Fortune** | Hasard, destin, retournement |
-| XII | **La Force** | Courage, maîtrise de soi |
-| XIII | **Le Pendu** | Sacrifice, attente, renoncement |
-| XIV | **La Mort** | Fin, deuil, transformation |
-| XV | **Tempérance** | Guérison, patience, équilibre |
-| XVI | **Le Diable** | Tentation, chaînes, vice |
-| XVII | **La Tour** | Ruine, catastrophe, orgueil puni |
-| XVIII | **L'Étoile** | Espoir, guidance, pureté |
-| XIX | **La Lune** | Mensonge, peur, illusion |
-| XX | **Le Soleil** | Gloire, joie, vérité |
-| XXI | **Le Jugement** | Rédemption, appel, résurrection |
-| XXII | **Le Monde** | Accomplissement, voyage, totalité |
+Le sens de chaque carte est donné au chapitre III (*Les Arcanes*, « Le sens des cartes »).
 
 ### Jouer son Péché
 

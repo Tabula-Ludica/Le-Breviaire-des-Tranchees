@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/breviaire.css?v=6">
+<link rel="stylesheet" href="assets/breviaire.css?v=7">
 <style>
   .cadre.createur { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
 
@@ -125,7 +125,7 @@
 <header class="titre">
   <div class="croix">✠ ✠ ✠</div>
   <h1>Créateur de personnage</h1>
-  <div class="sous"><a href="index.html#03-creation">← Retour au Bréviaire des Tranchées</a> · <a href="index.html#codex/fideles">Le Codex</a></div>
+  <div class="sous"><a id="lien-retour" href="index.html#fideles-creation">← Retour au Bréviaire des Tranchées</a> · <a id="lien-monde" href="index.html#fideles-monde">Le Monde</a></div>
 </header>
 
 <div class="cadre createur">
@@ -141,7 +141,7 @@
 
       <section class="etape">
         <h2>1. Les trois arcanes</h2>
-        <p class="aide">Tirez au hasard ou choisissez vos cartes. <a class="no-print" href="index.html#04-arcanes/2-les-vingt-deux-arcanes" target="_blank" rel="noopener">Voir les arcanes</a></p>
+        <p class="aide">Tirez au hasard ou choisissez vos cartes. <a class="no-print" href="index.html#arcanes/2-les-vingt-deux-arcanes" target="_blank" rel="noopener">Voir les arcanes</a></p>
         <div class="arcanes" id="arcanes"></div>
         <div class="boutons"><button class="bouton-outil" id="tirer">✠ Tirer les trois arcanes</button></div>
       </section>
@@ -242,7 +242,7 @@ const ARCANES = [
   ["XXI","Le Jugement","Rédemption, appel, résurrection"],
   ["XXII","Le Monde","Accomplissement, voyage, totalité"],
 ];
-// Les deux camps : ce qui change entre Fidèles (chapitre III) et Damnés (chapitre VIII)
+// Les deux camps : ce qui change entre Fidèles et Damnés (chapitres VI et VII de chaque partie)
 const CAMPS = {
   fideles: { nom: "Les Fidèles", sous: "Ceux qui tiennent la ligne", icone: "✝", theme: "fideles",
     positions: ["Passé", "Serment", "Péché"],
@@ -380,6 +380,9 @@ const etatVide = () => ({
 });
 let etat = etatVide();
 try { const s = localStorage.getItem(CLE); if (s) etat = Object.assign(etatVide(), JSON.parse(s)); } catch (e) {}
+// le site peut ouvrir le créateur sur un camp précis : createur.html?camp=damnes
+{ const c = new URLSearchParams(location.search).get("camp");
+  if ((c === "fideles" || c === "damnes") && c !== etat.camp) { etat.camp = c; etat.option = null; etat.libres = []; } }
 
 const $ = id => document.getElementById(id);
 const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;" }[c]));
@@ -439,8 +442,11 @@ function dessinerCamp() {
     maj();
   });
   const C = CAMPS[etat.camp];
-  $("lien-codex").href = `index.html#codex/${C.codex}`;
-  $("lien-codex").textContent = `${C.icone} En savoir plus sur ${C.nom.toLowerCase()} dans le Codex`;
+  $("lien-codex").href = `index.html#${etat.camp}-monde`;
+  $("lien-codex").textContent = `${C.icone} En savoir plus sur ${C.nom.toLowerCase()}`;
+  $("lien-retour").href = `index.html#${etat.camp}-creation`;
+  $("lien-monde").href = `index.html#${etat.camp}-monde`;
+  try { localStorage.setItem("breviaire-camp", etat.camp); } catch (e) {}
 }
 
 function dessinerArcanes() {

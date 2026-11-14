@@ -6,21 +6,39 @@ Un projet [Tabula Ludica](https://github.com/Tabula-Ludica).
 
 ## Sommaire
 
-1. [Le Noyau](regles/01-le-noyau.md) — jet d'action, prière et pacte, dés d'usure, Chapelet, Paquet du Destin
-2. [Les Caractéristiques](regles/02-caracteristiques.md) — Chair, Nerf, Esprit, Verbe, Âme, et les Spécialités
-3. [La Création du personnage](regles/03-creation.md) — arcanes, Origines des Fidèles, Affectations, Rang, dotation
-4. [Les Arcanes](regles/04-arcanes.md) — Grâce, Damnation et Marque des 22 arcanes *(prototype)*
-5. [Le Combat](regles/05-combat.md) — initiative par phases, tir et couvert, armes, Blessures, panique, ennemis *(prototype)*
-6. [La Progression](regles/06-progression.md) — coches d'expérience, Épreuves, Titres de survie, Rang, mort et relève *(prototype)*
-7. [La Corruption](regles/07-corruption.md) — Tentation, paliers et dé de Sang, confession, Inquisition, la chute *(prototype)*
-8. [Jouer les Damnés](regles/08-damnes.md) — Calice, Haine, Faveur, Disgrâce, Origines et Affectations damnées *(prototype)*
+Le site est en trois parties. En haut de la page, on choisit son camp : les règles communes adaptent leur vocabulaire, et seule la partie du camp choisi s'affiche.
 
-### Le Codex *(en préparation)*
+### Règles communes
 
-Une seule page sur le site, avec un sélecteur entre trois volets :
+1. [Le Noyau](regles/commun/01-noyau.md)
+2. [Les Caractéristiques](regles/commun/02-caracteristiques.md)
+3. [Les Arcanes](regles/commun/03-arcanes.md) *(prototype)*
+4. [Le Combat](regles/commun/04-combat.md) *(prototype)*
+5. [La Progression](regles/commun/05-progression.md) *(prototype)*
+- [L'Univers](regles/commun/univers.md) *(en préparation)*
 
-- [L'Univers](codex/univers.md) — 1099, la porte de l'Enfer, huit siècles de guerre, 1914
-- [Les Fidèles](codex/fideles.md) — les puissances, les institutions, les PNJ alliés
-- [Les Damnés](codex/damnes.md) — Légions hérétiques, Graal Noir, Cour du Serpent
+### ✝ Les Fidèles
+
+6. [La Création d'un Fidèle](regles/fideles/06-creation.md)
+7. [La Corruption](regles/fideles/07-corruption.md) *(prototype)*
+- [Le Monde des Fidèles](regles/fideles/monde.md) *(en préparation)*
+
+### ⛧ Les Damnés
+
+6. [La Création d'un Damné](regles/damnes/06-creation.md) *(prototype)*
+7. [La Faveur](regles/damnes/07-faveur.md) *(prototype)*
+- [Le Monde des Damnés](regles/damnes/monde.md) *(en préparation)*
+
+### Écrire un texte commun aux deux camps
+
+Dans `regles/commun/`, un mot entre doubles accolades s'adapte au camp : `{{le Chapelet}}` s'affiche « le Chapelet » chez les Fidèles et « le Calice » chez les Damnés. Les correspondances sont dans le `LEXIQUE`, en haut du script de `index.html`. Pour un passage entier réservé à un camp :
+
+```html
+<div data-camp="damnes">
+
+Texte en Markdown, visible seulement chez les Damnés.
+
+</div>
+```
 
 > Projet fan-made, non affilié à Factory Fortress Inc. Trench Crusade et son univers appartiennent à leurs auteurs.

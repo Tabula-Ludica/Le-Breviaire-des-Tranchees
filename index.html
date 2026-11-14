@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/breviaire.css?v=6">
+<link rel="stylesheet" href="assets/breviaire.css?v=7">
 </head>
 <body>
 
@@ -16,6 +16,10 @@
   <div class="croix">✠ ✠ ✠</div>
   <h1>Le Bréviaire des Tranchées</h1>
   <div class="sous">Jeu de rôle dans l'univers de Trench Crusade · <a href="https://github.com/Tabula-Ludica">Tabula Ludica</a></div>
+  <div class="choix-camp" id="choix-camp" role="group" aria-label="Camp">
+    <button type="button" data-camp="fideles">✝ Fidèles</button>
+    <button type="button" data-camp="damnes">⛧ Damnés</button>
+  </div>
 </header>
 
 <div class="cadre">
@@ -24,7 +28,7 @@
     <nav class="sommaire" aria-label="Sommaire">
       <h2>Sommaire</h2>
       <ol id="liste-chapitres"></ol>
-      <div class="outils"><a href="createur.html"><span class="num">✠</span><span>Créateur de personnage</span></a></div>
+      <div class="outils"><a class="lien-createur" href="createur.html"><span class="num">✠</span><span>Créateur de personnage</span></a></div>
     </nav>
   </div>
 
@@ -39,24 +43,83 @@
 
 <script src="assets/marked.umd.js?v=4"></script>
 <script>
-  // Ajouter un chapitre = ajouter une ligne ici (fichier: null tant qu'il n'est pas écrit).
+  /* =====================================================================
+     LE SITE EN TROIS PARTIES
+     - partie "commun" : les règles valables pour les deux camps ;
+     - partie "fideles" et partie "damnes" : seule celle du camp choisi s'affiche.
+     Ajouter un chapitre = ajouter une ligne ici.
+     ===================================================================== */
+  const PARTIES = {
+    commun:  { titre: "Règles communes" },
+    fideles: { titre: "✝ Les Fidèles" },
+    damnes:  { titre: "⛧ Les Damnés" },
+  };
   const CHAPITRES = [
-    { num: "I",   id: "01-le-noyau",         titre: "Le Noyau",                 fichier: "regles/01-le-noyau.md" },
-    { num: "II",  id: "02-caracteristiques", titre: "Les Caractéristiques",     fichier: "regles/02-caracteristiques.md" },
-    { num: "III", id: "03-creation",         titre: "La Création du personnage", fichier: "regles/03-creation.md" },
-    { num: "IV",  id: "04-arcanes",          titre: "Les Arcanes",              fichier: "regles/04-arcanes.md", statut: "prototype" },
-    { num: "V",   id: "05-combat",           titre: "Le Combat",                fichier: "regles/05-combat.md", statut: "prototype" },
-    { num: "VI",  id: "06-progression",      titre: "La Progression",           fichier: "regles/06-progression.md", statut: "prototype" },
-    { num: "VII", id: "07-corruption",       titre: "La Corruption",            fichier: "regles/07-corruption.md", statut: "prototype" },
-    { num: "VIII", id: "08-damnes",          titre: "Jouer les Damnés",         fichier: "regles/08-damnes.md", statut: "prototype" },
-    // ---- Codex : une seule entrée, avec un sélecteur d'onglets ----
-    { groupe: "Codex", num: "✠", id: "codex", titre: "Le Codex", fichier: "codex/univers.md", statut: "preparation",
-      onglets: [
-        { id: "univers", titre: "L'Univers",   sous: "Le monde et son histoire",  icone: "✠", theme: "univers", fichier: "codex/univers.md" },
-        { id: "fideles", titre: "Les Fidèles", sous: "Ceux qui tiennent la ligne", icone: "✝", theme: "fideles", fichier: "codex/fideles.md" },
-        { id: "damnes",  titre: "Les Damnés",  sous: "Ceux qui ont choisi l'Enfer", icone: "⛧", theme: "damnes",  fichier: "codex/damnes.md" },
-      ] },
+    { partie: "commun",  num: "I",   id: "noyau",             titre: "Le Noyau",             fichier: "regles/commun/01-noyau.md" },
+    { partie: "commun",  num: "II",  id: "caracteristiques",  titre: "Les Caractéristiques", fichier: "regles/commun/02-caracteristiques.md" },
+    { partie: "commun",  num: "III", id: "arcanes",           titre: "Les Arcanes",          fichier: "regles/commun/03-arcanes.md", statut: "prototype" },
+    { partie: "commun",  num: "IV",  id: "combat",            titre: "Le Combat",            fichier: "regles/commun/04-combat.md", statut: "prototype" },
+    { partie: "commun",  num: "V",   id: "progression",       titre: "La Progression",       fichier: "regles/commun/05-progression.md", statut: "prototype" },
+    { partie: "commun",  num: "✠",   id: "univers",           titre: "L'Univers",            fichier: "regles/commun/univers.md", statut: "preparation" },
+
+    { partie: "fideles", num: "VI",  id: "fideles-creation",  titre: "La Création d'un Fidèle", fichier: "regles/fideles/06-creation.md" },
+    { partie: "fideles", num: "VII", id: "fideles-chute",     titre: "La Corruption",        fichier: "regles/fideles/07-corruption.md", statut: "prototype" },
+    { partie: "fideles", num: "✝",   id: "fideles-monde",     titre: "Le Monde des Fidèles", fichier: "regles/fideles/monde.md", statut: "preparation" },
+
+    { partie: "damnes",  num: "VI",  id: "damnes-creation",   titre: "La Création d'un Damné", fichier: "regles/damnes/06-creation.md", statut: "prototype" },
+    { partie: "damnes",  num: "VII", id: "damnes-chute",      titre: "La Faveur",            fichier: "regles/damnes/07-faveur.md", statut: "prototype" },
+    { partie: "damnes",  num: "⛧",   id: "damnes-monde",      titre: "Le Monde des Damnés",  fichier: "regles/damnes/monde.md", statut: "preparation" },
   ];
+
+  // anciens liens (avant la séparation en parties) → nouveaux
+  const ANCIENS = {
+    "01-le-noyau": "noyau", "02-caracteristiques": "caracteristiques", "03-creation": "{camp}-creation",
+    "04-arcanes": "arcanes", "05-combat": "combat", "06-progression": "progression",
+    "07-corruption": "fideles-chute", "08-damnes": "damnes-creation",
+    "codex": "univers", "codex-univers": "univers", "codex-fideles": "fideles-monde", "codex-damnes": "damnes-monde",
+  };
+
+  /* =====================================================================
+     LEXIQUE DES CAMPS
+     Dans les règles communes, un mot entre {{ }} s'affiche selon le camp choisi.
+     La clé est le texte des Fidèles ; la valeur, celui des Damnés.
+     Une majuscule au début de {{…}} est conservée automatiquement.
+     Pour un passage entier propre à un camp : <div data-camp="fideles"> … </div>
+     ===================================================================== */
+  const LEXIQUE = {
+    "prier": "invoquer", "prie": "invoque", "prié": "invoqué", "priant": "invoquant",
+    "prière": "invocation", "la prière": "l'invocation", "une prière": "une invocation", "les prières": "les invocations",
+    "de prière": "d'invocation",
+    "chapelet": "Calice", "le chapelet": "le Calice", "du chapelet": "du Calice", "au chapelet": "au Calice",
+    "dans le chapelet": "dans le Calice", "son chapelet": "son crâne-reliquaire",
+    "foi": "Haine", "la foi": "la Haine",
+    "la certitude que tout cela a un sens": "La rage qui le pousse à continuer",
+    "corruption": "Faveur", "la corruption": "la Faveur",
+    "marque": "Don", "une marque": "un Don", "sa marque": "son Don", "les marques": "les Dons",
+    "la tentation": "l'Ordre",
+    "la prochaine messe": "la prochaine Messe noire",
+    "confession": "offrande",
+    "rites et sacrements": "rites infernaux",
+    "l'enfer le marque (stigmate, mutation, don maudit)": "l'Enfer lui accorde un Don (stigmate, mutation, pouvoir)",
+    "perdu": "dévoré",
+    "le serment": "Le Pacte", "ce qui le fait tenir": "ce qu'il a juré à l'Enfer",
+    "le péché": "Le Remords", "son péché": "son Remords", "sa faiblesse": "ce qui reste d'humain en lui",
+    "le ciel": "l'Enfer",
+    "l'aumônier": "le prédicateur noir", "aumônier": "Prédicateur noir", "prélat": "Élu",
+    "conscrit": "Damné du rang", "sous-officier": "Sergent de légion", "officier": "Commandeur",
+    "la reconnaissance de l'église": "la marque d'un démon",
+    "soupçon d'hérésie": "Disgrâce", "un aumônier ou un inquisiteur": "un démon surveillant",
+    "l'inquisition le traquera": "les Fidèles le traqueront",
+    "un fidèle marqué qui est découvert peut s'attirer l'attention de l'aumônerie… ou de l'inquisition.":
+      "Un Damné infiltré chez les Fidèles doit cacher ses Dons : s'ils sont découverts, c'est le bûcher.",
+    "les fidèles le prennent pour un saint : il est **favorisé** en **persuasion** face aux croyants. mais l'eau bénite le brûle.":
+      "Il peut se faire passer pour un saint : il est **favorisé** en **Tromperie** face aux croyants. Mais l'eau bénite le brûle.",
+  };
+
+  const CLE_CAMP = "breviaire-camp";
+  let camp = "fideles";
+  try { camp = localStorage.getItem(CLE_CAMP) || camp; } catch (e) {}
+  if (!["fideles", "damnes"].includes(camp)) camp = "fideles";
 
   const STATUTS = {
     prototype:   { badge: "prototype",      bandeau: "<b>✠ Prototype</b> Ce chapitre est une première version de travail. Les effets ne sont pas encore testés en jeu et peuvent changer." },
@@ -76,74 +139,122 @@
 
   const slug = t => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
     .replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  const echapper = t => t.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-  function dessinerSommaire(actif, sections, base) {
+  /* ---------- sélecteur de camp (en-tête) ---------- */
+  const selCamp = document.getElementById("choix-camp");
+  function dessinerCamp() {
+    selCamp.querySelectorAll("button").forEach(b => {
+      const actif = b.dataset.camp === camp;
+      b.classList.toggle("actif", actif);
+      b.setAttribute("aria-pressed", actif);
+    });
+    document.body.dataset.camp = camp;
+    document.querySelectorAll("a.lien-createur").forEach(a => a.href = `createur.html?camp=${camp}`);
+  }
+  selCamp.querySelectorAll("button").forEach(b => b.addEventListener("click", () => {
+    if (b.dataset.camp === camp) return;
+    camp = b.dataset.camp;
+    try { localStorage.setItem(CLE_CAMP, camp); } catch (e) {}
+    dessinerCamp();
+    // une page propre à l'autre camp → la page équivalente du nouveau camp
+    const [id, ...reste] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const m = id.match(/^(fideles|damnes)-(.*)$/);
+    if (m) location.hash = `${camp}-${m[2]}`;
+    else afficher();
+  }));
+
+  /* ---------- texte selon le camp ---------- */
+  function adapter(md) {
+    return md.replace(/\{\{([^}]+)\}\}/g, (_, texte) => {
+      const cle = texte.trim().toLowerCase();
+      const damne = LEXIQUE[cle];
+      let rendu = texte;
+      if (camp === "damnes" && damne) {
+        rendu = /^[A-ZÀ-ÖØ-Þ]/.test(texte) ? damne[0].toUpperCase() + damne.slice(1) : damne;
+      }
+      const autre = camp === "damnes" ? texte : (damne || texte);
+      const titre = damne ? ` title="${echapper(camp === "damnes" ? "Chez les Fidèles : " + texte : "Chez les Damnés : " + autre)}"` : "";
+      return `<span class="terme"${titre}>${rendu}</span>`;
+    });
+  }
+
+  function chapitresVisibles() {
+    return CHAPITRES.filter(c => c.fichier && (c.partie === "commun" || c.partie === camp));
+  }
+
+  function dessinerSommaire(actif, sections) {
     liste.innerHTML = "";
-    let groupe = null;
-    for (const c of CHAPITRES) {
-      if ((c.groupe || null) !== groupe) {
-        groupe = c.groupe || null;
-        if (groupe) {
-          const t = document.createElement("li");
-          t.className = "groupe";
-          t.textContent = groupe;
-          liste.appendChild(t);
-        }
+    let partie = null;
+    for (const c of chapitresVisibles()) {
+      if (c.partie !== partie) {
+        partie = c.partie;
+        const t = document.createElement("li");
+        t.className = "groupe groupe-" + partie;
+        t.textContent = PARTIES[partie].titre;
+        liste.appendChild(t);
       }
       const li = document.createElement("li");
-      if (c.fichier) {
-        const a = document.createElement("a");
-        a.href = "#" + c.id;
-        a.innerHTML = `<span class="num">${c.num}</span><span>${c.titre}${STATUTS[c.statut] ? `<small class="badge">${STATUTS[c.statut].badge}</small>` : ""}</span>`;
-        if (actif && c.id === actif.id) a.classList.add("actif");
-        li.appendChild(a);
-        if (actif && c.id === actif.id && sections.length) {
-          const sous = document.createElement("div");
-          sous.className = "sections";
-          for (const s of sections) {
-            const sa = document.createElement("a");
-            sa.href = "#" + (base || c.id) + "/" + s.id;
-            sa.textContent = s.texte;
-            sous.appendChild(sa);
-          }
-          li.appendChild(sous);
+      const a = document.createElement("a");
+      a.href = "#" + c.id;
+      a.innerHTML = `<span class="num">${c.num}</span><span>${c.titre}${STATUTS[c.statut] ? `<small class="badge">${STATUTS[c.statut].badge}</small>` : ""}</span>`;
+      if (actif && c.id === actif.id) a.classList.add("actif");
+      li.appendChild(a);
+      if (actif && c.id === actif.id && sections.length) {
+        const sous = document.createElement("div");
+        sous.className = "sections";
+        for (const s of sections) {
+          const sa = document.createElement("a");
+          sa.href = "#" + c.id + "/" + s.id;
+          sa.textContent = s.texte;
+          sous.appendChild(sa);
         }
-      } else {
-        li.innerHTML = `<span class="avenir"><span class="num">${c.num}</span><span>${c.titre}<small>à venir</small></span></span>`;
+        li.appendChild(sous);
       }
       liste.appendChild(li);
     }
   }
 
   async function afficher() {
-    const parts = decodeURIComponent(location.hash.slice(1)).split("/");
-    const ecrits = CHAPITRES.filter(c => c.fichier);
-    const chap = ecrits.find(c => c.id === parts[0]) || ecrits[0];
-
-    // chapitres à onglets (le Codex) : #codex/fideles/section
-    let onglet = null, idSection = parts[1];
-    if (chap.onglets) {
-      onglet = chap.onglets.find(o => o.id === parts[1]);
-      idSection = onglet ? parts[2] : parts[1];
-      onglet = onglet || chap.onglets[0];
+    let [idChap, idSection] = decodeURIComponent(location.hash.slice(1)).split("/");
+    if (ANCIENS[idChap]) {
+      const neuf = ANCIENS[idChap].replace("{camp}", camp);
+      location.replace("#" + neuf + (idSection ? "/" + idSection : ""));
+      return;
     }
-    const fichier = onglet ? onglet.fichier : chap.fichier;
-    const base = onglet ? `${chap.id}/${onglet.id}` : chap.id;
+    const visibles = chapitresVisibles();
+    let chap = visibles.find(c => c.id === idChap);
+    if (!chap) {
+      // page de l'autre camp ouverte par un lien : on bascule de camp
+      const autre = CHAPITRES.find(c => c.id === idChap);
+      if (autre && autre.partie !== "commun") {
+        camp = autre.partie;
+        try { localStorage.setItem(CLE_CAMP, camp); } catch (e) {}
+        dessinerCamp();
+        return afficher();
+      }
+      chap = visibles[0];
+    }
 
     try {
-      if (!cache[fichier]) {
-        const r = await fetch(fichier, { cache: "no-cache" });
+      if (!cache[chap.fichier]) {
+        const r = await fetch(chap.fichier, { cache: "no-cache" });
         if (!r.ok) throw new Error(r.status);
-        cache[fichier] = await r.text();
+        cache[chap.fichier] = await r.text();
       }
-      page.innerHTML = marked.parse(cache[fichier]);
+      page.innerHTML = marked.parse(adapter(cache[chap.fichier]));
     } catch (e) {
       page.innerHTML = `<p class="erreur">Cette page du Bréviaire est illisible (${e.message}).</p>`;
       dessinerSommaire(chap, []);
       return;
     }
 
-    // bandeau « prototype »
+    // passages propres à un camp
+    page.querySelectorAll("[data-camp]").forEach(el => {
+      if (el.dataset.camp !== camp) el.remove();
+      else el.replaceWith(...el.childNodes);
+    });
+
     if (STATUTS[chap.statut]) {
       const bandeau = document.createElement("div");
       bandeau.className = "bandeau-prototype";
@@ -151,28 +262,13 @@
       page.prepend(bandeau);
     }
 
-    // sélecteur d'onglets
-    if (chap.onglets) {
-      const sel = document.createElement("nav");
-      sel.className = "selecteur";
-      sel.setAttribute("aria-label", chap.titre);
-      sel.innerHTML = chap.onglets.map(o => `
-        <a href="#${chap.id}/${o.id}" class="choix theme-${o.theme}${o === onglet ? " actif" : ""}"${o === onglet ? ' aria-current="page"' : ""}>
-          <span class="icone">${o.icone}</span><span class="titre">${o.titre}</span><span class="sous">${o.sous}</span>
-        </a>`).join("");
-      (page.querySelector(".bandeau-prototype") || page.firstChild).after(sel);
-    }
+    if (chap.id === "arcanes") construireGalerie(chap.id);
 
-    // galerie de tarot dans le chapitre IV
-    if (chap.id === "04-arcanes") construireGalerie();
-
-    // bouton du créateur de personnage dans le chapitre III
-    if (chap.id === "03-creation") {
+    if (/-creation$/.test(chap.id)) {
       const encart = document.createElement("div");
       encart.className = "encart-outil";
-      encart.innerHTML = '<a class="bouton-outil" href="createur.html">✠ Ouvrir le créateur de personnage</a>';
-      const apres = page.querySelector("h1 + blockquote") || page.querySelector("h1");
-      apres.after(encart);
+      encart.innerHTML = `<a class="bouton-outil lien-createur" href="createur.html?camp=${camp}">${camp === "damnes" ? "⛧" : "✝"} Ouvrir le créateur de personnage</a>`;
+      page.querySelector("h1").after(encart);
     }
 
     // ancres sur les titres de section
@@ -183,25 +279,27 @@
     });
 
     // précédent / suivant
-    const i = ecrits.indexOf(chap);
-    const prec = ecrits[i - 1], suiv = ecrits[i + 1];
+    const i = visibles.indexOf(chap);
+    const prec = visibles[i - 1], suiv = visibles[i + 1];
     if (prec || suiv) {
       const div = document.createElement("div");
       div.className = "suite";
       div.innerHTML =
-        (prec ? `<a href="#${prec.id}">← ${prec.num}. ${prec.titre}</a>` : "<span></span>") +
-        (suiv ? `<a href="#${suiv.id}">${suiv.num}. ${suiv.titre} →</a>` : "<span></span>");
+        (prec ? `<a href="#${prec.id}">← ${prec.titre}</a>` : "<span></span>") +
+        (suiv ? `<a href="#${suiv.id}">${suiv.titre} →</a>` : "<span></span>");
       page.appendChild(div);
     }
 
-    document.title = `${onglet ? onglet.titre : chap.titre} · Le Bréviaire des Tranchées`;
-    dessinerSommaire(chap, sections, base);
+    document.title = `${chap.titre} · Le Bréviaire des Tranchées`;
+    dessinerSommaire(chap, sections);
     nav.classList.remove("ouvert");
     bouton.setAttribute("aria-expanded", "false");
 
     if (idSection) document.getElementById(idSection)?.scrollIntoView();
     else window.scrollTo(0, 0);
   }
+
+  dessinerCamp();
 
   /* ---------- Galerie des arcanes ----------
      Les données sont lues directement dans le chapitre (titres ### et listes),
@@ -215,7 +313,7 @@
     img.src = `${base}.${FORMATS[i]}`;
   }
 
-  function construireGalerie() {
+  function construireGalerie(idChap) {
     const cartes = [];
     page.querySelectorAll("h3").forEach(h => {
       const [num, nom] = h.textContent.split(" · ");
@@ -237,7 +335,7 @@
       const fichier = String(i + 1).padStart(2, "0");   // 01 = Le Mat … 22 = Le Monde
       const carte = document.createElement("a");
       carte.className = "arcane";
-      carte.href = `#04-arcanes/${c.ancre}`;
+      carte.href = `#${idChap}/${c.ancre}`;
       carte.innerHTML = `
         <div class="visuel"><img alt="${c.nom}" loading="lazy"></div>
         <div class="remplacement"><span class="chiffre">${c.num}</span><span class="croix">✠</span><span class="nom">${c.nom}</span></div>
