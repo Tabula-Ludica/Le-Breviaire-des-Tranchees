@@ -1,4 +1,4 @@
-# Chapitre VI — La Création d'un Fidèle
+# Chapitre VIII — La Création d'un Fidèle
 
 Ce chapitre explique comment créer un **Fidèle** : un soldat, un pèlerin ou un religieux engagé dans la Grande Guerre contre l'Enfer.
 

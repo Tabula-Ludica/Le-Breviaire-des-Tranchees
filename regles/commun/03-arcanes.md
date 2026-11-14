@@ -14,7 +14,7 @@ Ce chapitre donne les effets des **22 arcanes majeurs** du Paquet du Destin. On 
 
 ### Le sens des cartes
 
-Chaque arcane porte un sens. Il sert surtout à la création du personnage (chapitre VI), pour inspirer son histoire, et aide le MJ à interpréter les effets.
+Chaque arcane porte un sens. Il sert surtout à la création du personnage (chapitre VIII), pour inspirer son histoire, et aide le MJ à interpréter les effets.
 
 | N° | Arcane | Sens |
 |---|---|---|

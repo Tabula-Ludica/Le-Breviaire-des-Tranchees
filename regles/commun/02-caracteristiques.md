@@ -52,7 +52,7 @@ Le bonus ne s'applique **que** lorsque l'action entre dans le domaine de la Spé
 
 ### D'où viennent les Spécialités
 
-À la création, un personnage reçoit ses Spécialités de deux sources (voir le chapitre VI) :
+À la création, un personnage reçoit ses Spécialités de deux sources (voir le chapitre VIII) :
 - son **Affectation**, c'est-à-dire son métier au front ;
 - son **Origine**, c'est-à-dire sa vie d'avant.
 

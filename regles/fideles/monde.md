@@ -2,7 +2,7 @@
 
 Les Fidèles sont tous ceux qui combattent l'Enfer : soldats, pèlerins, prêtres, alliés plus ou moins sûrs. Ce sont les personnages joueurs et la plupart de leurs alliés.
 
-Cette page complète les **Origines** du chapitre VI : elle décrit chaque puissance du point de vue du monde, pas des règles.
+Cette page complète les **Origines** du chapitre VIII : elle décrit chaque puissance du point de vue du monde, pas des règles.
 
 ---
 
@@ -40,7 +40,7 @@ L'autre grande puissance qui tient face à l'Enfer, alliée de la Croisade sans 
 | Institution | Rôle | À développer |
 |---|---|---|
 | **L'aumônerie** | Les prêtres au front, les sacrements, la confession | Hiérarchie, sacrements disponibles |
-| **L'Inquisition** | Traque l'hérésie et la Corruption, y compris chez les Fidèles | Méthodes, grades, rapport aux escouades (voir chapitre VII) |
+| **L'Inquisition** | Traque l'hérésie et la Corruption, y compris chez les Fidèles | Méthodes, grades, rapport aux escouades (voir chapitre IX) |
 | **L'état-major** | Donne les ordres, envoie les escouades | Personnages types, ordres de mission |
 
 ---

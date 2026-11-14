@@ -118,7 +118,7 @@ Un personnage mort ne revient pas. Ni {{prière}}, ni relique, ni miracle ne le 
 
 ### La relève
 
-Le joueur crée un nouveau personnage (chapitre VI), qui arrive comme **Bleu**. S'il a connu le défunt (un camarade de régiment, un frère, un élève…), il bénéficie d'un **héritage** :
+Le joueur crée un nouveau personnage (chapitre VIII), qui arrive comme **Bleu**. S'il a connu le défunt (un camarade de régiment, un frère, un élève…), il bénéficie d'un **héritage** :
 - **une Spécialité Formé** du défunt, qu'il n'avait pas ;
 - **un objet** du défunt (son arme, {{son chapelet}}, son carnet…).
 

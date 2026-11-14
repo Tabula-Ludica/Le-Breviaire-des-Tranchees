@@ -95,7 +95,7 @@ Un personnage dont {{la Foi}} est **épuisée** ne peut plus {{prier}}.
 
 ### Pactiser
 
-1. Prendre le **dé de Sang** (un dé rouge, toujours disponible) : un **d6**, qui grossit avec {{la Corruption}} (chapitre VII).
+1. Prendre le **dé de Sang** (un dé rouge, toujours disponible) : un **d6**, qui grossit avec {{la Corruption}} (chapitre IX).
 2. Le lancer en même temps que le d20.
 3. **Soustraire** le résultat du dé de Sang au d20.
 4. Le personnage gagne **1 point de {{Corruption}}**, que le jet réussisse ou non.
@@ -129,7 +129,7 @@ Une ressource **épuisée** ne peut plus être utilisée : plus de munitions, pl
 
 ### Récupérer
 
-On ne remonte une ressource que par le récit : ravitaillement, repos à l'arrière, {{confession}}, lettre de chez soi… Le MJ décide de combien de crans elle remonte.
+Pendant une mission, on ne remonte une ressource que par le récit (un ravitaillement, une caisse trouvée…), et le MJ décide de combien de crans. Au retour, les ressources remontent selon le chapitre VI (*L'Arrière*).
 
 ---
 
@@ -197,7 +197,7 @@ On tire **uniquement** dans trois cas :
 
 Quand {{la Corruption}} d'un personnage atteint **3, 6 ou 9**, on tire un arcane : {{l'Enfer le marque (stigmate, mutation, don maudit)}} selon l'arcane.
 
-À **10**, le personnage est **{{perdu}}**. Il devient un PNJ entre les mains du MJ. Tout le détail est au chapitre VII.
+À **10**, le personnage est **{{perdu}}**. Il devient un PNJ entre les mains du MJ. Tout le détail est au chapitre IX.
 
 ### La création du personnage
 

@@ -1,4 +1,4 @@
-# Chapitre VII — La Corruption
+# Chapitre IX — La Corruption
 
 La Corruption mesure ce que l'Enfer a déjà pris d'un personnage. Elle va de **0 à 10**.
 

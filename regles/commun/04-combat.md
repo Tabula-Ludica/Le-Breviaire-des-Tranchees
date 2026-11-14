@@ -140,7 +140,7 @@ Une attaque réussie inflige le **dé de dégâts** de l'arme, **moins la Protec
 | **Couteau de tranchée** | d4 | *Discret* : favorisé contre une cible qui ne l'a pas vu venir |
 | **Baïonnette** (sur fusil) | d6 | Ne nécessite pas de changer d'arme |
 | **Masse cloutée** | d8 | *Brutal* : ignore 1 point de Protection |
-| **Fléau** | d8 | *Sacré* : dégâts doublés contre les Démons |
+| **Fléau** | d8 | *Sacré* (voir plus bas) |
 | **Hallebarde** | d10 | *Allonge* : frappe jusqu'à 3 m ; *Deux mains* |
 | **Poings, crosse, pelle** | d4 | — |
 
@@ -165,10 +165,19 @@ Les grenades et les charges se **comptent à l'unité** : elles ne passent pas p
 |---|---|---|---|---|
 | **Grenade** | d10 | 20 m | 3 m de rayon | Raté : tombe à d6 × 1,5 m du point visé |
 | **Cocktail incendiaire** | d6 | 15 m | 2 m de rayon | *Enflammé* : d4 par tour jusqu'à ce qu'on s'éteigne (une action) |
-| **Eau bénite** (fiole) | d6 | 10 m | Une cible | Ne blesse que les Démons, mais ignore leur Protection |
+| **Eau bénite** (fiole) | d6 | 10 m | Une cible | Ne blesse que les cibles *impies* (voir plus bas), mais ignore leur Protection |
 | **Charge explosive** | 2d10 | Posée | 5 m de rayon | Une action pour la poser ; Explosifs pour la régler |
 
 Une cible prise dans une zone peut faire un jet d'**Esquive** : en cas de réussite, elle ne subit que **la moitié** des dégâts.
+
+### Sacré et impie
+
+Une arme **Sacrée** (un fléau, une arme bénie par un rite, l'eau bénite…) inflige des **dégâts doublés** aux cibles **impies** :
+- les créatures qui ont le trait **Démon** ;
+- les **Damnés** qui portent au moins un **Don**, et les **Possédés** ;
+- les Fidèles marqués par l'Enfer (au moins une **Marque**).
+
+L'Enfer laisse sa trace, quel que soit le camp : une Marque ou un Don rend vulnérable à ce qui est saint.
 
 ### Protections
 
@@ -276,28 +285,7 @@ Pour que le MJ joue vite, les ennemis ont une **fiche courte**. Ils ne lancent q
 | **Déplacement** | En mètres |
 | **Traits** | Leurs règles spéciales |
 
-### Traits courants
-
-| Trait | Effet |
-|---|---|
-| **Effroi** | La première fois qu'on la voit, la créature provoque un test d'usure de Nerfs. |
-| **Démon** | Insensible à la peur. Les armes *Sacrées* et l'eau bénite lui infligent des dégâts doublés. |
-| **Insensible** | Ne subit pas de Blessure grave ; tombe simplement à 0. |
-| **Meute** | Favorisé s'il attaque une cible déjà au contact d'un allié. |
-| **Chef** | Les alliés à 9 m ou moins sont favorisés à leur premier jet de chaque combat. |
-| **Grand** | Occupe 3 × 3 cases ; ne peut pas se mettre à couvert. |
-| **Rapide** | Déplacement de 15 m. |
-
-### Bestiaire de test
-
-| Ennemi | Menace | Blessures | Dégâts | Protection | Déplacement | Traits |
-|---|---|---|---|---|---|---|
-| **Hérétique de tranchée** | 10 | 8 | Fusil d8 (50/200 m) ou baïonnette d6 | 1 | 9 m | — |
-| **Sous-officier hérétique** | 12 | 11 | Pistolet d6, sabre d8 | 2 | 9 m | Chef |
-| **Chien de l'Enfer** | 11 | 6 | Morsure d6 | 0 | 15 m | Rapide, Meute, Démon |
-| **Mort de tranchée** | 9 | 10 | Griffes d6 | 0 | 6 m | Insensible, Effroi |
-| **Diablotin** | 12 | 10 | Griffes d8 | 2 | 9 m | Démon, Effroi |
-| **Bête de l'abîme** | 14 | 30 | Écrasement d12 | 4 | 9 m | Démon, Effroi, Grand |
+Les traits, et les fiches des ennemis des deux camps, sont dans le **Bestiaire** (chapitre VII).
 
 ---
 

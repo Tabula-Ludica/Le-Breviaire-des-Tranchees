@@ -1,4 +1,4 @@
-# Chapitre VI — La Création d'un Damné
+# Chapitre VIII — La Création d'un Damné
 
 Ce chapitre explique comment créer un **Damné** : un soldat, un cultiste ou un élu qui a choisi l'Enfer, par ambition, par haine, par désespoir ou par naissance.
 
@@ -73,7 +73,7 @@ Chaque Origine donne **2 Spécialités** au rang Formé, **une Particularité** 
 *Un ancien Fidèle qui a tourné le dos au Ciel : déserteur, prêtre déchu, croisé brisé.*
 
 - **Spécialités :** celles d'**une Origine de Fidèle** au choix (voir la création des Fidèles), sans sa Particularité.
-- **Particularité, Visage d'emprunt :** il peut se faire passer pour un Fidèle ; il est **favorisé** en Tromperie face à eux. Ses maîtres s'en méfient : +2 au jet de Disgrâce (chapitre VII).
+- **Particularité, Visage d'emprunt :** il peut se faire passer pour un Fidèle ; il est **favorisé** en Tromperie face à eux. Ses maîtres s'en méfient : +2 au jet de Disgrâce (chapitre IX).
 - **Usure :** Haine +1 cran
 
 ---

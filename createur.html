@@ -6,7 +6,7 @@
 <title>Créateur de personnage · Le Bréviaire des Tranchées</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght0,400;0,600;0,700;1,400&family=Cormorant+SC:wght500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/breviaire.css?v=7">
 <style>
   .cadre.createur { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
@@ -99,19 +99,19 @@
   .fiche .bloc-spe li.sub { font-style: italic; font-size: .88rem; padding-left: .2rem; }
   .fiche .bloc-spe li.sub .score { color: var(--sang); }
   .fiche .pips { color: var(--sang); letter-spacing: -.05em; font-size: .85rem; min-width: 1.4rem; }
-  @media (max-width: 420px) { .fiche .grille-spe { grid-template-columns: 1fr; } }
+  media (max-width: 420px) { .fiche .grille-spe { grid-template-columns: 1fr; } }
 
-  @media (max-width: 960px) {
+  media (max-width: 960px) {
     .cadre.createur { grid-template-columns: minmax(0, 1fr); }
     .fiche { position: static; }
   }
-  @media (max-width: 560px) {
+  media (max-width: 560px) {
     .caracs { grid-template-columns: repeat(3, 1fr); }
     .arcanes { grid-template-columns: 1fr; }
   }
 
   /* impression : seulement la fiche */
-  @media print {
+  media print {
     body { background: #fff; }
     header.titre, footer, .formulaire, .no-print { display: none !important; }
     .cadre.createur { display: block; margin: 0; padding: 0; max-width: none; }
@@ -242,7 +242,7 @@ const ARCANES = [
   ["XXI","Le Jugement","Rédemption, appel, résurrection"],
   ["XXII","Le Monde","Accomplissement, voyage, totalité"],
 ];
-// Les deux camps : ce qui change entre Fidèles et Damnés (chapitres VI et VII de chaque partie)
+// Les deux camps : ce qui change entre Fidèles et Damnés (chapitres VIII et IX de chaque partie)
 const CAMPS = {
   fideles: { nom: "Les Fidèles", sous: "Ceux qui tiennent la ligne", icone: "✝", theme: "fideles",
     positions: ["Passé", "Serment", "Péché"],
