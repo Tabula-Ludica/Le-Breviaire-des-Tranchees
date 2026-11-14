@@ -1,6 +1,12 @@
 # Chapitre III — Les Arcanes
 
-Ce chapitre donne les effets des **22 arcanes majeurs** du Paquet du Destin. On tire une carte dans trois cas (voir chapitre I, §5) :
+Le Paquet du Destin existe en **deux versions**, une par camp :
+- les **Fidèles** jouent avec le **Tarot saint**, les 22 arcanes majeurs du tarot ;
+- les **Damnés** jouent avec le **Tarot noir**, ses 22 reflets infernaux.
+
+Les deux paquets fonctionnent de la même façon et portent les mêmes numéros (de I à XXII). Seuls leurs cartes et leurs effets changent. Le site affiche celui du camp choisi.
+
+On tire une carte dans trois cas (voir chapitre I, §5) :
 
 | Situation | Effet appliqué |
 |---|---|
@@ -15,6 +21,8 @@ Ce chapitre donne les effets des **22 arcanes majeurs** du Paquet du Destin. On 
 ### Le sens des cartes
 
 Chaque arcane porte un sens. Il sert surtout à la création du personnage (chapitre VIII), pour inspirer son histoire, et aide le MJ à interpréter les effets.
+
+<div data-camp="fideles">
 
 | N° | Arcane | Sens |
 |---|---|---|
@@ -41,6 +49,36 @@ Chaque arcane porte un sens. Il sert surtout à la création du personnage (chap
 | XXI | **Le Jugement** | Rédemption, appel, résurrection |
 | XXII | **Le Monde** | Accomplissement, voyage, totalité |
 
+</div>
+<div data-camp="damnes">
+
+| N° | Arcane | Sens |
+|---|---|---|
+| I | **L'Égaré** | Errance, oubli, perte de soi |
+| II | **Le Charlatan** | Mensonge, illusion, marchandage |
+| III | **La Sorcière** | Savoir interdit, secret, poison |
+| IV | **La Mère des Vers** | Pourriture, fécondité corrompue |
+| V | **Le Tyran** | Domination, peur, ordre infernal |
+| VI | **L'Antipape** | Fausse foi, sacrilège |
+| VII | **Le Traître** | Trahison, lien brisé |
+| VIII | **La Horde** | Nombre, élan, conquête |
+| IX | **La Vengeance** | Rancune, châtiment, dette |
+| X | **L'Exilé** | Solitude, chemins cachés |
+| XI | **La Roue des Supplices** | Hasard cruel, retournement |
+| XII | **La Bête** | Rage, instinct, violence |
+| XIII | **Le Supplicié** | Souffrance offerte, sacrifice |
+| XIV | **La Moisson** | Mort, récolte des âmes |
+| XV | **L'Ivresse** | Excès, débauche, oubli |
+| XVI | **Le Prince** | Pouvoir infernal, pacte |
+| XVII | **La Brèche** | Ouverture de l'Enfer, catastrophe |
+| XVIII | **L'Étoile noire** | Faux espoir, guide maudit |
+| XIX | **L'Éclipse** | Ténèbres, illusion, peur |
+| XX | **Le Brasier** | Flamme, gloire infernale |
+| XXI | **Le Réveil des morts** | Retour, appel, résurrection impie |
+| XXII | **L'Abîme** | Fin, vide, accomplissement infernal |
+
+</div>
+
 ### Le MJ adapte
 
 Chaque effet est écrit pour **s'appliquer à n'importe quelle scène**. Le MJ le traduit dans la situation : une Grâce de *La Tour* peut faire s'effondrer un bunker, un pont ou le moral ennemi, selon ce qui se passe.
@@ -61,7 +99,9 @@ Une Damnation **ne tue jamais directement** un personnage. Elle le met en danger
 
 ---
 
-## 2. Les vingt-deux arcanes
+<div data-camp="fideles">
+
+## 2. Le Tarot saint
 
 ### I · Le Mat
 - **Grâce : Folie salvatrice.** L'action réussit de la manière la plus absurde possible, et le personnage ignore son prochain test d'usure de **Nerfs**.
@@ -172,6 +212,123 @@ Une Damnation **ne tue jamais directement** un personnage. Elle le met en danger
 - **Grâce : L'Accomplissement.** L'objectif de la scène est atteint entièrement, et même au-delà.
 - **Damnation : Tout s'écroule.** L'objectif de la scène devient impossible : il faut trouver une autre voie.
 - **{{Marque}} : La Boussole noire.** Il sait toujours où se trouvent le nord… et la Porte de l'Enfer. Mais les démons le reconnaissent : ils le sentent venir de loin, et certains le prennent pour l'un des leurs.
+
+</div>
+<div data-camp="damnes">
+
+## 2. Le Tarot noir
+
+### I · L'Égaré
+- **Grâce : L'Oubli.** L'action réussit, et un ennemi présent le prend pour l'un des siens jusqu'à ce qu'il attaque.
+- **Damnation : Perdu en lui-même.** Il ne sait plus pourquoi il se bat : sa **Haine** descend d'un cran.
+- **Don : Le Visage vide.** Personne ne se souvient de son visage : il est **favorisé** en **Discrétion** pour se fondre parmi les Fidèles. Mais ses camarades ne s'en souviennent pas non plus : il ne bénéficie plus du trait *Chef* et ne peut pas être rallié.
+
+### II · Le Charlatan
+- **Grâce : Le Tour de passe-passe.** Réussite, et il dérobe quelque chose à l'ennemi : ses **Munitions** ou ses **Vivres** remontent d'un cran.
+- **Damnation : Le Marché de dupes.** Un objet de sa dotation se révèle faux, enrayé ou piégé.
+- **Don : La Langue fourchue.** +2 en **Tromperie** et en **Persuasion**. Mais ses maîtres ne le croient plus : +2 à chaque jet de Disgrâce.
+
+### III · La Sorcière
+- **Grâce : Le Murmure.** Le MJ révèle une faiblesse cachée d'un ennemi présent.
+- **Damnation : Le Secret vendu.** Un secret de l'escouade parvient aux Fidèles.
+- **Don : Les Yeux de la sorcière.** Il comprend la langue des démons et les murmures des morts. Mais les voix ne se taisent jamais : ses **Nerfs** ne remontent plus avec le simple repos.
+
+### IV · La Mère des Vers
+- **Grâce : Le Festin.** Les **Vivres** de toute l'escouade remontent d'un cran.
+- **Damnation : La Pourriture.** Les **Vivres** de toute l'escouade descendent d'un cran.
+- **Don : La Chair grouillante.** Au début de chacun de ses tours, il récupère **1 Blessure**. Mais des vers sortent de ses plaies : il est **défavorisé** en **Persuasion** et en **Tromperie** face à tous.
+
+### V · Le Tyran
+- **Grâce : L'Ordre de fer.** Chaque allié présent est **favorisé** à son prochain jet.
+- **Damnation : Le Caprice du maître.** Un ordre absurde ou cruel arrive des maîtres. Le refuser donne +3 au prochain jet de Disgrâce.
+- **Don : Le Joug.** +2 en **Commandement** et en **Intimidation**. Mais il ne peut plus obéir à un autre Damné sans réussir un jet d'**Âme**.
+
+### VI · L'Antipape
+- **Grâce : La Messe à l'envers.** +2d6 au **Calice**.
+- **Damnation : L'Hérésie dans l'hérésie.** Ses maîtres doutent de lui : +3 au prochain jet de Disgrâce, et sa **Haine** descend d'un cran.
+- **Don : Le Masque de sainteté.** Il passe pour un saint auprès des Fidèles : il est **favorisé** en **Tromperie** face aux croyants. Mais il ne peut plus toucher une relique ni entrer dans un lieu sanctifié.
+
+### VII · Le Traître
+- **Grâce : La Trahison utile.** Un ennemi présent se retourne, ou livre une information vraie, le temps de la scène.
+- **Damnation : Le Couteau dans le dos.** Un allié PNJ trahit l'escouade, ou se révèle être un espion des Fidèles.
+- **Don : Le Cœur froid.** Il ne fait plus de test de Nerfs quand un allié tombe. Mais il ne peut plus rallier personne, ni être rallié.
+
+### VIII · La Horde
+- **Grâce : La Vague.** Il peut enchaîner **immédiatement** une seconde action, sur un jet **favorisé**.
+- **Damnation : Emporté.** La horde l'entraîne trop loin : il se retrouve isolé, à découvert ou en terrain ennemi.
+- **Don : Le Cri de la horde.** Une fois par combat, tous les alliés à 9 m peuvent immédiatement se déplacer de 9 m. Mais il ne sait plus se taire : il est **défavorisé** en **Discrétion**.
+
+### IX · La Vengeance
+- **Grâce : Œil pour œil.** L'ennemi visé subit ce qu'il comptait infliger.
+- **Damnation : La Dette.** Une victime passée revient réclamer : le MJ met en scène son **Remords**, et ses **Nerfs** descendent d'un cran.
+- **Don : La Rancune.** Il est **favorisé** contre tout ennemi qui l'a blessé pendant la scène. Mais il ne peut pas en laisser un s'échapper : il doit réussir un jet d'**Âme** pour renoncer à le poursuivre.
+
+### X · L'Exilé
+- **Grâce : Le Sentier noir.** Il trouve un passage caché, sûr pour lui et l'escouade.
+- **Damnation : Abandonné.** Il est séparé du reste de l'escouade.
+- **Don : L'Ombre.** +2 en **Discrétion** et en **Pressentiment**. Mais les invocations des autres ne le touchent plus : un allié ne peut plus invoquer pour l'aider.
+
+### XI · La Roue des Supplices
+- **Grâce : Le Tour de roue.** La situation tourne en faveur de l'escouade : l'ennemi recule, un renfort arrive, une issue apparaît.
+- **Damnation : Le Retour de manivelle.** La situation tourne contre l'escouade.
+- **Don : Le Joueur.** Une fois par session, il peut faire **relancer n'importe quel dé**. Mais une fois par session, le MJ peut lui faire relancer **un jet qu'il avait réussi**.
+
+### XII · La Bête
+- **Grâce : La Furie.** Ses **Nerfs** remontent d'un cran, et il ignore la peur jusqu'à la fin de la scène.
+- **Damnation : La Rage aveugle.** Jusqu'à la fin de la scène, il ne peut que se battre, quitte à frapper ce qui se trouve devant lui.
+- **Don : Les Griffes.** +2 en **Mêlée** et en **Athlétisme**. Mais ses mains deviennent des serres : il est **défavorisé** en **Coup de main** et en **Médecine**.
+
+### XIII · Le Supplicié
+- **Grâce : La Douleur offerte.** Cette action ne consomme **aucune ressource**, et le Calice gagne **+1d6**.
+- **Damnation : Entravé.** Il est immobilisé : coincé dans les barbelés, enseveli ou capturé.
+- **Don : La Peau de souffrance.** Chaque Blessure grave qu'il subit donne **+1d6 au Calice**. Mais la douleur est devenue sa prière : morphine et sérum n'ont plus d'effet sur lui.
+
+### XIV · La Moisson
+- **Grâce : La Récolte.** Un ennemi au seuil de la mort meurt aussitôt, et son âme nourrit le Calice : **+1d6**.
+- **Damnation : Le Prix.** Quelqu'un paie à sa place : un PNJ allié ou proche meurt. Toute l'escouade fait un test d'usure de **Nerfs**.
+- **Don : L'Odeur du charnier.** Les morts-vivants l'ignorent tant qu'il ne les attaque pas. Mais les vivants sentent la mort sur lui : il est **défavorisé** en **Persuasion**.
+
+### XV · L'Ivresse
+- **Grâce : L'Ivresse du sang.** **Tous** ses dés d'usure remontent d'un cran.
+- **Damnation : Le Lendemain.** Un dé d'usure, au choix du MJ, descend de **deux crans**.
+- **Don : Le Sang épais.** Il n'a plus besoin de manger ni de boire : il ignore les tests de **Vivres**. Mais il ne guérit plus naturellement : seuls les soins le remettent sur pied.
+
+### XVI · Le Prince
+- **Grâce : Le Prince paie.** Réussite, et son **prochain pacte** ne lui donne pas de Faveur.
+- **Damnation : Le Prince réclame son dû.** Il gagne **1 point de Faveur**, et doit offrir une âme à la prochaine Messe noire. Sinon, +5 au jet de Disgrâce.
+- **Don : Les Cornes.** +2 en **Intimidation** et en **Volonté**. Mais il ne peut plus jamais passer pour un Fidèle, et ceux-ci le prennent pour cible en priorité.
+
+### XVII · La Brèche
+- **Grâce : La Brèche s'ouvre chez l'ennemi.** Une position, une structure ou une machine ennemie s'effondre dans les flammes.
+- **Damnation : La Brèche s'ouvre sous lui.** C'est sa propre position qui cède : il est enseveli, brûlé ou précipité dans le vide.
+- **Don : La Fêlure.** Son corps se fissure, et une lueur infernale filtre par les failles. Il voit dans le noir complet, mais il est **défavorisé** en **Discrétion** dans l'obscurité.
+
+### XVIII · L'Étoile noire
+- **Grâce : La Lueur noire.** +1d6 au **Calice**, et les **Nerfs** de toute l'escouade remontent d'un cran.
+- **Damnation : Le Phare.** Une lueur, un reflet, un cri : l'escouade est **repérée**.
+- **Don : Le Regard noir.** Ses yeux deviennent entièrement noirs. Il voit les choses invisibles (esprits, illusions, démons dissimulés), mais il est **défavorisé** en **Discrétion**.
+
+### XIX · L'Éclipse
+- **Grâce : L'Ombre portée.** L'ennemi se trompe : de cible, de direction ou de nombre. L'escouade passe inaperçue pour la scène.
+- **Damnation : La Terreur.** Une vision terrible frappe l'escouade : chaque personnage fait un test d'usure de **Nerfs**.
+- **Don : L'Enfant de l'Éclipse.** Il voit dans la pénombre comme en plein jour. Mais à chaque éclipse ou nuit sans lune, il doit réussir un jet d'**Âme**, ou le démon prend le contrôle pour une scène (c'est le MJ qui le joue).
+
+### XX · Le Brasier
+- **Grâce : La Gloire du feu.** Une réussite éclatante : chaque allié qui en est témoin voit sa **Haine** remonter d'un cran.
+- **Damnation : Exposé.** Il est en pleine lumière, cible de tous les tirs.
+- **Don : La Peau de braise.** Le feu ne lui fait plus rien : il ignore les dégâts *Enflammé* et ceux du feu. Mais l'eau lui est hostile : il est **défavorisé** à tous ses jets sous la pluie ou dans l'eau.
+
+### XXI · Le Réveil des morts
+- **Grâce : Les morts se lèvent pour lui.** Un ennemi abattu se relève et combat pour l'escouade jusqu'à la fin de la scène (comme un *Mort de tranchée*, chapitre VII).
+- **Damnation : Les morts réclament.** Un allié tombé se relève, hostile.
+- **Don : La Trompette noire.** Une fois par mission, il peut relever un mort pour qu'il le serve le temps d'une scène. Chaque fois qu'il le fait, il gagne **1 point de Faveur**.
+
+### XXII · L'Abîme
+- **Grâce : L'Abîme dévore.** L'objectif de la scène est atteint entièrement, et même au-delà.
+- **Damnation : L'Abîme rend tout vain.** L'objectif de la scène devient impossible : il faut trouver une autre voie.
+- **Don : La Porte intérieure.** Il sait toujours où se trouve la Porte de l'Enfer, et peut toujours retrouver le chemin de ses maîtres. Mais les démons le convoitent comme hôte : à Faveur 9, son jet d'Âme pour garder le contrôle est **défavorisé**.
+
+</div>
 
 ---
 

@@ -1,26 +1,40 @@
 # Visuels des arcanes
 
-Déposez ici les illustrations des 22 cartes. Le site les affiche automatiquement dans la galerie du chapitre IV.
+Il y a **deux paquets**, donc deux dossiers. Le site affiche automatiquement celui du camp choisi dans la galerie du chapitre III.
+
+- `fideles/` : le **Tarot saint**
+- `damnes/` : le **Tarot noir**
 
 ## Nommage
 
-Un fichier par carte, numéroté de **01 à 22** :
+Un fichier par carte, numéroté de **01 à 22** : le numéro correspond au chiffre romain affiché sur la carte (I = `01`, XXII = `22`).
 
-| Fichier | Carte | Fichier | Carte |
-|---|---|---|---|
-| `01` | I · Le Mat | `12` | XII · La Force |
-| `02` | II · Le Bateleur | `13` | XIII · Le Pendu |
-| `03` | III · La Papesse | `14` | XIV · La Mort |
-| `04` | IV · L'Impératrice | `15` | XV · Tempérance |
-| `05` | V · L'Empereur | `16` | XVI · Le Diable |
-| `06` | VI · Le Pape | `17` | XVII · La Tour |
-| `07` | VII · L'Amoureux | `18` | XVIII · L'Étoile |
-| `08` | VIII · Le Chariot | `19` | XIX · La Lune |
-| `09` | IX · La Justice | `20` | XX · Le Soleil |
-| `10` | X · L'Ermite | `21` | XXI · Le Jugement |
-| `11` | XI · La Roue de Fortune | `22` | XXII · Le Monde |
+| Fichier | Tarot saint (`fideles/`) | Tarot noir (`damnes/`) |
+|---|---|---|
+| `01` | I · Le Mat | I · L'Égaré |
+| `02` | II · Le Bateleur | II · Le Charlatan |
+| `03` | III · La Papesse | III · La Sorcière |
+| `04` | IV · L'Impératrice | IV · La Mère des Vers |
+| `05` | V · L'Empereur | V · Le Tyran |
+| `06` | VI · Le Pape | VI · L'Antipape |
+| `07` | VII · L'Amoureux | VII · Le Traître |
+| `08` | VIII · Le Chariot | VIII · La Horde |
+| `09` | IX · La Justice | IX · La Vengeance |
+| `10` | X · L'Ermite | X · L'Exilé |
+| `11` | XI · La Roue de Fortune | XI · La Roue des Supplices |
+| `12` | XII · La Force | XII · La Bête |
+| `13` | XIII · Le Pendu | XIII · Le Supplicié |
+| `14` | XIV · La Mort | XIV · La Moisson |
+| `15` | XV · Tempérance | XV · L'Ivresse |
+| `16` | XVI · Le Diable | XVI · Le Prince |
+| `17` | XVII · La Tour | XVII · La Brèche |
+| `18` | XVIII · L'Étoile | XVIII · L'Étoile noire |
+| `19` | XIX · La Lune | XIX · L'Éclipse |
+| `20` | XX · Le Soleil | XX · Le Brasier |
+| `21` | XXI · Le Jugement | XXI · Le Réveil des morts |
+| `22` | XXII · Le Monde | XXII · L'Abîme |
 
-Formats acceptés, dans cet ordre de priorité : **`.webp`**, `.png`, `.jpg` (par exemple `16.webp` pour Le Diable). Le numéro du fichier correspond au chiffre romain affiché sur la carte (I = 01 … XXII = 22).
+Formats acceptés, dans cet ordre de priorité : **`.webp`**, `.png`, `.jpg` (par exemple `damnes/16.webp` pour Le Prince).
 
 ## Format conseillé
 

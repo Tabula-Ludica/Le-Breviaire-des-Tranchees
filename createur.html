@@ -141,7 +141,7 @@
 
       <section class="etape">
         <h2>1. Les trois arcanes</h2>
-        <p class="aide">Tirez au hasard ou choisissez vos cartes. <a class="no-print" href="index.html#arcanes/2-les-vingt-deux-arcanes" target="_blank" rel="noopener">Voir les arcanes</a></p>
+        <p class="aide">Tirez au hasard ou choisissez vos cartes. <a class="no-print" href="index.html#arcanes" target="_blank" rel="noopener">Voir les arcanes</a></p>
         <div class="arcanes" id="arcanes"></div>
         <div class="boutons"><button class="bouton-outil" id="tirer">✠ Tirer les trois arcanes</button></div>
       </section>
@@ -242,6 +242,32 @@ const ARCANES = [
   ["XXI","Le Jugement","Rédemption, appel, résurrection"],
   ["XXII","Le Monde","Accomplissement, voyage, totalité"],
 ];
+const ARCANES_NOIRS = [
+  ["I","L'Égaré","Errance, oubli, perte de soi"],
+  ["II","Le Charlatan","Mensonge, illusion, marchandage"],
+  ["III","La Sorcière","Savoir interdit, secret, poison"],
+  ["IV","La Mère des Vers","Pourriture, fécondité corrompue"],
+  ["V","Le Tyran","Domination, peur, ordre infernal"],
+  ["VI","L'Antipape","Fausse foi, sacrilège"],
+  ["VII","Le Traître","Trahison, lien brisé"],
+  ["VIII","La Horde","Nombre, élan, conquête"],
+  ["IX","La Vengeance","Rancune, châtiment, dette"],
+  ["X","L'Exilé","Solitude, chemins cachés"],
+  ["XI","La Roue des Supplices","Hasard cruel, retournement"],
+  ["XII","La Bête","Rage, instinct, violence"],
+  ["XIII","Le Supplicié","Souffrance offerte, sacrifice"],
+  ["XIV","La Moisson","Mort, récolte des âmes"],
+  ["XV","L'Ivresse","Excès, débauche, oubli"],
+  ["XVI","Le Prince","Pouvoir infernal, pacte"],
+  ["XVII","La Brèche","Ouverture de l'Enfer, catastrophe"],
+  ["XVIII","L'Étoile noire","Faux espoir, guide maudit"],
+  ["XIX","L'Éclipse","Ténèbres, illusion, peur"],
+  ["XX","Le Brasier","Flamme, gloire infernale"],
+  ["XXI","Le Réveil des morts","Retour, appel, résurrection impie"],
+  ["XXII","L'Abîme","Fin, vide, accomplissement infernal"],
+];
+// le paquet du camp : Tarot saint (Fidèles) ou Tarot noir (Damnés)
+const paquetDu = camp => camp === "damnes" ? ARCANES_NOIRS : ARCANES;
 // Les deux camps : ce qui change entre Fidèles et Damnés (chapitres VIII et IX de chaque partie)
 const CAMPS = {
   fideles: { nom: "Les Fidèles", sous: "Ceux qui tiennent la ligne", icone: "✝", theme: "fideles",
@@ -453,11 +479,11 @@ function dessinerArcanes() {
   const POSITIONS = CAMPS[etat.camp].positions;
   $("arcanes").innerHTML = POSITIONS.map((pos, i) => {
     const idx = etat.arcanes[i];
-    const a = idx == null ? null : ARCANES[idx];
+    const a = idx == null ? null : paquetDu(etat.camp)[idx];
     return `<div class="carte">
       <div class="pos">${pos}</div>
       <div class="chiffre">${a ? a[0] : "?"}</div>
-      <select data-pos="${i}">${opt("", "— choisir —", idx == null)}${ARCANES.map((c, j) => opt(j, `${c[0]} · ${c[1]}`, idx === j)).join("")}</select>
+      <select data-pos="${i}">${opt("", "— choisir —", idx == null)}${paquetDu(etat.camp).map((c, j) => opt(j, `${c[0]} · ${c[1]}`, idx === j)).join("")}</select>
       <div class="sens">${a ? esc(a[2]) : ""}</div>
     </div>`;
   }).join("");
@@ -465,7 +491,7 @@ function dessinerArcanes() {
     etat.arcanes[+s.dataset.pos] = s.value === "" ? null : +s.value; maj();
   });
 
-  const nomCarte = i => etat.arcanes[i] == null ? "" : ` (${ARCANES[etat.arcanes[i]][1]})`;
+  const nomCarte = i => etat.arcanes[i] == null ? "" : ` (${paquetDu(etat.camp)[etat.arcanes[i]][1]})`;
   const C = CAMPS[etat.camp];
   ["q-passe", "q-serment", "q-peche"].forEach((id, i) =>
     $(id).textContent = `${C.positions[i]}${nomCarte(i)} : ${C.questions[i]}`);
@@ -580,7 +606,7 @@ function dessinerFiche() {
   const manque = libresNecessaires - (etat.libres || []).filter(Boolean).length;
   const arc = POSITIONS.map((p, i) => etat.arcanes[i] == null
     ? `<li><b>${p} :</b> <span class="vide">non tiré</span></li>`
-    : `<li><b>${p} :</b> ${ARCANES[etat.arcanes[i]][0]} · ${ARCANES[etat.arcanes[i]][1]}</li>`).join("");
+    : `<li><b>${p} :</b> ${paquetDu(etat.camp)[etat.arcanes[i]][0]} · ${paquetDu(etat.camp)[etat.arcanes[i]][1]}</li>`).join("");
   const rep = (t, v) => v ? `<p><b>${t} :</b> ${esc(v)}</p>` : "";
   const choixOpt = o.option?.choix[etat.option];
   const optionNom = choixOpt && etat.option !== "aucune" ? ` — ${etat.origine === "transfuge" ? "autrefois : " : ""}${choixOpt.nom}` : "";

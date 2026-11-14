@@ -103,6 +103,7 @@
     "la tentation": "l'Ordre",
     "la prochaine messe": "la prochaine Messe noire",
     "la messe": "la Messe noire",
+    "le tarot saint": "le Tarot noir",
     "le jugement des supérieurs": "Le jugement des maîtres",
     "confession ou pénitence, puis jet de soupçon": "Dîme éventuelle, puis jet de Disgrâce",
     "confession ou pénitence": "La Dîme",
@@ -314,7 +315,7 @@
   /* ---------- Galerie des arcanes ----------
      Les données sont lues directement dans le chapitre (titres ### et listes),
      donc il n'y a rien à dupliquer : modifier le .md suffit.
-     Visuels : assets/arcanes/01.webp … 22.webp (sinon .png, sinon .jpg, sinon carte de remplacement). */
+     Visuels : assets/arcanes/fideles/01.webp … 22.webp et assets/arcanes/damnes/01.webp … 22.webp (sinon .png, sinon .jpg, sinon carte de remplacement). */
   const FORMATS = ["webp", "png", "jpg"];
 
   function chargerVisuel(img, base, i = 0) {
@@ -348,14 +349,14 @@
       carte.href = `#${idChap}/${c.ancre}`;
       carte.innerHTML = `
         <div class="visuel"><img alt="${c.nom}" loading="lazy"></div>
-        <div class="remplacement"><span class="chiffre">${c.num}</span><span class="croix">✠</span><span class="nom">${c.nom}</span></div>
+        <div class="remplacement"><span class="chiffre">${c.num}</span><span class="croix">${camp === "damnes" ? "⛧" : "✠"}</span><span class="nom">${c.nom}</span></div>
         <div class="legende"><span>${c.num}</span> ${c.nom}</div>`;
-      chargerVisuel(carte.querySelector("img"), `assets/arcanes/${fichier}`);
+      chargerVisuel(carte.querySelector("img"), `assets/arcanes/${camp}/${fichier}`);
       carte.dataset.index = i;
       galerie.appendChild(carte);
     });
 
-    const titre = [...page.querySelectorAll("h2")].find(h => /vingt-deux/i.test(h.textContent));
+    const titre = [...page.querySelectorAll("h2")].find(h => /tarot/i.test(h.textContent));
     const intro = document.createElement("p");
     intro.className = "aide-galerie";
     intro.textContent = "Passez la souris sur une carte (ou touchez-la) pour lire ses effets. Cliquez pour aller au texte complet.";

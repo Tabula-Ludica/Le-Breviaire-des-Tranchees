@@ -10,7 +10,7 @@ Le système repose sur cinq mécaniques, chacune avec **un seul rôle** :
 | **{{Prier}} / Pactiser** | Forcer le destin avant un jet | d6 {{du Chapelet}}, dé de Sang (d6 à d12) |
 | **Les dés d'usure** | Suivre les ressources qui s'épuisent | d4 à d12 |
 | **{{Le Chapelet}}** | La réserve commune de l'escouade, horloge de la mission | une coupelle de d6 |
-| **Le Paquet du Destin** | Miracles, damnations, {{corruption}}, origines | les 22 arcanes majeurs du tarot |
+| **Le Paquet du Destin** | Miracles, damnations, {{corruption}}, origines | {{le Tarot saint}} : 22 arcanes |
 
 ---
 
@@ -177,7 +177,7 @@ Le Calice est la **réserve commune de sang** de l'escouade, une coupe de d6 pos
 
 ## 5. Le Paquet du Destin
 
-Le Paquet du Destin est composé des **22 arcanes majeurs** du tarot. Chaque arcane a deux effets, décrits au chapitre III :
+Le Paquet du Destin est composé de **22 arcanes**. Chaque camp a le sien : {{le Tarot saint}}. Chaque arcane a deux effets, décrits au chapitre III :
 - un effet de **Grâce** ;
 - un effet de **Damnation**.
 
