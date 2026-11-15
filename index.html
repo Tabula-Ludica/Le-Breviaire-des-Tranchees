@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Cormorant+SC:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/breviaire.css?v=8">
+<link rel="stylesheet" href="assets/breviaire.css?v=9">
 </head>
 <body>
 
@@ -340,6 +340,17 @@
     });
     if (!cartes.length) return;
 
+    // sens de chaque carte, lu dans le tableau « Le sens des cartes »
+    const sens = {};
+    page.querySelectorAll("table").forEach(t => {
+      if (!/^N°/.test(t.querySelector("th")?.textContent || "")) return;
+      t.querySelectorAll("tbody tr").forEach(tr => {
+        const td = tr.querySelectorAll("td");
+        if (td.length >= 3) sens[td[1].textContent.trim()] = td[2].textContent.trim();
+      });
+    });
+    cartes.forEach(c => c.sens = sens[c.nom] || "");
+
     const galerie = document.createElement("div");
     galerie.className = "galerie-arcanes";
     cartes.forEach((c, i) => {
@@ -359,7 +370,7 @@
     const titre = [...page.querySelectorAll("h2")].find(h => /tarot/i.test(h.textContent));
     const intro = document.createElement("p");
     intro.className = "aide-galerie";
-    intro.textContent = "Passez la souris sur une carte (ou touchez-la) pour lire ses effets. Cliquez pour aller au texte complet.";
+    intro.textContent = "Passez la souris sur une carte pour un aperçu. Cliquez (ou touchez) pour l'afficher en grand.";
     titre.after(intro, galerie);
 
     // info-bulle partagée
@@ -389,15 +400,72 @@
       el.addEventListener("mouseleave", cacher);
       el.addEventListener("focus", () => montrer(el));
       el.addEventListener("blur", cacher);
-      // écran tactile : premier toucher = afficher, second = suivre le lien
-      el.addEventListener("touchstart", ev => {
-        if (!el.classList.contains("touche")) {
-          ev.preventDefault();
-          galerie.querySelectorAll(".touche").forEach(x => x.classList.remove("touche"));
-          el.classList.add("touche"); montrer(el);
-        }
-      }, { passive: false });
+      el.addEventListener("click", ev => { ev.preventDefault(); cacher(); ouvrir(+el.dataset.index); });
     });
+
+    /* ---------- vue agrandie ---------- */
+    let vue = document.querySelector(".vue-arcane");
+    if (!vue) {
+      vue = document.createElement("div");
+      vue.className = "vue-arcane";
+      vue.setAttribute("role", "dialog");
+      vue.setAttribute("aria-modal", "true");
+      document.body.appendChild(vue);
+    }
+    let ouverte = -1;
+    const classeEffet = t => "effet-" + t.normalize("NFD").replace(/[^a-z]/gi, "").toLowerCase();
+
+    function ouvrir(i) {
+      ouverte = (i + cartes.length) % cartes.length;
+      const c = cartes[ouverte];
+      const el = galerie.querySelectorAll(".arcane")[ouverte];
+      const img = el.querySelector("img");
+      const charge = img && img.complete && img.naturalWidth > 0;   // visuel réellement chargé
+      const visuel = charge
+        ? `<img src="${img.currentSrc || img.src}" alt="${c.nom}">`
+        : `<div class="arcane sans-visuel grande">${el.querySelector(".remplacement").outerHTML}</div>`;
+      vue.innerHTML = `
+        <div class="vue-fond"></div>
+        <div class="vue-contenu">
+          <button class="vue-fermer" aria-label="Fermer">✕</button>
+          <button class="vue-nav vue-prec" aria-label="Carte précédente">‹</button>
+          <div class="vue-carte">${visuel}</div>
+          <div class="vue-texte">
+            <div class="vue-num">${c.num}</div>
+            <h2>${c.nom}</h2>
+            ${c.sens ? `<p class="vue-sens">${c.sens}</p>` : ""}
+            ${c.effets.map(e => `<div class="vue-effet ${classeEffet(e.type)}">
+              <div class="vue-type">${e.type}</div>
+              <div class="vue-titre">${e.titre}</div>
+              <p>${e.texte}</p></div>`).join("")}
+            <a class="vue-lien" href="#${idChap}/${c.ancre}">Voir dans le texte des règles</a>
+          </div>
+          <button class="vue-nav vue-suiv" aria-label="Carte suivante">›</button>
+        </div>`;
+      vue.classList.add("ouverte");
+      document.body.classList.add("sans-defilement");
+      vue.querySelector(".vue-fond").onclick = fermer;
+      vue.querySelector(".vue-fermer").onclick = fermer;
+      vue.querySelector(".vue-prec").onclick = () => ouvrir(ouverte - 1);
+      vue.querySelector(".vue-suiv").onclick = () => ouvrir(ouverte + 1);
+      vue.querySelector(".vue-lien").onclick = () => fermer();
+      vue.querySelector(".vue-fermer").focus();
+    }
+    function fermer() {
+      ouverte = -1;
+      vue.classList.remove("ouverte");
+      document.body.classList.remove("sans-defilement");
+    }
+    if (!window.__clavierArcanes) {
+      window.__clavierArcanes = true;
+      addEventListener("keydown", ev => {
+        const v = document.querySelector(".vue-arcane.ouverte");
+        if (!v) return;
+        if (ev.key === "Escape") v.querySelector(".vue-fermer").click();
+        if (ev.key === "ArrowLeft") v.querySelector(".vue-prec").click();
+        if (ev.key === "ArrowRight") v.querySelector(".vue-suiv").click();
+      });
+    }
     // au défilement, la bulle suit la carte (ou disparaît si la carte sort de l'écran)
     addEventListener("scroll", () => {
       if (!courant) return;
@@ -407,7 +475,11 @@
     }, { passive: true });
   }
 
-  window.addEventListener("hashchange", () => { document.querySelector(".bulle-arcane")?.classList.remove("visible"); });
+  window.addEventListener("hashchange", () => {
+    document.querySelector(".bulle-arcane")?.classList.remove("visible");
+    document.querySelector(".vue-arcane")?.classList.remove("ouverte");
+    document.body.classList.remove("sans-defilement");
+  });
   window.addEventListener("hashchange", afficher);
   afficher();
 </script>

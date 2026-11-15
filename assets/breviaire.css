@@ -432,3 +432,67 @@ nav.sommaire li.groupe:first-child { border-top: 0; margin-top: 0; padding-top: 
 .arcane:not(.sans-visuel):hover, .arcane:not(.sans-visuel):focus, .arcane:not(.sans-visuel).touche {
   box-shadow: 0 14px 26px rgba(0,0,0,.55), 0 0 0 2px var(--sang-vif);
 }
+
+/* ---------- Carte en grand ---------- */
+body.sans-defilement { overflow: hidden; }
+.vue-arcane { position: fixed; inset: 0; z-index: 100; display: none; }
+.vue-arcane.ouverte { display: block; }
+.vue-fond { position: absolute; inset: 0; background: rgba(8,6,5,.88); backdrop-filter: blur(3px); animation: apparaitre .2s ease-out; }
+.vue-contenu {
+  position: relative; height: 100%;
+  display: grid; grid-template-columns: auto minmax(0, 440px); gap: 2.5rem;
+  align-items: center; justify-content: center;
+  padding: 2rem 4.5rem; pointer-events: none;
+}
+.vue-contenu > * { pointer-events: auto; }
+.vue-carte { animation: carte-in .25s ease-out; }
+.vue-carte img, .vue-carte .grande {
+  display: block; height: min(82vh, 760px); width: auto; aspect-ratio: 7 / 12;
+  border-radius: 16px; box-shadow: 0 30px 70px rgba(0,0,0,.75);
+}
+.vue-carte .grande { position: relative; margin: 0; }
+.vue-carte .grande .remplacement .chiffre { font-size: 2rem; }
+.vue-carte .grande .remplacement .croix { font-size: 5rem; }
+.vue-carte .grande .remplacement .nom { font-size: 2.2rem; }
+
+.vue-texte {
+  max-height: 82vh; overflow-y: auto;
+  background: linear-gradient(180deg, #2b221b, #1a1511);
+  border: 1px solid var(--or); outline: 1px solid rgba(184,151,90,.3); outline-offset: 4px;
+  padding: 1.6rem 1.7rem 1.4rem; color: var(--parchemin);
+  font-size: 1.05rem; line-height: 1.5;
+  animation: apparaitre .3s ease-out;
+}
+.vue-num { font: 700 1.1rem "Cormorant SC", serif; letter-spacing: .2em; color: var(--or); text-align: center; }
+.vue-texte h2 { font: 2.3rem/1.1 "UnifrakturMaguntia", serif; color: #fff3dc; text-align: center; margin: .2rem 0 .3rem; border: 0; }
+.vue-texte h2::before { content: none; }
+.vue-sens { text-align: center; font-style: italic; color: var(--or-pale); margin: 0 0 1.2rem; padding-bottom: .9rem; border-bottom: 1px solid rgba(184,151,90,.3); }
+.vue-effet { margin: 1rem 0; padding-left: .9rem; border-left: 3px solid var(--or); }
+.vue-type { font: 700 .85rem "Cormorant SC", serif; letter-spacing: .2em; text-transform: uppercase; }
+.vue-titre { font-style: italic; font-size: 1.15rem; color: var(--or-pale); margin: .1rem 0 .25rem; }
+.vue-effet p { margin: 0; color: #d9ccb0; }
+.vue-effet strong { color: #fff3d6; }
+.vue-effet.effet-grace { border-left-color: #c9a85a; } .vue-effet.effet-grace .vue-type { color: #e2c47a; }
+.vue-effet.effet-damnation { border-left-color: var(--sang-vif); } .vue-effet.effet-damnation .vue-type { color: #e0574b; }
+.vue-effet.effet-marque, .vue-effet.effet-don { border-left-color: #7d5a8c; }
+.vue-effet.effet-marque .vue-type, .vue-effet.effet-don .vue-type { color: #b99ac7; }
+.vue-lien { display: block; margin-top: 1.3rem; text-align: center; color: var(--or) !important; font-family: "Cormorant SC", serif; letter-spacing: .08em; }
+
+.vue-fermer, .vue-nav {
+  position: absolute; background: rgba(0,0,0,.4); color: var(--or-pale);
+  border: 1px solid rgba(184,151,90,.45); cursor: pointer; line-height: 1;
+}
+.vue-fermer { top: 1.2rem; right: 1.4rem; width: 2.6rem; height: 2.6rem; font-size: 1.2rem; }
+.vue-nav { top: 50%; transform: translateY(-50%); width: 2.8rem; height: 4rem; font-size: 2rem; }
+.vue-prec { left: 1rem; } .vue-suiv { right: 1rem; }
+.vue-fermer:hover, .vue-nav:hover { background: var(--sang); color: #fff; }
+
+@keyframes apparaitre { from { opacity: 0; } to { opacity: 1; } }
+@keyframes carte-in { from { opacity: 0; transform: scale(.94); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 900px) {
+  .vue-contenu { grid-template-columns: 1fr; gap: 1.2rem; align-content: start; overflow-y: auto; padding: 4rem 1rem 2rem; justify-items: center; }
+  .vue-carte img, .vue-carte .grande { height: auto; width: min(78vw, 360px); }
+  .vue-texte { max-height: none; overflow: visible; }
+  .vue-nav { position: fixed; top: auto; bottom: 1rem; transform: none; height: 3rem; }
+}
