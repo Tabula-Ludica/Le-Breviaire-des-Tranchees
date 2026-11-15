@@ -425,3 +425,10 @@ nav.sommaire li.groupe-damnes  { color: #e0574b; }
 .page .terme { border-bottom: 1px dotted rgba(138,26,18,.55); cursor: help; }
 .bulle-arcane .effet-don { border-left-color: #7d5a8c; } .bulle-arcane .effet-don b { color: #b99ac7; }
 nav.sommaire li.groupe:first-child { border-top: 0; margin-top: 0; padding-top: 0; }
+
+/* une vraie illustration remplace le cadre de la carte provisoire */
+.arcane:not(.sans-visuel) { border: 0; outline: 0; background: transparent; border-radius: 12px; }
+.arcane:not(.sans-visuel) .visuel { border-radius: 12px; overflow: hidden; }
+.arcane:not(.sans-visuel):hover, .arcane:not(.sans-visuel):focus, .arcane:not(.sans-visuel).touche {
+  box-shadow: 0 14px 26px rgba(0,0,0,.55), 0 0 0 2px var(--sang-vif);
+}
