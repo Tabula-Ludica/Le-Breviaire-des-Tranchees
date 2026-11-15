@@ -17,7 +17,6 @@ Le site est en trois parties. En haut de la page, on choisit son camp : les règ
 5. [La Progression](regles/commun/05-progression.md) *(prototype)*
 6. [L'Arrière](regles/commun/06-arriere.md) *(prototype)*
 7. [Le Bestiaire](regles/commun/07-bestiaire.md) *(prototype)*
-✦ [Mission d'initiation — La Crypte de Saint-Lazare](regles/commun/mission-initiation.md) *(prototype, avec prétirés et mise en place Foundry)*
 - [L'Univers](regles/commun/univers.md) *(en préparation)*
 
 ### ✝ Les Fidèles
