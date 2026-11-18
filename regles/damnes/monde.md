@@ -1,15 +1,15 @@
 # Le Monde des Damnés
 
-Les Damnés sont ceux qui servent l'Enfer, par choix, par peur ou par nature : hérétiques humains, cultes, démons. Ce sont les adversaires des Fidèles.
+Les Damnés servent l'Enfer. Certains l'ont choisi, d'autres y sont nés, et beaucoup ont simplement eu plus peur de lui que de la Croisade. Pour une table de Fidèles, ce sont les adversaires.
 
-Ils sont **jouables** : les règles sont aux chapitres VIII et IX de cette partie, et le créateur de personnage propose le camp des Damnés. Cette page décrit leur monde.
+Ils sont **jouables** : les règles sont aux chapitres VIII à X de cette partie, et le créateur de personnage propose le camp des Damnés. Cette page décrit leur monde.
 
 ---
 
 ## 1. Les puissances
 
 ### Les Légions hérétiques
-Les armées humaines qui ont choisi l'Enfer : soldats en uniforme, discipline de fer, marques et mutations sous le casque. Ce sont les ennemis les plus courants au front.
+Les armées humaines qui ont choisi l'Enfer. Des soldats en uniforme, tenus par une discipline de fer, qui cachent leurs mutations sous le casque. Ce sont les ennemis les plus courants au front.
 
 > *À développer : organisation, grades, motivations (pouvoir, survie, vraie foi en l'Enfer).*
 
@@ -32,7 +32,7 @@ Les morts qui se relèvent dans le no man's land, les chevaliers corrompus par l
 
 ## 2. Les Damnés à la table
 
-- **Les fiches de combat** des ennemis sont au chapitre IV (Menace, Blessures, Dégâts, Protection, Traits).
+- **Les fiches de combat** des ennemis sont au chapitre VII, le Bestiaire.
 - **Un personnage joueur perdu** (Corruption 10, chapitre IX) rejoint les Damnés et peut revenir comme adversaire.
 
 > *À développer : un bestiaire complet par puissance, des PNJ nommés, des tentateurs.*

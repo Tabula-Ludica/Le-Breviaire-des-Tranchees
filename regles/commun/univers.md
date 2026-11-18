@@ -6,25 +6,25 @@ Cette section résume le monde de Trench Crusade avec nos propres mots, pour les
 
 ## 1. Le point de bascule : 1099
 
-L'histoire suit la nôtre jusqu'à la fin du XIᵉ siècle. En **1099**, la Première Croisade prend Jérusalem. Sous le Temple, les **Templiers** découvrent des cryptes oubliées et un artefact démoniaque. Ils commettent alors l'**Acte d'Hérésie Ultime** : ils ouvrent une **porte de l'Enfer** au cœur de la Ville sainte.
+L'histoire suit la nôtre jusqu'à la fin du XIᵉ siècle. En **1099**, la Première Croisade prend Jérusalem. Sous le Temple, les **Templiers** découvrent des cryptes oubliées et un artefact démoniaque. Ils commettent alors l'**Acte d'Hérésie Ultime** : ils ouvrent une **porte de l'Enfer** sous la Ville sainte.
 
 Jérusalem est détruite dans le cataclysme. En quelques années, les hérétiques et les armées infernales s'emparent de la plus grande partie du Levant.
 
 ## 2. Huit siècles de guerre
 
-Depuis, la guerre n'a jamais cessé. Les royaumes chrétiens, le Sultanat et tous ceux qui refusent l'Enfer tiennent un front qui recule, avance, s'enterre. Des générations entières sont nées, ont combattu et sont mortes dans cette guerre.
+Depuis, la guerre n'a jamais cessé. Les royaumes chrétiens, le Sultanat et tous ceux qui refusent l'Enfer tiennent un front qui recule, avance, s'enterre. Des générations entières y sont nées et y sont mortes.
 
 > *À développer : grandes dates de la chronologie, chute et reprise de places fortes, croisades successives.*
 
 ## 3. 1914 : la Grande Guerre
 
-Le jeu se déroule en **1914**. La guerre de l'Enfer a pris le visage d'une guerre industrielle : tranchées, barbelés, gaz, mitrailleuses, chars. Mais on y combat toujours avec des masses, des reliques et des prières, et l'on y croise des démons aussi souvent que des soldats ennemis.
+Le jeu se déroule en **1914**. La guerre de l'Enfer a pris le visage d'une guerre industrielle : tranchées, barbelés, gaz, mitrailleuses, chars. Mais on s'y bat encore à la masse et à la prière, et on y croise des démons aussi souvent que des soldats ennemis.
 
-La technologie mélange les époques : fusils à verrou et cuirasses, artillerie et eau bénite, machines à vapeur bénies et armures de chevalier.
+Les époques se mélangent. Un même soldat porte un fusil à verrou et une cuirasse de chevalier, avec une fiole d'eau bénite à côté de ses grenades.
 
 ## 4. Le ton
 
-Il n'y a **pas de camp vraiment bon**. Les Fidèles se battent pour l'âme de l'humanité, mais leur foi les rend souvent cruels, fanatiques ou aveugles. L'Église protège autant qu'elle surveille. Les héros, quand il y en a, sont des soldats épuisés qui tiennent une position de plus.
+Il n'y a **pas de camp vraiment bon**. Les Fidèles se battent pour l'âme de l'humanité, mais leur foi les rend souvent cruels, ou aveugles. L'Église protège autant qu'elle surveille. Les héros, quand il y en a, sont des soldats épuisés qui tiennent une position de plus.
 
 ---
 
@@ -32,8 +32,8 @@ Il n'y a **pas de camp vraiment bon**. Les Fidèles se battent pour l'âme de l'
 
 Le Bréviaire se joue d'un côté ou de l'autre de la ligne :
 
-- **Les Fidèles** combattent l'Enfer : soldats, pèlerins, prêtres.
-- **Les Damnés** l'ont choisi : hérétiques, cultistes, élus des démons.
+- **Les Fidèles** combattent l'Enfer, en uniforme ou en robe de bure.
+- **Les Damnés** l'ont choisi. Certains ont été choisis par lui.
 
 Les règles communes sont les mêmes pour les deux. Seuls quelques termes changent, et le site les adapte au camp choisi en haut de la page :
 

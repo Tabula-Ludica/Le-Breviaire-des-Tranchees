@@ -154,7 +154,7 @@ Le Chapelet est la **réserve commune de grâce** de l'escouade, une coupelle de
 </div>
 <div data-camp="damnes">
 
-Le Calice est la **réserve commune de sang** de l'escouade, une coupe de d6 posée au centre de la table. Il ne se remplit pas par la grâce, mais par les actes.
+Le Calice est la **réserve commune de sang** de l'escouade, une coupe de d6 posée au centre de la table. Ce sont les actes qui le remplissent.
 
 - **En début de mission :** il contient **2d6 par joueur**. Il commence plus bas que le Chapelet des Fidèles : un Damné doit **agir** pour le remplir.
 - **Invoquer** y prend un dé (voir §2). Les dés qui font 1 sont **perdus** jusqu'à la Messe noire.
@@ -217,7 +217,7 @@ Marcel **{{prie}}** : il prend un dé {{du Chapelet}}. Il lance le d20 et le d6 
 - Comme {{la prière}} a échoué, son dé de **{{Foi}}** passe de d8 à **d6**.
 - Le d6 n'a pas fait 1, il retourne {{dans le Chapelet}}.
 
-Le MJ décrit Marcel accroché aux barbelés, à découvert. Au tour suivant, son camarade Lucien **pactise** pour le couvrir…
+Le MJ décrit Marcel accroché aux barbelés, à découvert. Au tour suivant, son camarade Lucien **pactise** pour le couvrir.
 
 ---
 

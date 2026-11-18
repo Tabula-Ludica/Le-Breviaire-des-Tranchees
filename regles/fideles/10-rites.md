@@ -1,6 +1,6 @@
 # Chapitre X — Les Rites
 
-Les rites sont les gestes sacrés des Fidèles : bénir une arme, chasser un démon, accompagner un mourant. Ils ne demandent pas d'être un saint. Il faut connaître les paroles et y croire assez pour les prononcer sous le feu.
+Les rites sont les gestes sacrés des Fidèles, de la bénédiction d'une arme jusqu'à l'exorcisme. Pas besoin d'être prêtre : il faut connaître les paroles et y croire assez pour les dire sous le feu.
 
 ---
 

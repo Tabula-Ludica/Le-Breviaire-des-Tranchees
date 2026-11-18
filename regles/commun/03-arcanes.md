@@ -4,7 +4,7 @@ Le Paquet du Destin existe en **deux versions**, une par camp :
 - les **Fidèles** jouent avec le **Tarot saint**, les 22 arcanes majeurs du tarot ;
 - les **Damnés** jouent avec le **Tarot noir**, ses 22 reflets infernaux.
 
-Les deux paquets fonctionnent de la même façon et portent les mêmes numéros (de I à XXII). Seuls leurs cartes et leurs effets changent. Le site affiche celui du camp choisi.
+Les deux paquets fonctionnent de la même façon et portent les mêmes numéros (de I à XXII). Seules les cartes et leurs effets changent. Le site affiche celui du camp choisi.
 
 On tire une carte dans trois cas (voir chapitre I, §5) :
 
@@ -211,7 +211,7 @@ Une Damnation **ne tue jamais directement** un personnage. Elle le met en danger
 ### XXII · Le Monde
 - **Grâce : L'Accomplissement.** L'objectif de la scène est atteint entièrement, et même au-delà.
 - **Damnation : Tout s'écroule.** L'objectif de la scène devient impossible : il faut trouver une autre voie.
-- **{{Marque}} : La Boussole noire.** Il sait toujours où se trouvent le nord… et la Porte de l'Enfer. Mais les démons le reconnaissent : ils le sentent venir de loin, et certains le prennent pour l'un des leurs.
+- **{{Marque}} : La Boussole noire.** Il sait toujours où se trouvent le nord, et la Porte de l'Enfer. Mais les démons le reconnaissent : ils le sentent venir de loin, et certains le prennent pour l'un des leurs.
 
 </div>
 <div data-camp="damnes">

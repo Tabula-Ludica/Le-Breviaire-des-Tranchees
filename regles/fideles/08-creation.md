@@ -1,6 +1,6 @@
 # Chapitre VIII — La Création d'un Fidèle
 
-Ce chapitre explique comment créer un **Fidèle** : un soldat, un pèlerin ou un religieux engagé dans la Grande Guerre contre l'Enfer.
+Ce chapitre explique comment créer un **Fidèle** : un homme ou une femme engagé dans la guerre contre l'Enfer, en uniforme ou en robe de bure.
 
 La création se fait en **sept étapes**, idéalement à la table et avec tout le groupe.
 
@@ -163,7 +163,7 @@ En plus, selon l'Affectation :
 | **Aumônier** | Symbole sacré, eau bénite, livre de prières, encensoir, pistolet | Foi +1 cran |
 | **Pénitent** | Fléau ou masse, chaînes, robe de bure, une relique mineure | Foi +1 cran, Vivres −1 cran |
 
-> *Les caractéristiques des armes et des protections seront détaillées dans le chapitre consacré au combat.*
+> *Les armes et les protections sont détaillées au chapitre IV.*
 
 ---
 
@@ -242,7 +242,7 @@ Enfin, chaque joueur répond à cette question, à propos d'un autre personnage 
 - Soigner au calme : Esprit 14 + Médecine Expert 4 = **18**
 - Soigner sous le feu (Chirurgien de tranchée) : Nerf 12 + 4 = **16**
 - Tirer : Nerf 12 + Tir Formé 2 = **14**
-- Mentir : Verbe 8, sans Spécialité = **8**… ce qui ne l'empêche pas d'essayer, à cause de son Péché.
+- Mentir : Verbe 8, sans Spécialité = **8**. Ça ne l'empêche pas d'essayer, à cause de son Péché.
 
 ---
 

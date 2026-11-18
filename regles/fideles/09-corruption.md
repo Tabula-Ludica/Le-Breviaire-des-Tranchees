@@ -2,7 +2,7 @@
 
 La Corruption mesure ce que l'Enfer a déjà pris d'un personnage. Elle va de **0 à 10**.
 
-Elle **monte facilement** et ne **redescend presque jamais**. On peut ralentir la chute, parfois gagner un peu de répit, mais un personnage qui a commencé à glisser finit rarement par remonter. Plus il est corrompu, plus l'Enfer l'aide… et plus il est tentant d'accepter cette aide.
+Elle **monte facilement** et ne **redescend presque jamais**. On peut ralentir la chute, mais un personnage qui a commencé à glisser remonte rarement. Et plus il est corrompu, plus l'Enfer l'aide, ce qui rend cette aide de plus en plus dure à refuser.
 
 ---
 
@@ -137,7 +137,7 @@ Lucien a **Corruption 4** (Touché, une Marque cachée sous un bandage). Son dé
 
 Pendant la mission, sa Foi est épuisée. Pour sortir Marcel des barbelés, il **pactise** : d8 = 6, réussite. **Corruption 5.** Plus tard, le MJ lui propose une **Tentation** pour tenir face à une Bête de l'abîme. Il accepte : **Corruption 6**. Il passe **Souillé**, tire sa deuxième Marque, et son dé de Sang devient un **d10**.
 
-Au retour, il se **confesse** et réussit son jet d'Âme… mais il est déjà à 6, son palier : la Corruption ne baisse pas. L'aumônier, lui, sait tout. Au jet de Soupçon : 1d20 = 13, +4 (deux Marques), +2 (confession) = **19**. Il passe de justesse. Pour cette fois.
+Au retour, il se **confesse** et réussit son jet d'Âme, mais il est déjà à 6, son palier : la Corruption ne baisse pas. L'aumônier, lui, sait tout. Au jet de Soupçon : 1d20 = 13, +4 (deux Marques), +2 (confession) = **19**. Il passe de justesse. Pour cette fois.
 
 ---
 

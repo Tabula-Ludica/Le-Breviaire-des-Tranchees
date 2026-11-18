@@ -1,6 +1,6 @@
 # Chapitre VIII — La Création d'un Damné
 
-Ce chapitre explique comment créer un **Damné** : un soldat, un cultiste ou un élu qui a choisi l'Enfer, par ambition, par haine, par désespoir ou par naissance.
+Ce chapitre explique comment créer un **Damné** : quelqu'un qui a choisi l'Enfer, par ambition, par haine ou par désespoir, ou que l'Enfer a choisi dès sa naissance.
 
 ## Campagnes damnées
 

@@ -27,7 +27,7 @@ Au moment du jet (chapitre I), on lance le d20 contre :
 | **12** | Solide : on compte sur lui pour ça |
 | **14** | Remarquable : ça se raconte dans la tranchée |
 
-Au-delà de 14, il faut des Spécialités, des reliques… ou l'Enfer.
+Au-delà de 14, il faut des Spécialités ou des reliques. Ou l'Enfer.
 
 ### Répartition à la création
 
@@ -68,7 +68,7 @@ Chaque Spécialité est rattachée à une **caractéristique habituelle**. Le MJ
 
 Après tous les bonus et modificateurs, le score à atteindre ne peut **jamais dépasser 19**. Le 20 naturel reste une Damnation, quoi qu'il arrive.
 
-À l'inverse, si le score tombe à **0 ou moins**, l'action n'est possible qu'avec un 1 naturel… ou en priant et en pactisant.
+À l'inverse, si le score tombe à **0 ou moins**, l'action n'est possible qu'avec un 1 naturel, ou en priant et en pactisant.
 
 ---
 

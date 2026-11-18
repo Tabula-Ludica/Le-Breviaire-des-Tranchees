@@ -1,6 +1,6 @@
 # Chapitre IX — La Faveur
 
-Pour un Damné, il n'y a pas de Corruption à craindre : il y a la **Faveur**, l'attention que l'Enfer lui porte. Plus elle est haute, plus ses maîtres l'aident… et plus il est près d'être dévoré. Un Damné doit monter en puissance sans aller trop loin.
+Un Damné ne craint plus la Corruption. Ce qui le guette, c'est la **Faveur**, l'attention que l'Enfer lui porte. Plus elle est haute, plus ses maîtres l'aident, et plus il est près d'être dévoré. Tout l'art consiste à monter sans aller trop loin.
 
 ---
 

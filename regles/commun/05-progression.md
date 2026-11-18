@@ -1,8 +1,8 @@
 # Chapitre V — La Progression
 
-Il n'y a pas de points d'expérience à dépenser dans le Bréviaire. Un personnage progresse uniquement par **ce qu'il a vécu** : ce qu'il a tenté sous la pression, ce qu'il a raté, ce à quoi il a survécu.
+Le Bréviaire n'a pas de points d'expérience. Un personnage progresse par **ce qu'il a vécu**, et surtout par ce qu'il a raté sous la pression sans en mourir.
 
-La progression est **lente, incertaine et dure**. Plus un personnage est bon dans un domaine, plus il lui est difficile de s'y améliorer. Et la mort est définitive.
+La progression est **lente**, et rien ne la garantit. Plus un personnage est bon dans un domaine, plus il lui est difficile de s'y améliorer. Et la mort est définitive.
 
 ---
 

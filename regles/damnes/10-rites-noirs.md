@@ -1,6 +1,6 @@
 # Chapitre X — Les Rites noirs
 
-Les rites noirs sont la liturgie des Damnés : maudire une arme, appeler un serviteur de l'Enfer, nourrir le Calice avec une âme. Ils ne demandent pas de croire. Il faut connaître les mots, et avoir quelque chose à offrir.
+Les rites noirs sont la liturgie des Damnés. On y maudit des armes et on y appelle des serviteurs de l'Enfer, en payant parfois avec une âme. L'Enfer se moque de ce que croit le célébrant : il veut les mots exacts, et quelque chose en échange.
 
 ---
 

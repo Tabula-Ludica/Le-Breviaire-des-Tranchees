@@ -1,6 +1,6 @@
 # Chapitre VI — L'Arrière
 
-Entre deux missions, l'escouade rentre à l'arrière : un bourg en ruine, un camp de repos, une ville-forteresse. On y soigne les corps, on y compte les morts, on y prépare la suite. Ce chapitre donne l'ordre des choses à faire au retour, pour que rien ne soit oublié.
+Entre deux missions, l'escouade rentre à l'arrière, souvent un bourg en ruine ou un camp de repos. On y soigne les vivants et on y compte les morts. Ce chapitre donne l'ordre des choses à faire au retour.
 
 ---
 
