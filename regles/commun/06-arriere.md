@@ -35,10 +35,12 @@ Chaque personnage a un **dé de base** pour chaque ressource : celui qu'il avait
 
 | Ressource | Au retour |
 |---|---|
-| **Munitions** | Revient au dé de base |
+| **Munitions** | Fixées par la dotation de la prochaine mission (§6) |
 | **Vivres** | Revient au dé de base |
 | **Nerfs** | Remonte d'**un cran** seulement, sans dépasser le dé de base |
 | **{{Foi}}** | Remonte d'**un cran** seulement, sans dépasser le dé de base |
+
+Le dé de base des Munitions dépend de l'Origine et de l'Affectation, mais ce qu'un soldat emporte dépend surtout de la mission : voir la dotation (§6).
 
 Les Nerfs et {{la Foi}} ne se refont pas avec une nuit de sommeil. Pour en récupérer davantage, il faut y consacrer son temps libre (§4).
 
@@ -66,7 +68,7 @@ Un objet réquisitionné est prêté pour **une mission**. S'il n'est pas perdu 
 
 | Objet | Effet |
 |---|---|
-| **Caisse de munitions** | Munitions +1 cran au-delà du dé de base, pour une mission |
+| **Caisse de munitions** | Munitions +1 cran au-delà de la dotation, pour une mission (maximum d12) |
 | **Rations supplémentaires** | Vivres +1 cran au-delà du dé de base, pour une mission |
 | **Grenades** (×2) | Voir chapitre IV |
 | **Fusées éclairantes** (×3) | Annulent la Nuit dans un rayon de 30 m pendant 3 tours |
@@ -102,6 +104,19 @@ Un objet réquisitionné est prêté pour **une mission**. S'il n'est pas perdu 
 
 Le MJ annonce la mission suivante sous forme d'**ordres** : un objectif, un secteur, un délai, et ce que l'escouade sait (souvent peu). Les personnages qui se sont renseignés ajoutent ce qu'ils ont appris.
 
+### La dotation
+
+Avec les ordres, le MJ fixe la **dotation** : la quantité de munitions que l'état-major donne pour cette mission. Elle décale le dé de base de chaque personnage.
+
+| Mission | Dotation | Munitions d'un soldat au dé de base d8 |
+|---|---|---|
+| **Raid, infiltration, patrouille légère** : on court, on se cache | **−1 cran** | d6, environ 10 tirs |
+| **Mission ordinaire** | **dé de base** | d8, environ 18 tirs |
+| **Assaut, tenir une position** | **+1 cran** | d10, environ 28 tirs |
+| **Siège, défense jusqu'au dernier** | **+2 crans** | d12, environ 40 tirs |
+
+Une **caisse de munitions** réquisitionnée (§5) ajoute encore un cran, sans dépasser d12. Pendant la mission, seul le récit fait remonter les Munitions : une caisse trouvée, un ravitaillement, les cartouchières d'un mort.
+
 <div data-camp="fideles">
 
 > *« Saillant de la Cote 304. Reprendre l'abri bétonné avant l'aube. Le père Anselme vous accompagne. Que Dieu vous garde. »*
@@ -119,8 +134,8 @@ Le MJ annonce la mission suivante sous forme d'**ordres** : un objectif, un sect
 
 1. **Bilan :** Titres, Épreuves, Mur des noms.
 2. **Soins :** Blessures au maximum ; chaque Blessure grave demande un jet de Chair.
-3. **Ravitaillement :** Munitions et Vivres au dé de base ; Nerfs et {{Foi}} +1 cran seulement.
+3. **Ravitaillement :** Vivres au dé de base ; Nerfs et {{Foi}} +1 cran seulement. Munitions selon la dotation de la mission.
 4. **{{La Messe}} :** {{le Chapelet}} revient à son niveau de départ.
 5. **Temps libre :** une activité par personnage.
 6. **{{Le jugement des supérieurs}} :** {{confession ou pénitence, puis jet de Soupçon}}.
-7. **Prochaine mission :** les ordres.
+7. **Prochaine mission :** les ordres et la dotation (raid −1 cran, ordinaire, assaut +1, siège +2).

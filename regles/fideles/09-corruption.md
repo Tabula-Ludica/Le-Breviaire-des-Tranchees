@@ -49,7 +49,7 @@ Plus la Corruption monte, plus le **dé de Sang** grossit, et plus le Ciel se d�
 |---|---|---|---|
 | **0 – 2** | **Intact** | d6 | — |
 | **3 – 5** | **Touché** | **d8** | 1ʳᵉ Marque (à 3). La Tentation devient possible. |
-| **6 – 8** | **Souillé** | **d10** | 2ᵉ Marque (à 6). Quand il prie, un dé du Chapelet qui fait **1 ou 2** est retiré par l'Enfer. |
+| **6 – 8** | **Souillé** | **d10** | 2ᵉ Marque (à 6). Quand il prie, un dé du Chapelet qui fait **1 à 4** est retiré par l'Enfer. |
 | **9** | **Damné en sursis** | **d12** | 3ᵉ Marque (à 9). Il **ne peut plus prier** du tout. |
 | **10** | **Perdu** | — | Voir §5. |
 

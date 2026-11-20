@@ -68,6 +68,7 @@ La phase d'assaut ne sert qu'au **premier tour** : ensuite, le personnage passe 
 | Action | Effet |
 |---|---|
 | **Tirer** | Jet de **Tir** contre une cible en vue (§4). Puis test d'usure de **Munitions**. |
+| **Tir de suppression** | Arroser une zone pour clouer l'ennemi, sans jet de Tir (§4). |
 | **Frapper** | Jet de **Mêlée** en opposition contre une cible au contact (1,5 m, ou l'allonge de l'arme). |
 | **Lancer** | Jet de **Lancer** : grenade, eau bénite, cocktail… (§6). |
 | **Viser** | Le prochain tir est **favorisé**. Perdu si le personnage se déplace ou est touché avant. |
@@ -114,7 +115,18 @@ Rappel : le total des malus de situation (couvert, portée, terrain…) ne desce
 
 ### Après le tir
 
-Que le tir touche ou non, le tireur fait un **test d'usure de Munitions**. Sur une **rafale** (§6), le test est **défavorisé** : on lance deux fois le dé de Munitions et on garde le plus bas.
+Chaque tir consomme ses balles, qu'il touche ou non : le tireur fait un **test d'usure de Munitions**. Pour les Munitions, le dé ne descend que sur un **1** : avec un d8, un soldat peut tirer environ **18 fois** avant d'être à sec. Le dé de départ dépend de la mission : le MJ fixe la **dotation** avec les ordres (chapitre VI). Sur une **rafale** (§6) ou un **tir de suppression**, le test est **défavorisé** : on lance deux fois le dé de Munitions et on garde le plus bas.
+
+**Les ennemis** ne font pas de test de Munitions. Le MJ peut décider qu'un ennemi est à court (une mitrailleuse qui a trop tiré, une troupe coupée de ses arrières).
+
+### Le tir de suppression
+
+Au lieu de viser, le tireur arrose une position pour empêcher l'ennemi d'en sortir. C'est ce qui permet à une partie de l'escouade d'avancer pendant que l'autre la couvre.
+
+- **Pas de jet de Tir**, mais le test de Munitions est **défavorisé**.
+- Un fusil, une carabine ou un pistolet cloue **une cible**. Une arme à *Rafale* cloue **jusqu'à 3 cibles** à 3 m ou moins les unes des autres.
+- Jusqu'au prochain tour du tireur, une cible **clouée** qui veut tirer ou se déplacer doit d'abord réussir un jet : sous sa **Menace** pour un ennemi, de **Nerf** pour un personnage. En cas d'échec, elle reste tapie et perd son tour.
+- Les traits **Fanatique** et **Démon** ignorent la suppression.
 
 **Munitions épuisées :** impossible de tirer avant d'être ravitaillé (un camarade, un cadavre, une caisse…).
 
@@ -317,8 +329,9 @@ Marcel (Nerf 12) et Lucien (Nerf 10) sont pris sous le feu de deux hérétiques 
 - **Échelle :** 1 case = 1,5 m ; toutes les distances en mètres.
 - **Initiative :** un seul jet de Nerf par combat. Assaut éclair → phase d'assaut (4) au premier tour, réussite → phase rapide (3), ennemis (2), échec → phase lente (1). On peut la reprendre (action + nouveau jet) ou la perdre (Blessure grave, panique).
 - **Tour :** 1 déplacement (9 m) + 1 action, ou 2 déplacements. Réaction *Plonger* une fois par tour de jeu.
-- **Tir :** Tir + couvert (0 / −2 / −5) + portée (0 / −2), puis test d'usure de Munitions.
-- **Mêlée :** jet en opposition, Mêlée contre Mêlée ou Esquive.
+- **Tir :** Tir + couvert (0 / −2 / −5) + portée (0 / −2). Test de Munitions à chaque tir, le dé descend sur 1 (environ 18 tirs avec un d8) ; défavorisé en rafale ou en suppression. Les ennemis ne testent pas.
+- **Suppression :** pas de jet ; la cible clouée doit réussir un jet (Menace ou Nerf) pour tirer ou bouger.
+- **Mêlée :** jet en opposition, Mêlée contre Mêlée ou Esquive. Égalité : le défenseur l'emporte.
 - **Dégâts :** dé de l'arme − Protection.
 - **Embuscade :** personnages surpris en phase lente au premier tour ; ennemis surpris après eux, avec eux ou pas du tout, au choix du MJ.
 - **Blessures = Chair.** Blessure grave sur 6+ en un coup ou à 0, ennemis compris (sauf Insensible). Hors de combat : jet de Mort sous Chair, mort à 3 échecs.

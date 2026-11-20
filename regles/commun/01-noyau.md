@@ -57,6 +57,9 @@ Le même principe s'applique aux **dés d'usure** : un test d'usure défavorisé
 
 Les deux camps lancent. Celui qui **réussit avec le résultat le plus élevé** l'emporte : il a réussi de justesse, mais avec plus d'ampleur. Si les deux échouent, la situation reste bloquée ou empire.
 
+- **Égalité :** le défenseur l'emporte.
+- **Favorisé en opposition :** on garde le dé qui donne le meilleur résultat, c'est-à-dire le plus haut des deux qui réussit encore. Défavorisé : on garde le moins bon.
+
 ### Résultats naturels
 
 On lit le **d20 avant toute soustraction** :
@@ -87,10 +90,10 @@ Cela vaut pour les jets d'action, mais aussi pour le **jet d'initiative** (le je
 
 1. Prendre **1d6 {{dans le Chapelet}}**.
 2. Le lancer en même temps que le d20.
-3. **Soustraire** le résultat du d6 au d20.
+3. **Ajouter** le résultat du d6 au score visé. Ce bonus peut dépasser le plafond de 19, mais un 20 naturel reste un échec.
 
 Puis :
-- Si le d6 {{de prière}} fait **1**, il est **retiré {{du Chapelet}}** jusqu'à {{la prochaine Messe}} (voir §4). Sinon, il y retourne.
+- Si le d6 {{de prière}} fait **1, 2 ou 3**, il est **retiré {{du Chapelet}}** jusqu'à {{la prochaine Messe}} (voir §4). Sinon, il y retourne. {{La prière}} est rare : une fois sur deux, le dé ne revient pas.
 - Si le jet **échoue malgré {{la prière}}**, le dé de **{{Foi}}** du personnage descend d'un cran (voir §3).
 
 Un personnage dont {{la Foi}} est **épuisée** ne peut plus {{prier}}.
@@ -99,7 +102,7 @@ Un personnage dont {{la Foi}} est **épuisée** ne peut plus {{prier}}.
 
 1. Prendre le **dé de Sang** (un dé rouge, toujours disponible) : un **d6**, qui grossit avec {{la Corruption}} (chapitre IX).
 2. Le lancer en même temps que le d20.
-3. **Soustraire** le résultat du dé de Sang au d20.
+3. **Ajouter** le résultat du dé de Sang au score visé, comme pour {{la prière}}.
 4. Le personnage gagne **1 point de {{Corruption}}**, que le jet réussisse ou non.
 
 Le Sang ne manque jamais. C'est bien là le piège.
@@ -116,7 +119,7 @@ Les ressources de base sont :
 
 | Ressource | Ce qu'elle représente | Quand on la teste |
 |---|---|---|
-| **Munitions** | Cartouches, grenades, carburant | Après un tir, une rafale, un lancer |
+| **Munitions** | Cartouches, bandes, carburant | À chaque tir, qu'il touche ou non (voir plus bas) |
 | **{{Foi}}** | {{La certitude que tout cela a un sens}} | Descend directement quand {{une prière}} échoue |
 | **Vivres** | Rations, eau, tabac | À chaque journée passée au front |
 | **Nerfs** | Le sang-froid face à l'horreur | Face à une vision terrible, sous un bombardement |
@@ -124,7 +127,7 @@ Les ressources de base sont :
 ### Test d'usure
 
 Quand une ressource est sollicitée, on **lance son dé** :
-- sur **1 ou 2**, le dé **descend d'un cran** ;
+- sur **1 ou 2**, le dé **descend d'un cran** (sur **1** seulement pour les **Munitions**, qu'on teste à chaque tir) ;
 - sur tout autre résultat, rien ne change.
 
 Une ressource **épuisée** ne peut plus être utilisée : plus de munitions, plus {{de prière}}, la faim, ou la panique.
@@ -142,7 +145,7 @@ Pendant une mission, on ne remonte une ressource que par le récit (un ravitaill
 Le Chapelet est la **réserve commune de grâce** de l'escouade, une coupelle de d6 posée au centre de la table.
 
 - **En début de mission :** il contient **3d6 par joueur**.
-- **Prier** y prend un dé (voir §2). Les dés qui font 1 sont **retirés** : l'Enfer les garde.
+- **Prier** y prend un dé (voir §2). Les dés qui font 1, 2 ou 3 sont **retirés** : l'Enfer les garde. C'est une ressource rare, à garder pour les jets qui comptent.
 - **Quand le Chapelet est vide**, plus personne ne peut prier. Il ne reste que le pacte.
 
 ### Remplir le Chapelet
@@ -159,7 +162,7 @@ Le Chapelet est la **réserve commune de grâce** de l'escouade, une coupelle de
 Le Calice est la **réserve commune de sang** de l'escouade, une coupe de d6 posée au centre de la table. Ce sont les actes qui le remplissent.
 
 - **En début de mission :** il contient **2d6 par joueur**. Il commence plus bas que le Chapelet des Fidèles : un Damné doit **agir** pour le remplir.
-- **Invoquer** y prend un dé (voir §2). Les dés qui font 1 sont **perdus** jusqu'à la Messe noire.
+- **Invoquer** y prend un dé (voir §2). Les dés qui font 1, 2 ou 3 sont **perdus** jusqu'à la Messe noire.
 - **Quand le Calice est vide**, plus personne ne peut invoquer. Il ne reste que le pacte.
 
 ### Remplir le Calice
@@ -216,10 +219,10 @@ On tire **3 cartes**, qui servent d'inspiration pour l'histoire. Exception à la
 
 Marcel doit traverser les barbelés sous le feu. Son **Nerf** est à **11**, et le MJ juge la situation **difficile** (−2), soit **9**.
 
-Marcel **{{prie}}** : il prend un dé {{du Chapelet}}. Il lance le d20 et le d6 ensemble et obtient **13** et **3** : 13 − 3 = **10**. C'est raté de peu.
+Marcel **{{prie}}** : il prend un dé {{du Chapelet}}. Il lance le d20 et le d6 ensemble et obtient **13** et **3** : son score passe à 9 + 3 = **12**, et 13 dépasse 12. C'est raté de peu.
 
 - Comme {{la prière}} a échoué, son dé de **{{Foi}}** passe de d8 à **d6**.
-- Le d6 n'a pas fait 1, il retourne {{dans le Chapelet}}.
+- Le d6 a fait 3 : il est retiré {{du Chapelet}}.
 
 Le MJ décrit Marcel accroché aux barbelés, à découvert. Au tour suivant, son camarade Lucien **pactise** pour le couvrir.
 
@@ -228,10 +231,10 @@ Le MJ décrit Marcel accroché aux barbelés, à découvert. Au tour suivant, so
 ## Récapitulatif
 
 - **Agir :** 1d20 ≤ caractéristique. Malus de situation plafonnés à −6, score plafonné à 19.
-- **Favorisé / défavorisé :** 2d20, on garde le plus bas / le plus haut.
-- **{{Prier}} :** −1d6 {{du Chapelet}}. Un 1 est perdu ; en cas d'échec, {{la Foi}} descend.
-- **Pactiser :** − le dé de Sang (d6 à d12 selon {{la Corruption}}), +1 {{Corruption}}.
-- **User :** lancer le dé de la ressource ; sur 1-2, il descend d'un cran.
+- **Favorisé / défavorisé :** 2d20, on garde le plus bas / le plus haut. En opposition, le meilleur résultat qui réussit ; égalité au défenseur.
+- **{{Prier}} :** +1d6 au score, pris {{dans le Chapelet}}. Sur 1 à 3, le dé est perdu ; en cas d'échec, {{la Foi}} descend.
+- **Pactiser :** + le dé de Sang au score (d6 à d12 selon {{la Corruption}}), +1 {{Corruption}}.
+- **User :** lancer le dé de la ressource ; sur 1-2, il descend d'un cran. Munitions : test à chaque tir, descend sur 1 (environ 18 tirs avec un d8).
 - **1 naturel :** Miracle, tirer un arcane (Grâce).
 - **20 naturel :** Damnation, tirer un arcane (Damnation).
 - **Ça vaut aussi** pour l'initiative et les jets de Mort, jamais pour {{le Soupçon}} ni les Épreuves.
