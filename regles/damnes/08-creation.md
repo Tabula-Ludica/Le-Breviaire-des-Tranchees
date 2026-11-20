@@ -22,7 +22,7 @@ La création se fait en **sept étapes**, idéalement à la table et avec tout l
 
 ## 1. Les trois arcanes
 
-On mélange le Paquet du Destin et on tire **trois cartes**, posées de gauche à droite :
+On mélange le Paquet du Destin et on tire **trois cartes**, posées de gauche à droite. On ne remet pas une carte dans le paquet avant d'avoir tiré les trois : elles sont donc **toujours différentes**. C'est une exception, car d'habitude la carte tirée retourne dans le paquet (chapitre I).
 
 | Position | Ce qu'elle raconte | Question à se poser |
 |---|---|---|
@@ -173,7 +173,7 @@ Enfin, chaque joueur répond à cette question, à propos d'un autre personnage 
 
 ## Récapitulatif
 
-1. **Arcanes :** Passé, Pacte, Remords. Jouer son Remords à son détriment donne +1d6 au Calice, une fois par session.
+1. **Arcanes :** Passé, Pacte, Remords (trois cartes différentes). Jouer son Remords à son détriment donne +1d6 au Calice, une fois par session.
 2. **Origine :** Légions hérétiques, Graal Noir, Cour du Serpent ou Transfuge.
 3. **Affectation :** 1 Spécialité Expert et 2 Formé, une éventuelle substitution, la dotation.
 4. **Caractéristiques :** 14 · 12 · 11 · 10 · 8.

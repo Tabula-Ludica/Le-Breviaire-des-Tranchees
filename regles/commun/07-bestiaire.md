@@ -32,6 +32,11 @@ Toutes les fiches suivent le format court du combat (chapitre IV) : un seul scor
 | **Grand** | Occupe 3 × 3 cases ; ne peut pas se mettre à couvert. |
 | **Rapide** | Déplacement de 15 m. |
 
+### Blessures graves et panique
+
+- **Blessure grave :** un ennemi en subit une comme un personnage, quand un coup lui retire 6 Blessures ou plus ou qu'il tombe à 0. Le MJ lance le d6 de la table du chapitre IV et applique l'effet. Le trait **Insensible** l'en protège.
+- **Test de Nerfs :** un ennemi n'a pas de dé de Nerfs. Quand un effet lui impose un test (Sermon noir, fiole de sang maudit, arme Impie…), il fait un jet sous sa **Menace**. En cas d'échec, il est **paniqué** (chapitre IV, §8). Les traits **Fanatique** et **Démon** l'en dispensent.
+
 ---
 
 ## 2. Les Damnés

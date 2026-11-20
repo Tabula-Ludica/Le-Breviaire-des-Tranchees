@@ -6,13 +6,16 @@ Le Paquet du Destin existe en **deux versions**, une par camp :
 
 Les deux paquets fonctionnent de la même façon et portent les mêmes numéros (de I à XXII). Seules les cartes et leurs effets changent. Le site affiche celui du camp choisi.
 
-On tire une carte dans trois cas (voir chapitre I, §5) :
+On tire une carte dans les cas suivants (voir chapitre I, §5) :
 
 | Situation | Effet appliqué |
 |---|---|
-| **1 naturel** au d20 | **Grâce** |
-| **20 naturel** au d20 | **Damnation** |
+| **1 naturel** au d20 (jet d'action, d'initiative ou de Mort) | **Grâce** |
+| **20 naturel** au d20 (jet d'action, d'initiative ou de Mort) | **Damnation** |
 | **{{Corruption}} à 3, 6 ou 9** | **{{Marque}}** |
+| **Création du personnage** | Trois cartes différentes, pour l'histoire |
+
+Les jets de {{Soupçon}} et les Épreuves d'expérience ne tirent **jamais** d'arcane, même sur un 1 ou un 20.
 
 ---
 

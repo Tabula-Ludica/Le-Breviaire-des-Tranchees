@@ -11,10 +11,16 @@ Elle va de **0 à 10**. Elle monte vite, et ne redescend presque jamais.
 | Faveur | État | Dé de Sang | Effets |
 |---|---|---|---|
 | **0 – 2** | **Sans maître** | d6 | — |
-| **3 – 5** | **Remarqué** | d8 | 1ᵉʳ Don (une Marque, à 3) |
+| **3 – 5** | **Remarqué** | d8 | 1ᵉʳ Don (à 3) |
 | **6 – 8** | **Favori** | d10 | 2ᵉ Don (à 6) |
-| **9** | **Au bord** | d12 | 3ᵉ Don (à 9). Après chaque pacte, jet d'**Âme** : en cas d'échec, le démon prend le contrôle du personnage pendant un tour, et c'est le MJ qui le joue. |
+| **9** | **Au bord** | d12 | 3ᵉ Don (à 9). Le pacte qui l'amène à 9 déclenche un jet d'**Âme** : voir plus bas. |
 | **10** | **Dévoré** | — | Voir plus bas. |
+
+### Au bord : Faveur 9
+
+Le pacte qui fait **arriver** le personnage à 9 déclenche un jet d'**Âme**. En cas d'échec, le démon prend le contrôle du personnage **pendant un tour**, et c'est le MJ qui le joue.
+
+À 9, il n'y a plus de marge : **le moindre pacte** le fait passer à 10, et il est dévoré.
 
 ### Les Dons
 
@@ -64,7 +70,7 @@ Sur un total de **20 ou plus**, on lance 1d6 :
 
 ## Récapitulatif
 
-- **Faveur :** de 0 à 10. Paliers 3 (d8, 1ᵉʳ Don), 6 (d10, 2ᵉ Don), 9 (d12, 3ᵉ Don, le démon peut prendre le contrôle), 10 (dévoré).
+- **Faveur :** de 0 à 10. Paliers 3 (d8, 1ᵉʳ Don), 6 (d10, 2ᵉ Don), 9 (d12, 3ᵉ Don ; le pacte qui y mène impose un jet d'Âme, sinon le démon joue un tour), 10 (dévoré). À 9, tout pacte mène à 10.
 - **Gagner :** pacte (+1), dévotion infernale (+1), Ordre accepté (+1).
 - **L'Ordre :** dès Faveur 3, une fois par session ; obéir = réussite et +1 Faveur, refuser = +3 au jet de Disgrâce.
 - **La Dîme :** offrir une âme pour −1 Faveur, une fois par retour, jamais sous le dernier palier.

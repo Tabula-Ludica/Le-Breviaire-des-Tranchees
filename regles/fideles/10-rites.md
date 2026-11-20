@@ -20,7 +20,7 @@ Un personnage sans Ferveur peut tenter un rite mineur s'il est guidé par un cé
 1. **Payer :** retirer **un dé du Chapelet**. Il est dépensé, pas lancé.
 2. **Lancer :** un jet de **Ferveur** (Âme + Spécialité). On peut **prier** sur ce jet, avec un second dé du Chapelet, comme pour n'importe quel jet.
 3. **Réussite :** le rite fait effet.
-4. **Échec :** le rite ne fait rien, et le dé de **Foi** du célébrant descend d'un cran.
+4. **Échec :** le rite ne fait rien, et le dé de **Foi** du célébrant descend d'un cran. S'il a aussi **prié** sur ce jet, son dé de **Foi** ne descend que d'**un seul cran** en tout, pas deux.
 
 Si le Chapelet est vide, aucun rite n'est possible.
 
@@ -67,6 +67,6 @@ Hors combat, une fois par mission. Un personnage qui se confesse au célébrant 
 
 - **Accès :** Ferveur Formé pour les rites mineurs ; Ferveur Expert, Aumônier ou Prélat pour tous.
 - **Coût :** un dé du Chapelet, dépensé. Jet de Ferveur ; on peut prier en plus.
-- **Échec :** la Foi du célébrant descend d'un cran.
+- **Échec :** la Foi du célébrant descend d'un cran, un seul en tout même s'il a aussi prié.
 - **Mineurs :** Bénir une arme, le Prêche, Bénir les vivres.
 - **Grands :** l'Exorcisme, l'Extrême-onction, Sanctifier un lieu, la Confession au front.

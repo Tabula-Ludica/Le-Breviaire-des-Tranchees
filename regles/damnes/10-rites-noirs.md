@@ -20,7 +20,7 @@ Un personnage sans Ferveur peut tenter un rite mineur s'il est guidé par un cé
 1. **Payer :** retirer **un dé du Calice**. Il est dépensé, pas lancé.
 2. **Lancer :** un jet de **Ferveur** (Âme + Spécialité). On peut **invoquer** sur ce jet, avec un second dé du Calice, ou **pactiser**.
 3. **Réussite :** le rite fait effet.
-4. **Échec :** le rite ne fait rien, et le dé de **Haine** du célébrant descend d'un cran.
+4. **Échec :** le rite ne fait rien, et le dé de **Haine** du célébrant descend d'un cran. S'il a aussi **invoqué** sur ce jet, son dé de **Haine** ne descend que d'**un seul cran** en tout, pas deux.
 
 Si le Calice est vide, aucun rite n'est possible.
 
@@ -68,6 +68,6 @@ Contre un Fidèle en vue, à 9 m au plus. C'est un **jet en opposition** : Ferve
 
 - **Accès :** Ferveur Formé pour les rites mineurs ; Ferveur Expert, Prédicateur noir ou Élu pour tous.
 - **Coût :** un dé du Calice, dépensé. Jet de Ferveur ; on peut invoquer ou pactiser en plus.
-- **Échec :** la Haine du célébrant descend d'un cran.
+- **Échec :** la Haine du célébrant descend d'un cran, un seul en tout même s'il a aussi invoqué.
 - **Mineurs :** Maudire une arme, le Sermon noir, le Festin.
 - **Grands :** Appeler un serviteur, le Festin des âmes, Profaner un lieu, Briser la foi.

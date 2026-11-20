@@ -311,7 +311,7 @@ const ORIGINES = {
   alba: { nom: "Royaume d'Alba", spe: ["Mêlée","Intimidation"], subs: ["Brute"],
     part: "Accès à la substitution Brute.", usure: { nerfs: 1, vivres: -1 } },
   prusse: { nom: "État libre de Prusse", spe: ["Lancer","Coup de main"],
-    part: "Assaut éclair : une fois par mission, agir avant tout le monde au premier tour d'un affrontement.", usure: { mun: 1, vivres: -1 } },
+    part: "Assaut éclair : une fois par mission, au premier tour d'un affrontement, joue en phase d'assaut, avant tout le monde (même en embuscade).", usure: { mun: 1, vivres: -1 } },
   abyssinie: { nom: "Abyssinie", spe: ["Endurance","Vigilance"],
     part: "Foi ancienne : une fois par mission, quand une prière échoue, la Foi ne descend pas.", usure: { vivres: 1 } },
   pelerins: { nom: "Pèlerins des Tranchées", spe: ["Ferveur","Endurcissement"],
@@ -498,7 +498,7 @@ function dessinerArcanes() {
 }
 
 $("tirer").onclick = () => {
-  const paquet = ARCANES.map((_, i) => i);
+  const paquet = paquetDu(etat.camp).map((_, i) => i);
   for (let i = paquet.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [paquet[i], paquet[j]] = [paquet[j], paquet[i]]; }
   etat.arcanes = paquet.slice(0, 3); maj();
 };

@@ -26,6 +26,7 @@ Au début d'un combat, **chaque personnage fait un jet de Nerf** (Spécialités 
 
 | Résultat | Phase | Valeur Foundry |
 |---|---|---|
+| Assaut éclair (Origine Prusse) | **Phase d'assaut** : avant tout le monde, au premier tour seulement | **4** |
 | Réussite | **Phase rapide** : avant les ennemis | **3** |
 | — | **Phase ennemie** : tous les ennemis | **2** |
 | Échec | **Phase lente** : après les ennemis | **1** |
@@ -39,7 +40,11 @@ On ne lance l'initiative **qu'une seule fois** par combat, mais la phase d'un pe
 
 Sur Foundry, il suffit de changer sa valeur dans le suivi de combat (3 ou 1).
 
-**Embuscade :** un camp surpris passe tout entier en phase lente au premier tour.
+La phase d'assaut ne sert qu'au **premier tour** : ensuite, le personnage passe en phase rapide ou lente selon son jet de Nerf.
+
+**Embuscade :**
+- Des **personnages surpris** passent tous en **phase lente** au premier tour. Un personnage qui a l'Assaut éclair peut quand même s'en servir.
+- Pour des **ennemis surpris**, le MJ choisit : ils jouent **après** les personnages lents, **en même temps** qu'eux, ou **pas du tout** au premier tour.
 
 ---
 
@@ -215,6 +220,8 @@ Il lance alors **1d6** :
 
 Chaque Blessure grave entraîne aussi un **test d'usure de Nerfs**, et le personnage passe en **phase lente**.
 
+**Les ennemis aussi** subissent des Blessures graves, dans les mêmes conditions (6 Blessures ou plus en un coup, ou tombés à 0). Le MJ lance le d6 et applique l'effet. Seuls les ennemis qui ont le trait **Insensible** y échappent.
+
 ### Hors de combat
 
 À **0 Blessure**, le personnage est **hors de combat** : il ne peut plus agir. Au début de chacun de ses tours, il fait un **jet de Mort**, un jet de **Chair** :
@@ -255,6 +262,8 @@ Quand ses **Nerfs sont épuisés**, le personnage devient **paniqué** et passe 
 | 5–6 | **Furie :** il charge l'ennemi le plus proche, sans réfléchir. |
 
 **Se reprendre :** au lieu de lancer le d6, il peut tenter un jet d'**Âme** (Endurcissement ou Volonté s'appliquent). Un allié peut aussi le **rallier** avec un jet de Commandement. En cas de réussite, il n'est plus paniqué, mais ses Nerfs restent épuisés : au prochain test de Nerfs, il paniquera de nouveau.
+
+**Les ennemis** n'ont pas de dé de Nerfs. Quand un effet leur impose un test de Nerfs (un Sermon noir, une fiole de sang maudit, une arme Impie…), ils font un jet sous leur **Menace** : en cas d'échec, ils sont **paniqués**. Les traits **Fanatique** et **Démon** les en dispensent (chapitre VII).
 
 ---
 
@@ -306,11 +315,12 @@ Marcel (Nerf 12) et Lucien (Nerf 10) sont pris sous le feu de deux hérétiques 
 ## Récapitulatif
 
 - **Échelle :** 1 case = 1,5 m ; toutes les distances en mètres.
-- **Initiative :** un seul jet de Nerf par combat. Réussite → phase rapide (3), ennemis (2), échec → phase lente (1). On peut la reprendre (action + nouveau jet) ou la perdre (Blessure grave, panique).
+- **Initiative :** un seul jet de Nerf par combat. Assaut éclair → phase d'assaut (4) au premier tour, réussite → phase rapide (3), ennemis (2), échec → phase lente (1). On peut la reprendre (action + nouveau jet) ou la perdre (Blessure grave, panique).
 - **Tour :** 1 déplacement (9 m) + 1 action, ou 2 déplacements. Réaction *Plonger* une fois par tour de jeu.
 - **Tir :** Tir + couvert (0 / −2 / −5) + portée (0 / −2), puis test d'usure de Munitions.
 - **Mêlée :** jet en opposition, Mêlée contre Mêlée ou Esquive.
 - **Dégâts :** dé de l'arme − Protection.
-- **Blessures = Chair.** Blessure grave sur 6+ en un coup ou à 0. Hors de combat : jet de Mort sous Chair, mort à 3 échecs.
-- **Nerfs épuisés :** paniqué (fuite, terré, furie).
+- **Embuscade :** personnages surpris en phase lente au premier tour ; ennemis surpris après eux, avec eux ou pas du tout, au choix du MJ.
+- **Blessures = Chair.** Blessure grave sur 6+ en un coup ou à 0, ennemis compris (sauf Insensible). Hors de combat : jet de Mort sous Chair, mort à 3 échecs.
+- **Nerfs épuisés :** paniqué (fuite, terré, furie). Un ennemi teste sous sa Menace (sauf Fanatique ou Démon).
 - **Ennemis :** une seule valeur, la Menace, pour toutes leurs actions.

@@ -66,6 +66,8 @@ On lit le **d20 avant toute soustraction** :
 
 Sur un jet favorisé ou défavorisé, seul le **dé gardé** compte pour le Miracle ou la Damnation.
 
+Cela vaut pour les jets d'action, mais aussi pour le **jet d'initiative** (le jet de Nerf, chapitre IV) et les **jets de Mort**. En revanche, les jets de **{{Soupçon}}** et les **Épreuves** d'expérience ne tirent **jamais** d'arcane, même sur un 1 ou un 20.
+
 ---
 
 ## 2. {{Prier}} ou pactiser
@@ -164,7 +166,7 @@ Le Calice est la **réserve commune de sang** de l'escouade, une coupe de d6 pos
 
 | Événement | Effet |
 |---|---|
-| Abattre un ennemi notable (officier, prêtre, champion) | +1d6, une fois par scène |
+| Abattre un ennemi notable, désigné à l'avance par le MJ (officier, prêtre, champion) | +1d6, une fois par combat |
 | Profaner un lieu saint ou une relique | +1d6 |
 | Un sacrifice rituel | +1d6 à +3d6, au choix du MJ |
 | **La Messe noire** (retour à l'arrière, entre deux missions) | Le Calice revient à 2d6 par joueur |
@@ -187,6 +189,8 @@ On tire **uniquement** dans trois cas :
 
 ### Miracle et Damnation (1 ou 20 naturel)
 
+Sur un jet d'action, un jet d'initiative ou un jet de Mort (voir §1, « Résultats naturels ») :
+
 - **1 naturel :** on tire un arcane et on applique son effet de **Grâce**.
 - **20 naturel :** on tire un arcane et on applique son effet de **Damnation**.
 
@@ -201,7 +205,7 @@ Quand {{la Corruption}} d'un personnage atteint **3, 6 ou 9**, on tire un arcane
 
 ### La création du personnage
 
-On tire **3 cartes**, qui servent d'inspiration pour l'histoire :
+On tire **3 cartes**, qui servent d'inspiration pour l'histoire. Exception à la règle générale : on **ne remet pas** la carte dans le paquet entre ces trois tirages. Les trois arcanes de création sont donc toujours différents.
 1. **Le Passé** : d'où il vient ;
 2. **{{Le Serment}}** : {{ce qui le fait tenir}} ;
 3. **{{Le Péché}}** : {{sa faiblesse}}.
@@ -230,4 +234,6 @@ Le MJ décrit Marcel accroché aux barbelés, à découvert. Au tour suivant, so
 - **User :** lancer le dé de la ressource ; sur 1-2, il descend d'un cran.
 - **1 naturel :** Miracle, tirer un arcane (Grâce).
 - **20 naturel :** Damnation, tirer un arcane (Damnation).
+- **Ça vaut aussi** pour l'initiative et les jets de Mort, jamais pour {{le Soupçon}} ni les Épreuves.
+- **Création :** 3 arcanes, toujours différents.
 - **{{Corruption}} 3 / 6 / 9 :** tirer un arcane ({{Marque}}). **10 :** {{perdu}}.
